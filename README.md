@@ -10,3 +10,4 @@ node .\scripts\populateDiagnostics.js
 
 node .\scripts\populateEmotions.js 
 
+node .\scripts\populateRespirations.js 

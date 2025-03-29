@@ -12,3 +12,111 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Detente {
+  id          Int       @id @default(autoincrement())
+  nom         String    @db.VarChar(50)
+  description String    @db.Text
+  duree       Int
+  Realise     Realise[]
+}
+
+model Utilisateur {
+  id               Int          @id @default(autoincrement())
+  nom              String       @db.VarChar(50)
+  prenom           String       @db.VarChar(50)
+  email            String       @unique @db.VarChar(50)
+  motDePasse       String       @db.VarChar(50)
+  isActif          Boolean
+  isAdministrateur Boolean
+  Realise          Realise[]
+  Soumet           Soumet[]
+  Effectue         Effectue[]
+  Enregistre       Enregistre[]
+  Consulte         Consulte[]
+}
+
+model Emotion {
+  id          Int          @id @default(autoincrement())
+  emotion     String?      @db.VarChar(50)
+  emotionBase String?      @db.VarChar(50)
+  Enregistre  Enregistre[]
+}
+
+model Respiration {
+  id          Int        @id @default(autoincrement())
+  nom         String     @db.VarChar(50)
+  description String?    @db.VarChar(50)
+  inspiration Int
+  apnee       Int
+  expiration  Int?
+  Effectue    Effectue[]
+}
+
+model Information {
+  id               Int        @id @default(autoincrement())
+  titre            String?    @db.VarChar(50)
+  contenu          String?    @db.Text
+  dateCreation     DateTime   @db.Timestamp
+  dateModification DateTime   @db.Timestamp
+  Consulte         Consulte[]
+}
+
+model Diagnostic {
+  id        Int      @id @default(autoincrement())
+  evenement String   @db.VarChar(50)
+  points    Int
+  Soumet    Soumet[]
+}
+
+model Realise {
+  id_Detente     Int
+  id_Utilisateur Int
+  date_          DateTime    @db.Timestamp
+  favoris        Boolean
+  Detente        Detente     @relation(fields: [id_Detente], references: [id])
+  Utilisateur    Utilisateur @relation(fields: [id_Utilisateur], references: [id])
+
+  @@id([id_Detente, id_Utilisateur])
+}
+
+model Soumet {
+  id_Utilisateur Int
+  id_Diagnostic  Int
+  date_          DateTime    @db.Timestamp
+  Utilisateur    Utilisateur @relation(fields: [id_Utilisateur], references: [id])
+  Diagnostic     Diagnostic  @relation(fields: [id_Diagnostic], references: [id])
+
+  @@id([id_Utilisateur, id_Diagnostic])
+}
+
+model Effectue {
+  id_Utilisateur Int
+  id_Respiration Int
+  date_          DateTime    @db.Timestamp
+  duree          Int
+  Utilisateur    Utilisateur @relation(fields: [id_Utilisateur], references: [id])
+  Respiration    Respiration @relation(fields: [id_Respiration], references: [id])
+
+  @@id([id_Utilisateur, id_Respiration])
+}
+
+model Enregistre {
+  id_Utilisateur Int
+  id_Emotion     Int
+  date_          DateTime    @db.Timestamp
+  commentaire    String?     @db.VarChar(50)
+  Utilisateur    Utilisateur @relation(fields: [id_Utilisateur], references: [id])
+  Emotion        Emotion     @relation(fields: [id_Emotion], references: [id])
+
+  @@id([id_Utilisateur, id_Emotion])
+}
+
+model Consulte {
+  id_Utilisateur Int
+  id_Information Int
+  Utilisateur    Utilisateur @relation(fields: [id_Utilisateur], references: [id])
+  Information    Information @relation(fields: [id_Information], references: [id])
+
+  @@id([id_Utilisateur, id_Information])
+}

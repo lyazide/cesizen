@@ -1,10 +1,11 @@
 import prisma from "@/utils/db";
 import { NextRequest, NextResponse } from "next/server";
+import Diagnostic from "../../../types/diagnostics";
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     // Fetch all diagnostics
-    const diagnostics = await prisma.diagnostic.findMany();
+    const diagnostics: Diagnostic[] = await prisma.diagnostic.findMany();
 
     console.log(diagnostics);
     if (!diagnostics || diagnostics.length === 0) {
@@ -14,7 +15,10 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    return NextResponse.json({ data: diagnostics }, { status: 200 });
+    return NextResponse.json<{ data: Diagnostic[] }>(
+      { data: diagnostics },
+      { status: 200 }
+    );
   } catch (error) {
     console.error("Error fetching diagnostics:", error);
     return NextResponse.json(
@@ -25,43 +29,57 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  const { evenement, points } = await req.json();
+  const { evenement, points }: { evenement: string; points: number } =
+    await req.json();
   try {
-    const newdiagnostic = await prisma.diagnostic.create({
+    const newDiagnostic: Diagnostic = await prisma.diagnostic.create({
       data: {
         evenement,
         points,
       },
     });
-    return NextResponse.json({ data: newdiagnostic }, { status: 201 });
+    return NextResponse.json<{ data: Diagnostic }>(
+      { data: newDiagnostic },
+      { status: 201 }
+    );
   } catch (e) {
     return NextResponse.json({ error: e }, { status: 500 });
   }
 }
 
 export async function PUT(req: NextRequest) {
-  const { evenement, points, id } = await req.json();
+  const {
+    evenement,
+    points,
+    id,
+  }: { evenement: string; points: number; id: number } = await req.json();
   try {
-    const newdiagnostic = await prisma.diagnostic.update({
+    const newDiagnostic: Diagnostic = await prisma.diagnostic.update({
       where: { id: id },
       data: {
         evenement,
         points,
       },
     });
-    return NextResponse.json({ data: newdiagnostic }, { status: 201 });
+    return NextResponse.json<{ data: Diagnostic }>(
+      { data: newDiagnostic },
+      { status: 201 }
+    );
   } catch (e) {
     return NextResponse.json({ error: e }, { status: 500 });
   }
 }
 
 export async function DELETE(req: NextRequest) {
-  const { id } = await req.json();
+  const { id }: { id: number } = await req.json();
   try {
-    const deleteddiagnostic = await prisma.diagnostic.delete({
+    const deletedDiagnostic: Diagnostic = await prisma.diagnostic.delete({
       where: { id: id },
     });
-    return NextResponse.json({ data: deleteddiagnostic }, { status: 201 });
+    return NextResponse.json<{ data: Diagnostic }>(
+      { data: deletedDiagnostic },
+      { status: 201 }
+    );
   } catch (e) {
     return NextResponse.json({ error: e }, { status: 500 });
   }

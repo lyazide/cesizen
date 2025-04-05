@@ -2,25 +2,35 @@
 import { CheckboxCard } from "@chakra-ui/react";
 
 type DiagnosticDetailsProps = {
+  id: number;
   evenement: string;
   points: number;
   checked: boolean;
-  onChange: (checked: boolean, points: number) => void;
+  onChange: (checked: boolean, id: number) => void;
 };
 
 const DiagnosticCard: React.FC<DiagnosticDetailsProps> = ({
+  id,
   evenement,
   points,
   checked,
   onChange,
 }) => {
+  console.log("Props received in DiagnosticCard:", {
+    id,
+    evenement,
+    points,
+    checked,
+  });
+
   const handleCheckboxChange = () => {
-    onChange(!checked, points);
+    onChange(!checked, id);
   };
+
   return (
     <CheckboxCard.Root
-      key={evenement}
-      value={`${points.toString()}`}
+      key={id}
+      value={{ points }.toString()}
       w="100%"
       p="30"
       colorPalette="teal"
@@ -39,4 +49,5 @@ const DiagnosticCard: React.FC<DiagnosticDetailsProps> = ({
     </CheckboxCard.Root>
   );
 };
+
 export default DiagnosticCard;

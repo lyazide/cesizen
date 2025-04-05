@@ -7,7 +7,7 @@ export async function GET() {
     // Fetch all diagnostics
     const diagnostics: Diagnostic[] = await prisma.diagnostic.findMany();
 
-    console.log(diagnostics);
+    //console.log(diagnostics);
     if (!diagnostics || diagnostics.length === 0) {
       return NextResponse.json(
         { error: "No diagnostics found." },

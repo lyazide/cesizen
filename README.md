@@ -11,3 +11,17 @@ node .\scripts\populateDiagnostics.js
 node .\scripts\populateEmotions.js 
 
 node .\scripts\populateRespirations.js 
+
+npx prisma generate
+
+npm install --save-dev jest @testing-library/react @testing-library/jest-dom @testing-library/user-event @types/jest ts-jest supertest
+
+npm init jest@latest 
+
+npm install --save-dev ts-node 
+
+npm i @chakra-ui/react @emotion/react
+
+npx @chakra-ui/cli snippet add
+
+npm install compositions

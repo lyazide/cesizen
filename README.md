@@ -25,3 +25,7 @@ npm i @chakra-ui/react @emotion/react
 npx @chakra-ui/cli snippet add
 
 npm install compositions
+
+npm install next-auth
+
+npm install @types/bcrypt

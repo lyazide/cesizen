@@ -6,11 +6,11 @@ type Utilisateur = {
   motDePasse: string;
   isActif: boolean;
   isAdministrateur: boolean;
-  Realise: Realise[];
+  /*Realise: Realise[];
   Soumet: Soumet[];
   Effectue: Effectue[];
   Enregistre: Enregistre[];
-  Consulte: Consulte[];
+  Consulte: Consulte[];*/
 };
 
 export default Utilisateur;

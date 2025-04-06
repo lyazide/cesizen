@@ -10,23 +10,24 @@ export const authOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "text", placeholder: "Email" },
-        motDePasse: { label: "Mot de passe", type: "password" },
+        username: { label: "Username", type: "text", placeholder: "jsmith" },
+        password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        if (!credentials?.motDePasse || !credentials?.email) {
+        if (!credentials?.password || !credentials?.username) {
           return null;
         }
 
         const user = await prisma.utilisateur.findFirst({
           where: {
-            email: credentials?.email,
+            email: credentials?.username,
           },
         });
 
         if (
           user &&
-          (await bcrypt.compare(credentials.motDePasse, user.motDePasse))
+          (await bcrypt.compare(credentials.password, user.motDePasse)) &&
+          user.isActif
         ) {
           return user;
         }

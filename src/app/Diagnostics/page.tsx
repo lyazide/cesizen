@@ -1,8 +1,7 @@
 "use client";
 import { Box, SimpleGrid, Text, Heading } from "@chakra-ui/react";
 import DiagnosticCard from "../../components/DiagnosticCard";
-import Header from "../../components/Header";
-import { Block } from "../../components/Block";
+import Title from "../../components/Header";
 import { useState, useEffect } from "react";
 
 type diagnostic = {
@@ -65,14 +64,13 @@ const DiagnosticsPage = () => {
   }
 
   return (
-    <div>
-      <Block />
-      <Header name="Questionnaire diagnostic de stress" />
+    <Box backgroundColor={"brand.200"} padding="20px">
+      <Title name="Questionnaire diagnostic de stress" />
       {diagnostics.length > 0 ? (
         <>
-          <SimpleGrid gap="10px">
+          <SimpleGrid rowGap="0" height="20">
             {diagnostics.map((diagnostic) => (
-              <Box key={diagnostic.id} height="20">
+              <Box key={diagnostic.id}>
                 <DiagnosticCard
                   id={diagnostic.id}
                   evenement={diagnostic.evenement}
@@ -90,7 +88,7 @@ const DiagnosticsPage = () => {
       ) : (
         <Text>Aucun diagnostic trouvé. Longueur : {diagnostics.length}</Text>
       )}
-    </div>
+    </Box>
   );
 };
 

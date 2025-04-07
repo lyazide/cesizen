@@ -8,9 +8,9 @@ interface HeaderProps {
   signOut({ callbackUrl: "/" }); // Redirect to home page after logout
 };*/
 
-const Header: React.FC<HeaderProps> = ({ name }) => {
+const Title: React.FC<HeaderProps> = ({ name }) => {
   return (
-    <Box bg="teal.500" color="white" p={4} textAlign="center">
+    <Box bg="brand.400" color="white" p={4} textAlign="center">
       <Heading as="h1" size="lg">
         {name}
       </Heading>
@@ -19,4 +19,4 @@ const Header: React.FC<HeaderProps> = ({ name }) => {
   );
 };
 
-export default Header;
+export default Title;

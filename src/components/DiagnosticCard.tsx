@@ -33,9 +33,9 @@ const DiagnosticCard: React.FC<DiagnosticDetailsProps> = ({
       value={{ points }.toString()}
       w="100%"
       p="30"
-      colorPalette="teal"
       checked={checked}
       onChange={handleCheckboxChange}
+      bg="brand.50"
     >
       <CheckboxCard.HiddenInput />
       <CheckboxCard.Control>

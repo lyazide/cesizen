@@ -13,10 +13,11 @@ const BreathingExercise: React.FC = () => {
     () => [
       { name: "Inspiration", duration: 4 },
       { name: "Retention", duration: 4 },
-      { name: "Expiration", duration: 7 }, // Corresponds to Rétention
+      { name: "Expiration", duration: 7 },
     ],
     []
   );
+  console.log(steps);
 
   const [stepIndex, setStepIndex] = useState<number>(0);
   const [count, setCount] = useState<number>(steps[0].duration);
@@ -32,9 +33,9 @@ const BreathingExercise: React.FC = () => {
             if (stepIndex < steps.length - 1) {
               setStepIndex((prevStep) => prevStep + 1);
 
-              clearInterval(interval);
-              setIsRunning(false);
-              return 0;
+              //clearInterval(interval);
+              //setIsRunning(false);
+              return steps[stepIndex + 1]?.duration || 0;
             }
           }
           return prevCount - 1;

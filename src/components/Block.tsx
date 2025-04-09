@@ -6,7 +6,15 @@ import { NavbarLinks } from "./navbar-links";
 
 export const Block = () => {
   return (
-    <Box borderBottomWidth="1px" bg="bg.panel">
+    <Container
+      bg="brand.600"
+      as="header"
+      position="fixed"
+      top="0"
+      borderBottomWidth="1px"
+      width={"100%"}
+      zIndex="1000"
+    >
       <Container py={{ base: "3.5", md: "4" }}>
         <HStack justify="space-between">
           <Logo />
@@ -18,6 +26,6 @@ export const Block = () => {
           </MobilePopover>
         </HStack>
       </Container>
-    </Box>
+    </Container>
   );
 };

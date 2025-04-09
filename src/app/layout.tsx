@@ -9,7 +9,11 @@ export default function RootLayout(props: { children: React.ReactNode }) {
       <body>
         <Provider>
           <Block />
-          {children}
+          {/* Ajout de paddingTop pour compenser la hauteur du header */}
+          <main style={{ paddingTop: "30px" /* ou une hauteur adaptée */ }}>
+            {children}
+          </main>
+
           <Footer />
         </Provider>
       </body>

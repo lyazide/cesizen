@@ -1,5 +1,5 @@
 "use client";
-import { Box, SimpleGrid, Text, Heading } from "@chakra-ui/react";
+import { Box, SimpleGrid, Text, Heading, Container } from "@chakra-ui/react";
 import DiagnosticCard from "../../components/DiagnosticCard";
 import Title from "../../components/Header";
 import { useState, useEffect } from "react";
@@ -13,7 +13,7 @@ type diagnostic = {
 const DiagnosticsPage = () => {
   const [diagnostics, setDiagnostics] = useState<diagnostic[]>([]);
   const [checkedItems, setCheckedItems] = useState<number[]>([]);
-  const [loading, setLoading] = useState<boolean>(true); // Ajout d'un état de chargement
+  //const [loading, setLoading] = useState<boolean>(true); // Ajout d'un état de chargement
 
   console.log("DiagnosticsPage component rendered");
   console.log(diagnostics);
@@ -33,9 +33,9 @@ const DiagnosticsPage = () => {
         setDiagnostics(reponse.data);
       } catch (error) {
         console.error("Error fetching diagnostics:", error);
-      } finally {
+      } /*finally {
         setLoading(false); // Mise à jour de l'état de chargement
-      }
+      }*/
     };
     fetchData();
   }, []);
@@ -59,18 +59,40 @@ const DiagnosticsPage = () => {
     0
   );
 
-  if (loading) {
+  /*if (loading) {
     return <Text>Chargement...</Text>; // Affichage d'un message de chargement
-  }
+  }*/
 
   return (
-    <Box backgroundColor={"brand.200"} padding="20px">
+    <Container
+      as="main"
+      backgroundColor={"brand.200"}
+      padding="20px"
+      pt="70px"
+      minHeight="100vh"
+      maxW="90%" // 90% de la largeur de l'écran
+      height="90vh" // 90% de la hauteur de l'écran
+      boxShadow="lg" // Ombre pour un effet esthétique
+      borderRadius="lg" // Coins arrondis
+      overflow="auto" // Permettre le défilement si contenu trop long
+      p={6} // Padding interne
+    >
       <Title name="Questionnaire diagnostic de stress" />
-      {diagnostics.length > 0 ? (
-        <>
-          <SimpleGrid rowGap="0" height="20">
+      <Heading rowGap="0" height="20">
+        Total des points: {totalPoints}
+      </Heading>
+      <Box
+        as="main"
+        width="100%"
+        height="60%"
+        justifyContent="center"
+        backgroundColor={"brand.200"}
+        padding="10px"
+      >
+        {diagnostics.length > 0 ? (
+          <Box rowGap="0" height="20">
             {diagnostics.map((diagnostic) => (
-              <Box key={diagnostic.id}>
+              <Box backgroundColor={"brand.200"} key={diagnostic.id}>
                 <DiagnosticCard
                   id={diagnostic.id}
                   evenement={diagnostic.evenement}
@@ -80,15 +102,12 @@ const DiagnosticsPage = () => {
                 />
               </Box>
             ))}
-          </SimpleGrid>
-          <Heading as="h3" mt={4}>
-            Total des points: {totalPoints}
-          </Heading>
-        </>
-      ) : (
-        <Text>Aucun diagnostic trouvé. Longueur : {diagnostics.length}</Text>
-      )}
-    </Box>
+          </Box>
+        ) : (
+          <Text>Aucun diagnostic trouvé. Longueur : {diagnostics.length}</Text>
+        )}
+      </Box>
+    </Container>
   );
 };
 

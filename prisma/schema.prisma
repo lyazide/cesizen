@@ -55,8 +55,8 @@ model Respiration {
 
 model Information {
   id               Int        @id @default(autoincrement())
-  titre            String?
-  contenu          String?
+  titre            String
+  contenu          String
   dateCreation     DateTime   @db.Timestamp
   dateModification DateTime   @db.Timestamp
   Consulte         Consulte[]

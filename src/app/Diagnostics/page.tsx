@@ -1,5 +1,5 @@
 "use client";
-import { Box, SimpleGrid, Text, Heading, Container } from "@chakra-ui/react";
+import { Box, Text, Heading, Container } from "@chakra-ui/react";
 import DiagnosticCard from "../../components/DiagnosticCard";
 import Title from "../../components/Header";
 import { useState, useEffect } from "react";

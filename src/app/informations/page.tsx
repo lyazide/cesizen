@@ -49,7 +49,7 @@ const InformationsPage = async () => {
                 >
                   <InformationCard
                     titre={information.titre}
-                    contenu={information.contenu}
+                    contenu={information.contenu.slice(0, 100) + "..."}
                     dateCreation={information.dateCreation}
                     dateModification={information.dateModification}
                   />

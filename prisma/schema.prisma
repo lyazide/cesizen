@@ -49,7 +49,7 @@ model Respiration {
   description String?
   inspiration Int
   apnee       Int
-  expiration  Int?
+  expiration  Int
   Effectue    Effectue[]
 }
 

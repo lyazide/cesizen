@@ -1,4 +1,4 @@
-import { Box, Container, HStack, Spacer } from "@chakra-ui/react";
+import { Box, Container, HStack, Spacer, Text } from "@chakra-ui/react";
 import { Logo } from "./logo";
 import { MobilePopover } from "./mobile-popover";
 import { NavbarLinks } from "./navbar-links";
@@ -18,9 +18,13 @@ export const Block = () => {
       <Container py={{ base: "3.5", md: "4" }}>
         <HStack justify="space-between">
           <Logo />
+          <Text>
+            La tranquillité de l esprit est la clé : si vous avez la paix
+            intérieure, les problèmes extérieurs n affectent pas votre profond
+            sentiment de paix et de tranquillité. — Dalaï Lama
+          </Text>
           <Spacer hideFrom="md" />
           <NavbarLinks hideBelow="md" />
-
           <MobilePopover>
             <NavbarLinks />
           </MobilePopover>

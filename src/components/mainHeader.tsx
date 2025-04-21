@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Button,
   CloseButton,
@@ -7,6 +9,8 @@ import {
   Stack,
   Container,
 } from "@chakra-ui/react";
+import { HiMenu } from "react-icons/hi";
+import { signOut } from "next-auth/react";
 
 const Header = () => {
   const navItems = [
@@ -23,7 +27,7 @@ const Header = () => {
       <Drawer.Root>
         <Drawer.Trigger asChild>
           <Button variant="outline" size="sm">
-            ...
+            <HiMenu size="20" color="colorPalette.fg" />
           </Button>
         </Drawer.Trigger>
         <Portal>
@@ -53,7 +57,9 @@ const Header = () => {
               </Drawer.Body>
               <Drawer.Footer>
                 <Button variant="outline">Login</Button>
-                <Button>Logout</Button>
+                <Button onClick={() => signOut({ callbackUrl: "/" })}>
+                  Logout
+                </Button>
               </Drawer.Footer>
               <Drawer.CloseTrigger asChild>
                 <CloseButton size="sm" />

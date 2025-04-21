@@ -1,5 +1,5 @@
-// src/components/DiagnosticCard.tsx
 import { CheckboxCard } from "@chakra-ui/react";
+import { useSession } from "next-auth/react"; // Importation pour next-auth
 
 type DiagnosticDetailsProps = {
   id: number;
@@ -16,21 +16,25 @@ const DiagnosticCard: React.FC<DiagnosticDetailsProps> = ({
   checked,
   onChange,
 }) => {
-  console.log("Props received in DiagnosticCard:", {
-    id,
-    evenement,
-    points,
-    checked,
-  });
+  const { data: session } = useSession(); // Récupération des données de la session avec next-auth
+  const utilisateurId = session?.user?.id; // Extraction de l'ID utilisateur depuis la session
 
   const handleCheckboxChange = () => {
     onChange(!checked, id);
   };
 
+  console.log("Props received in DiagnosticCard:", {
+    id,
+    evenement,
+    points,
+    checked,
+    utilisateurId,
+  });
+
   return (
     <CheckboxCard.Root
       key={id}
-      value={{ points }.toString()}
+      value={points.toString()}
       w="100%"
       p="30"
       checked={checked}

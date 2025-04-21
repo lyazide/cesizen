@@ -3,4 +3,5 @@ type Diagnostic = {
   evenement: string;
   points: number;
 };
+
 export default Diagnostic;

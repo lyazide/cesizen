@@ -1,14 +1,15 @@
-'use client'
+"use client";
 
-import { Icon, IconButton, Popover, Portal } from '@chakra-ui/react'
-import type { PropsWithChildren } from 'react'
-import { LuAlignRight, LuX } from 'react-icons/lu'
+import { Icon, IconButton, Popover, Portal } from "@chakra-ui/react";
+import type { PropsWithChildren } from "react";
+import { LuAlignRight, LuX } from "react-icons/lu";
+import { HiMenu } from "react-icons/hi";
 
 export const MobilePopover = (props: PropsWithChildren) => {
   return (
     <Popover.Root
       positioning={{
-        placement: 'bottom',
+        placement: "bottom",
         overflowPadding: 0,
         offset: { mainAxis: 12 },
       }}
@@ -44,5 +45,5 @@ export const MobilePopover = (props: PropsWithChildren) => {
         </Popover.Positioner>
       </Portal>
     </Popover.Root>
-  )
-}
+  );
+};

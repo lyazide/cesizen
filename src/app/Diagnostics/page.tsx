@@ -1,8 +1,9 @@
 "use client";
-import { Box, Text, Heading, Container } from "@chakra-ui/react";
+import { Box, Text, Heading, Container, Button } from "@chakra-ui/react";
 import DiagnosticCard from "../../components/DiagnosticCard";
 import Title from "../../components/Header";
 import { useState, useEffect } from "react";
+//import { useSession } from "next-auth/react"; // Importation pour next-auth
 
 type diagnostic = {
   id: number;
@@ -10,9 +11,18 @@ type diagnostic = {
   points: number;
 };
 
+type SoumissionData = {
+  id_Diagnostic: number;
+  id_Utilisateur: number;
+  date_: string;
+};
+
 const DiagnosticsPage = () => {
   const [diagnostics, setDiagnostics] = useState<diagnostic[]>([]);
   const [checkedItems, setCheckedItems] = useState<number[]>([]);
+  //const { data: session } = useSession(); // Récupération de la session utilisateur
+  //const utilisateurId = session?.user?.id; // ID utilisateur extrait de la session
+  const utilisateurId = 2; // ID utilisateur pour les tests (à remplacer par l'ID réel de l'utilisateur connecté)
   //const [loading, setLoading] = useState<boolean>(true); // Ajout d'un état de chargement
 
   console.log("DiagnosticsPage component rendered");
@@ -49,6 +59,41 @@ const DiagnosticsPage = () => {
       setCheckedItems([...checkedItems, id]);
     } else {
       setCheckedItems(checkedItems.filter((itemId) => itemId !== id));
+    }
+  };
+
+  const handleSubmit = async () => {
+    const selectedDiagnostics = diagnostics.filter((diagnostic) =>
+      checkedItems.includes(diagnostic.id)
+    );
+
+    const soumetData: SoumissionData[] = selectedDiagnostics.map(
+      (diagnostic) => ({
+        id_Diagnostic: diagnostic.id,
+        id_Utilisateur: utilisateurId, // ID utilisateur récupéré
+        date_: new Date().toISOString(), // Format ISO
+      })
+    );
+
+    try {
+      const response = await fetch("/api/soumettreDiagnostic", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ soumissions: soumetData }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        alert("Diagnostic(s) soumis avec succès !");
+        console.log("Response data:", data);
+      } else {
+        const errorData = await response.json();
+        console.error("Erreur serveur :", errorData.error);
+        alert("Impossible de soumettre les diagnostics.");
+      }
+    } catch (error) {
+      console.error("Erreur lors de la soumission :", error);
+      alert("Une erreur est survenue.");
     }
   };
 
@@ -102,6 +147,10 @@ const DiagnosticsPage = () => {
                 />
               </Box>
             ))}
+
+            <Button type="submit" onClick={handleSubmit}>
+              Soumettre Diagnostic
+            </Button>
           </Box>
         ) : (
           <Text>Aucun diagnostic trouvé. Longueur : {diagnostics.length}</Text>

@@ -4,6 +4,7 @@ import DiagnosticCard from "../../components/DiagnosticCard";
 import Title from "../../components/Header";
 import { useState, useEffect } from "react";
 //import { useSession } from "next-auth/react"; // Importation pour next-auth
+import { v4 as uuidv4 } from "uuid";
 
 type diagnostic = {
   id: number;
@@ -66,12 +67,14 @@ const DiagnosticsPage = () => {
     const selectedDiagnostics = diagnostics.filter((diagnostic) =>
       checkedItems.includes(diagnostic.id)
     );
+    const soumetUUID = uuidv4();
 
     const soumetData: SoumissionData[] = selectedDiagnostics.map(
       (diagnostic) => ({
         id_Diagnostic: diagnostic.id,
         id_Utilisateur: utilisateurId, // ID utilisateur récupéré
         date_: new Date().toISOString(), // Format ISO
+        uuid: soumetUUID,
       })
     );
 

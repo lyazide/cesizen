@@ -6,7 +6,6 @@ const prisma = new PrismaClient();
 export async function POST(req: NextRequest) {
   try {
     const { soumissions } = await req.json();
-    console.log("Soumissions reçues :", soumissions);
 
     if (!soumissions || !Array.isArray(soumissions)) {
       return NextResponse.json(
@@ -16,7 +15,7 @@ export async function POST(req: NextRequest) {
     }
 
     const results = await prisma.soumet.createMany({
-      data: soumissions,
+      data: soumissions, // Soumissions avec le même UUID
     });
 
     return NextResponse.json({

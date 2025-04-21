@@ -81,13 +81,13 @@ model Realise {
 }
 
 model Soumet {
+  id             Int         @id @default(autoincrement())
+  uuid           String
   id_Utilisateur Int
   id_Diagnostic  Int
   date_          DateTime    @db.Timestamp
   Utilisateur    Utilisateur @relation(fields: [id_Utilisateur], references: [id])
   Diagnostic     Diagnostic  @relation(fields: [id_Diagnostic], references: [id])
-
-  @@id([id_Utilisateur, id_Diagnostic])
 }
 
 model Effectue {

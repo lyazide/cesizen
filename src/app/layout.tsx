@@ -4,6 +4,7 @@ import { Provider } from "../components/ui/provider";
 import { Block } from "../components/Block";
 import Footer from "../components/Footer";
 import { SessionProvider } from "next-auth/react";
+import { Box } from "@chakra-ui/react";
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props;
@@ -12,14 +13,11 @@ export default function RootLayout(props: { children: React.ReactNode }) {
       <body>
         <SessionProvider>
           <Provider>
-            <Block />
-
-            {/* Ajout de paddingTop pour compenser la hauteur du header */}
-            <main style={{ paddingTop: "30px" /* ou une hauteur adaptée */ }}>
+            <Box display="flex" flexDirection="column" minHeight="100vh">
+              <Block />
               {children}
-            </main>
-
-            <Footer />
+              x <Footer />
+            </Box>
           </Provider>
         </SessionProvider>
       </body>

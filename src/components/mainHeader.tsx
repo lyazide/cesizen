@@ -27,7 +27,7 @@ const Header = () => {
       <Drawer.Root>
         <Drawer.Trigger asChild>
           <Button variant="outline" size="sm">
-            <HiMenu size="20" color="colorPalette.fg" />
+            <HiMenu size="20" fill="white" />
           </Button>
         </Drawer.Trigger>
         <Portal>

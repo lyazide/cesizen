@@ -39,7 +39,17 @@ const DiagnosticCard: React.FC<DiagnosticDetailsProps> = ({
       p="30"
       checked={checked}
       onChange={handleCheckboxChange}
-      bg="brand.50"
+      //bg="brand.50"
+      bg="rgba(246, 244, 231, 0.6)" // Couleur avec opacité
+      _hover={{
+        bg: "rgba(246, 244, 231, 0.2)", // Couleur pour hover
+      }}
+      style={{
+        backdropFilter: "blur(30px)", // Effet flou
+        boxShadow: "0 4px 30px rgba(246, 244, 231, 0.5)", // Ombre lumineuse
+        border: "1px solid rgba(246, 244, 231, 0.3)",
+        // Bordure subtile
+      }}
     >
       <CheckboxCard.HiddenInput />
       <CheckboxCard.Control>

@@ -24,7 +24,7 @@ const DiagnosticsPage = () => {
   //const { data: session } = useSession(); // Récupération de la session utilisateur
   //const utilisateurId = session?.user?.id; // ID utilisateur extrait de la session
   const utilisateurId = 2; // ID utilisateur pour les tests (à remplacer par l'ID réel de l'utilisateur connecté)
-  //const [loading, setLoading] = useState<boolean>(true); // Ajout d'un état de chargement
+  const [loading, setLoading] = useState<boolean>(true); // Ajout d'un état de chargement
 
   console.log("DiagnosticsPage component rendered");
   console.log(diagnostics);
@@ -44,9 +44,9 @@ const DiagnosticsPage = () => {
         setDiagnostics(reponse.data);
       } catch (error) {
         console.error("Error fetching diagnostics:", error);
-      } /*finally {
+      } finally {
         setLoading(false); // Mise à jour de l'état de chargement
-      }*/
+      }
     };
     fetchData();
   }, []);
@@ -107,59 +107,63 @@ const DiagnosticsPage = () => {
     0
   );
 
-  /*if (loading) {
+  if (loading) {
     return <Text>Chargement...</Text>; // Affichage d'un message de chargement
-  }*/
+  }
 
   return (
-    <Container
-      as="main"
-      backgroundColor={"brand.200"}
-      padding="20px"
-      pt="70px"
-      minHeight="100vh"
-      maxW="90%" // 90% de la largeur de l'écran
-      height="90vh" // 90% de la hauteur de l'écran
-      boxShadow="lg" // Ombre pour un effet esthétique
-      borderRadius="lg" // Coins arrondis
-      overflow="auto" // Permettre le défilement si contenu trop long
-      p={6} // Padding interne
-    >
-      <Title name="Questionnaire diagnostic de stress" />
-      <Heading rowGap="0" height="20">
-        Total des points: {totalPoints}
-      </Heading>
-      <Box
+    <Box as="main" flex="1">
+      <Container
         as="main"
-        width="100%"
-        height="60%"
-        justifyContent="center"
-        backgroundColor={"brand.200"}
-        padding="10px"
+        backgroundColor={"brand.600"}
+        padding="0px"
+        pt="130px"
+        minHeight="100vh"
+        maxW="100%" // 90% de la largeur de l'écran
+        height="100vh" // 90% de la hauteur de l'écran
+        boxShadow="lg" // Ombre pour un effet esthétique
+        //borderRadius="lg" // Coins arrondis
+        overflow="auto" // Permettre le défilement si contenu trop long
+        //p={6} // Padding interne
       >
-        {diagnostics.length > 0 ? (
-          <Box rowGap="0" height="20">
-            {diagnostics.map((diagnostic) => (
-              <Box backgroundColor={"brand.200"} key={diagnostic.id}>
-                <DiagnosticCard
-                  id={diagnostic.id}
-                  evenement={diagnostic.evenement}
-                  points={diagnostic.points}
-                  checked={checkedItems.includes(diagnostic.id)}
-                  onChange={handleCheckboxChange}
-                />
-              </Box>
-            ))}
+        <Title name="Questionnaire diagnostic de stress" />
+        <Heading rowGap="20" height="20" color={"brand.200"} textAlign="center">
+          Total des points: {totalPoints}
+        </Heading>
+        <Box
+          as="main"
+          width="100%"
+          height="60%"
+          justifyContent="center"
+          backgroundColor={"brand.600"}
+          padding="10px"
+        >
+          {diagnostics.length > 0 ? (
+            <Box rowGap="0" height="20">
+              {diagnostics.map((diagnostic) => (
+                <Box backgroundColor={"brand.200"} key={diagnostic.id}>
+                  <DiagnosticCard
+                    id={diagnostic.id}
+                    evenement={diagnostic.evenement}
+                    points={diagnostic.points}
+                    checked={checkedItems.includes(diagnostic.id)}
+                    onChange={handleCheckboxChange}
+                  />
+                </Box>
+              ))}
 
-            <Button type="submit" onClick={handleSubmit}>
-              Soumettre Diagnostic
-            </Button>
-          </Box>
-        ) : (
-          <Text>Aucun diagnostic trouvé. Longueur : {diagnostics.length}</Text>
-        )}
-      </Box>
-    </Container>
+              <Button type="submit" onClick={handleSubmit}>
+                Soumettre Diagnostic
+              </Button>
+            </Box>
+          ) : (
+            <Text>
+              Aucun diagnostic trouvé. Longueur : {diagnostics.length}
+            </Text>
+          )}
+        </Box>
+      </Container>
+    </Box>
   );
 };
 

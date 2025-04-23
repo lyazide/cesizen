@@ -6,30 +6,36 @@ import { NavbarLinks } from "./navbar-links";
 
 export const Block = () => {
   return (
-    <Container
-      bg="brand.600"
-      as="header"
-      position="fixed"
-      top="0"
-      borderBottomWidth="1px"
-      width={"100%"}
-      zIndex="1000"
-    >
-      <Container py={{ base: "3.5", md: "4" }}>
-        <HStack justify="space-between">
-          <Logo />
-          <Text>
-            La tranquillité de l esprit est la clé : si vous avez la paix
-            intérieure, les problèmes extérieurs n affectent pas votre profond
-            sentiment de paix et de tranquillité. — Dalaï Lama
-          </Text>
-          <Spacer hideFrom="md" />
-          <NavbarLinks hideBelow="md" />
-          <MobilePopover>
-            <NavbarLinks />
-          </MobilePopover>
-        </HStack>
+    <Box as="header">
+      <Container
+        bg="brand.600"
+        as="header"
+        position="fixed"
+        top="0"
+        borderBottomWidth="0px"
+        width={"100%"}
+        zIndex="1000"
+      >
+        <Container py={{ base: "3.5", md: "4" }}>
+          <HStack justify="space-between" align="center">
+            <Logo />
+            <Text
+              color="white"
+              fontSize={{ base: "md", md: "lg" }}
+              textAlign="center"
+            >
+              La tranquillité de l esprit est la clé : si vous avez la paix
+              intérieure, les problèmes extérieurs n affectent pas votre profond
+              sentiment de paix et de tranquillité. — Dalaï Lama
+            </Text>
+            <Spacer hideFrom="md" />
+            <NavbarLinks hideBelow="md" />
+            <MobilePopover>
+              <NavbarLinks />
+            </MobilePopover>
+          </HStack>
+        </Container>
       </Container>
-    </Container>
+    </Box>
   );
 };

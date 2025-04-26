@@ -14,25 +14,22 @@ export const Block = () => {
         top="0"
         borderBottomWidth="0px"
         width={"100%"}
-        zIndex="1000"
+        zIndex="10"
       >
         <Container py={{ base: "3.5", md: "4" }}>
           <HStack justify="space-between" align="center">
             <Logo />
+
             <Text
               color="white"
               fontSize={{ base: "md", md: "lg" }}
               textAlign="center"
             >
-              La tranquillité de l esprit est la clé : si vous avez la paix
-              intérieure, les problèmes extérieurs n affectent pas votre profond
-              sentiment de paix et de tranquillité. — Dalaï Lama
+              CesiZen
             </Text>
-            <Spacer hideFrom="md" />
-            <NavbarLinks hideBelow="md" />
-            <MobilePopover>
+            <HStack gap="20px">
               <NavbarLinks />
-            </MobilePopover>
+            </HStack>
           </HStack>
         </Container>
       </Container>

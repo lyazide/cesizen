@@ -1,8 +1,8 @@
 export const Logo = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
-    height="100"
-    width="200"
-    viewBox="0 0 100 200"
+    height="50"
+    width="50"
+    viewBox="0 0 100 150"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
@@ -15,14 +15,14 @@ export const Logo = (props: React.SVGProps<SVGSVGElement>) => (
       r="12.5"
       fill="none"
       stroke="white"
-      strokeWidth="2"
+      strokeWidth="6"
     />
 
     <polygon
       points="50,45 75,62.5 50,100 25,62.5"
       fill="none"
       stroke="white"
-      strokeWidth="2"
+      strokeWidth="6"
     />
 
     <g transform="rotate(90, 50, 150) translate(-85, -150) scale(2)">
@@ -31,7 +31,7 @@ export const Logo = (props: React.SVGProps<SVGSVGElement>) => (
          M50,150 C35,125 65,125 50,150"
         fill="none"
         stroke="white"
-        strokeWidth="1"
+        strokeWidth="3"
       />
     </g>
   </svg>

@@ -3,7 +3,6 @@
 import { Icon, IconButton, Popover, Portal } from "@chakra-ui/react";
 import type { PropsWithChildren } from "react";
 import { LuAlignRight, LuX } from "react-icons/lu";
-import { HiMenu } from "react-icons/hi";
 
 export const MobilePopover = (props: PropsWithChildren) => {
   return (

@@ -16,7 +16,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
             <Box display="flex" flexDirection="column" minHeight="100vh">
               <Block />
               {children}
-              x <Footer />
+              <Footer />
             </Box>
           </Provider>
         </SessionProvider>

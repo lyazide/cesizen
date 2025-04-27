@@ -16,6 +16,15 @@ const customConfig = defineConfig({
           800: { value: "#1e363b" }, // Une couleur moderne, évoquant la sérénité
           900: { value: "#121d20" }, // Couleur la plus foncée, idéale pour les éléments
         },
+        fonts: {
+          heading: { value: "'Playfair Display', serif" }, // Élégante et sophistiquée
+          body: { value: "'Open Sans', sans-serif" }, // Simple et lisible
+          modern: { value: "'Roboto', sans-serif" }, // Moderne et lisible
+          warm: { value: "'Lato', sans-serif" }, // Ressenti chaleureux
+          traditional: { value: "'Merriweather', serif" }, // Ressenti traditionnel et adapté à l'écran
+          personality: { value: "'Pacifico', cursive" }, // Touche de personnalité
+          relaxing: { value: "'Dancing Script', cursive" }, // Style relaxant
+        },
       },
     },
   },

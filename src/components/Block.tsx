@@ -1,6 +1,5 @@
-import { Box, Container, HStack, Spacer, Text } from "@chakra-ui/react";
+import { Box, Container, HStack, Text } from "@chakra-ui/react";
 import { Logo } from "./logo";
-import { MobilePopover } from "./mobile-popover";
 import { NavbarLinks } from "./navbar-links";
 //import LogoutButton from "./LogoutButton";
 
@@ -24,6 +23,7 @@ export const Block = () => {
               color="white"
               fontSize={{ base: "md", md: "lg" }}
               textAlign="center"
+              fontFamily="dancing-script"
             >
               CesiZen
             </Text>

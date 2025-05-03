@@ -1,11 +1,9 @@
-// src/app/api/auth/[...nextauth]/route.ts
-import prisma from "@/utils/db";
-import bcrypt from "bcrypt";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import prisma from "@/utils/db";
+import bcrypt from "bcrypt";
 
 export const authOptions = {
-  // Configure one or more authentication providers
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -14,30 +12,68 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        if (!credentials?.password || !credentials?.username) {
-          return null;
-        }
+        if (!credentials?.username || !credentials?.password) return null;
 
         const user = await prisma.utilisateur.findFirst({
-          where: {
-            email: credentials?.username,
-          },
+          where: { email: credentials.username },
         });
 
         if (
           user &&
-          (await bcrypt.compare(credentials.password, user.motDePasse)) &&
-          user.isActif
+          (await bcrypt.compare(credentials.password, user.motDePasse))
         ) {
-          return user;
+          if (!user.isActif) {
+            throw new Error(
+              "Votre compte est inactif. Veuillez contacter l'administrateur."
+            );
+          }
+
+          console.log("Utilisateur authentifié :", user);
+
+          return {
+            id: user.id,
+            email: user.email,
+            nom: user.nom,
+            prenom: user.prenom,
+            isActif: user.isActif,
+            isAdministrateur: user.isAdministrateur,
+          };
         }
 
         return null;
       },
     }),
   ],
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.sub = user.id;
+        token.email = user.email;
+        token.isActif = user.isActif ?? false;
+        token.isAdministrateur = user.isAdministrateur ?? false;
+      }
+
+      console.log("JWT Token généré :", token);
+
+      return token;
+    },
+    async session({ session, token }) {
+      session.user = {
+        id: token.sub,
+        email: token.email,
+        isActif: token.isActif ?? false,
+        isAdministrateur: token.isAdministrateur ?? false,
+      };
+
+      console.log("Session mise à jour :", session);
+
+      return session;
+    },
+  },
+  pages: {
+    signIn: "/signin",
+  },
 };
 
-const handler = NextAuth(authOptions);
-
-export { handler as GET, handler as POST };
+export const GET = NextAuth(authOptions);
+export const POST = NextAuth(authOptions);

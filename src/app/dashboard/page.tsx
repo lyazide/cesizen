@@ -2,8 +2,8 @@ import React from "react";
 import Header from "../../components/mainHeader";
 import Footer from "../../components/Footer";
 import Dashboard from "../../components/dashboard";
-import PostWithLike from "../../components/post_like";
-import { Box, Text, Link } from "@chakra-ui/react";
+import TestSession from "../../components/testcomponent";
+import { Box, Text } from "@chakra-ui/react";
 
 export default function Page() {
   return (
@@ -12,12 +12,8 @@ export default function Page() {
         <Header />
         <Box as="main" py={8} px={4}>
           <Text fontSize="xl">Dashboard</Text>
-          <h1>Home</h1>
-          <Link href="/about">About</Link>
-
+          <TestSession />
           <Dashboard />
-
-          <PostWithLike />
         </Box>
 
         <Footer />

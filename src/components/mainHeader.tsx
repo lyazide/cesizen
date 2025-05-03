@@ -10,7 +10,7 @@ import {
   Container,
 } from "@chakra-ui/react";
 import { HiMenu } from "react-icons/hi";
-import { signOut } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 
 const Header = () => {
   const navItems = [
@@ -18,7 +18,7 @@ const Header = () => {
     { label: "Dashboard", href: "/dashboard" },
     { label: "Diagnostic de stress", href: "/diagnostics" },
     { label: "Exercises de respiration", href: "/respirations" },
-    { label: "Suivis des emaotions", href: "/emotions" },
+    { label: "Suivis des emotions", href: "/emotions" },
     { label: "Activités Détente", href: "/detentes" },
     { label: "Informations sur la santé mentale", href: "informations" },
   ];
@@ -56,7 +56,7 @@ const Header = () => {
                 </Stack>
               </Drawer.Body>
               <Drawer.Footer>
-                <Button variant="outline">Login</Button>
+                <Button onClick={() => signIn()}>Login</Button>
                 <Button onClick={() => signOut({ callbackUrl: "/" })}>
                   Logout
                 </Button>

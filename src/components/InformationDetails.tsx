@@ -1,4 +1,4 @@
-// src/components/InformationCard.tsx
+// src/components/InformationDetails.tsx
 import {
   Box,
   Button,
@@ -25,15 +25,15 @@ const convertirDate = (date: Date): string => {
   });
 };
 
-const InformationCard: React.FC<InformationCardProps> = ({
+const InformationDetails: React.FC<InformationCardProps> = ({
   titre,
   contenu,
   dateCreation,
   dateModification,
 }) => {
   return (
-    <Center as="section" bg="brand.600" h="45vh">
-      <Box maxW="420px" borderWidth="1px" borderRadius="lg" p="6" bg="brand.50">
+    <Center as="section" bg="brand.600" h="100vh">
+      <Box maxW="840px" borderWidth="1px" borderRadius="lg" p="6" bg="brand.50">
         {/*
         <Image
           src="https://images.unsplash.com/photo-1667420170858-39d40cb413e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
@@ -66,4 +66,4 @@ const InformationCard: React.FC<InformationCardProps> = ({
   );
 };
 
-export default InformationCard;
+export default InformationDetails;

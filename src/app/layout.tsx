@@ -6,8 +6,12 @@ import Footer from "../components/Footer";
 import { SessionProvider } from "next-auth/react";
 import { Box } from "@chakra-ui/react";
 
-export default function RootLayout(props: { children: React.ReactNode }) {
-  const { children } = props;
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  //const { children } = props;
   return (
     <html suppressHydrationWarning>
       <body>

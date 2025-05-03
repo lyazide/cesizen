@@ -2,59 +2,52 @@
 
 import { Chart, useChart } from "@chakra-ui/charts";
 import { Area, AreaChart, Tooltip, XAxis, YAxis } from "recharts";
+import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 
 const Dashboard = () => {
+  const { data: session, status } = useSession();
+  const [diagnosticData, setDiagnosticData] = useState([]);
+
+  console.log("Dashboard component is rendering...");
+
+  console.log("Session status:", status); // Should log 'loading' or 'authenticated'
+  console.log("Session data:", session); // Should log session object
+
+  useEffect(() => {
+    console.log("UseEffect triggered by status change:", status);
+
+    if (status === "authenticated") {
+      console.log("Session object:", session);
+
+      fetch(`/api/dashboard?userId=${session?.user?.id}`)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Fetched diagnostics:", data);
+          setDiagnosticData(data);
+        })
+        .catch((error) => console.error("Fetch error:", error));
+    }
+  }, [status, session]);
+
   const chart = useChart({
-    data: [
-      { windows: 186, mac: 80, linux: 120, month: "January" },
-      { windows: 165, mac: 95, linux: 110, month: "February" },
-      { windows: 190, mac: 87, linux: 125, month: "March" },
-      { windows: 195, mac: 88, linux: 130, month: "May" },
-      { windows: 182, mac: 98, linux: 122, month: "June" },
-      { windows: 175, mac: 90, linux: 115, month: "August" },
-      { windows: 180, mac: 86, linux: 124, month: "October" },
-      { windows: 185, mac: 91, linux: 126, month: "November" },
-    ],
-    series: [
-      { name: "windows", color: "teal.solid" },
-      { name: "mac", color: "purple.solid" },
-      { name: "linux", color: "orange.solid" },
-    ],
+    data: diagnosticData,
+    series: [{ name: "points", color: "teal.solid" }],
   });
 
   return (
     <Chart.Root maxH="sm" chart={chart}>
-      <AreaChart
-        accessibilityLayer
-        data={chart.data}
-        margin={{ bottom: 24, left: 24 }}
-      >
+      <AreaChart data={chart.data} margin={{ bottom: 24, left: 24 }}>
         <XAxis
-          dataKey={chart.key("month")}
-          tickMargin={8}
-          tickFormatter={(value) => value.slice(0, 3)}
-          stroke={chart.color("border")}
+          dataKey="date"
+          tickFormatter={(value) => new Date(value).toLocaleDateString()}
         />
-        <YAxis stroke={chart.color("border")} />
-        <Tooltip
-          cursor={false}
-          animationDuration={100}
-          content={<Chart.Tooltip />}
-        />
-        {chart.series.map((item) => (
-          <Area
-            type="natural"
-            key={item.name}
-            isAnimationActive={false}
-            dataKey={chart.key(item.name)}
-            fill={chart.color(item.color)}
-            fillOpacity={0.2}
-            stroke={chart.color(item.color)}
-            stackId="a"
-          />
-        ))}
+        <YAxis />
+        <Tooltip cursor={false} content={<Chart.Tooltip />} />
+        <Area type="natural" dataKey="points" fillOpacity={0.2} stroke="teal" />
       </AreaChart>
     </Chart.Root>
   );
 };
+
 export default Dashboard;

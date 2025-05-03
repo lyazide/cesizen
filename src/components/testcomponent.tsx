@@ -1,20 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useSession } from "next-auth/react";
 
-const TestComponent = () => {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    console.log("Component mounted");
-  }, []);
+export default function TestSession() {
+  const { data: session, status } = useSession();
 
   return (
     <div>
-      <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <p>Status: {status}</p>
+      <pre>{JSON.stringify(session, null, 2)}</pre>
     </div>
   );
-};
-
-export default TestComponent;
+}

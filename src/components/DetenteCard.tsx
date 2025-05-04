@@ -18,7 +18,8 @@ const DetenteCard: React.FC<DetenteCardProps> = ({
       borderRadius="lg"
       p={4}
       boxShadow="md"
-      background="lightgray"
+      background="brand.50"
+      _hover={{ boxShadow: "lg", transform: "scale(1.02)" }}
     >
       <Heading as="h2" size="md">
         {nom}

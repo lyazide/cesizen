@@ -6,31 +6,44 @@ const roleAccessMap: Record<string, string[]> = {
   admin: [
     "/",
     "/dashboard",
+    "/api/dashboard",
     "/diagnostics",
     "/api/diagnostics",
     "/signin",
     "/signup",
+    "/api/signup",
+
     "/informations",
+    "/api/informations",
     "/informations/[id]", // Gestion dynamique des pages
     "/detentes",
+    "/api/detentes",
     "/detentes/[id]", // Gestion dynamique des pages
     "/emotions",
-    "/respiration",
-    "/userManagement",
+    "/api/emotions",
+    "/respirations",
+    "/api/respirations",
   ],
   user: [
     "/",
     "/dashboard",
+    "/api/dashboard",
     "/diagnostics",
     "/api/diagnostics",
+
     "/signin",
     "/signup",
+    "/api/signup",
     "/informations",
+    "/api/informations",
     "/informations/[id]", // Ajout de pages dynamiques
     "/detentes",
+    "/api/detentes",
     "/detentes/[id]", // Ajout de pages dynamiques
     "/emotions",
-    "/respiration",
+    "/api/emotions",
+    "/respirations",
+    "/api/respirations",
   ],
   guest: [
     "/",
@@ -38,9 +51,12 @@ const roleAccessMap: Record<string, string[]> = {
     "/api/diagnostics",
     "/signin",
     "/signup",
+    "/api/signup",
     "/informations",
+    "/api/informations",
     "/informations/[id]", // Autorisation pour les invités
     "/detentes",
+    "/api/detentes",
     "/detentes/[id]", // Autorisation pour les invités
   ],
 };
@@ -48,7 +64,7 @@ const roleAccessMap: Record<string, string[]> = {
 // 🔹 Page d'accueil par rôle
 const defaultPages: Record<string, string> = {
   admin: "/dashboard",
-  user: "/diagnostics",
+  user: "/dashboard",
   guest: "/signin",
 };
 

@@ -1,14 +1,5 @@
 // src/components/InformationCard.tsx
-import {
-  Box,
-  Button,
-  Center,
-  Heading,
-  HStack,
-  Image,
-  Tag,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Button, Center, Heading, Text } from "@chakra-ui/react";
 
 type InformationCardProps = {
   titre: string;
@@ -29,7 +20,6 @@ const InformationCard: React.FC<InformationCardProps> = ({
   titre,
   contenu,
   dateCreation,
-  dateModification,
 }) => {
   return (
     <Center as="section" bg="brand.600" h="45vh">
@@ -57,9 +47,11 @@ const InformationCard: React.FC<InformationCardProps> = ({
           {titre}
         </Heading>
 
-        <Text mt={2}>{contenu}</Text>
+        <Text mt={2} dangerouslySetInnerHTML={{ __html: contenu }}></Text>
         <Center my="6">
-          <Button colorScheme="blue">Learn more</Button>
+          <Button bg="brand.400" colorScheme="blue">
+            Détails
+          </Button>
         </Center>
       </Box>
     </Center>

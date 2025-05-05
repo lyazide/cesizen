@@ -1,21 +1,21 @@
-import { Box, Container, HStack, Text } from "@chakra-ui/react";
+import { Box, HStack, Text } from "@chakra-ui/react";
 import { Logo } from "./logo";
 import { NavbarLinks } from "./navbar-links";
 //import LogoutButton from "./LogoutButton";
 
 export const Block = () => {
   return (
-    <Box as="header">
-      <Container
+    <Box as="header" width="100vw">
+      <Box
         bg="brand.600"
         as="header"
         position="fixed"
         top="0"
         borderBottomWidth="0px"
-        width={"100%"}
+        width={"100vw"}
         zIndex="10"
       >
-        <Container py={{ base: "3.5", md: "4" }}>
+        <Box py={{ base: "3.5", md: "4" }}>
           <HStack justify="space-between" align="center">
             <Logo />
 
@@ -31,8 +31,8 @@ export const Block = () => {
               <NavbarLinks />
             </HStack>
           </HStack>
-        </Container>
-      </Container>
+        </Box>
+      </Box>
     </Box>
   );
 };

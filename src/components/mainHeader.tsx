@@ -20,7 +20,8 @@ const Header = () => {
     { label: "Exercises de respiration", href: "/respirations" },
     { label: "Suivis des emotions", href: "/emotions" },
     { label: "Activités Détente", href: "/detentes" },
-    { label: "Informations sur la santé mentale", href: "informations" },
+    { label: "Informations sur la santé mentale", href: "/informations" },
+    { label: "S'enregistrer", href: "/signup" },
   ];
   return (
     <Container as="header">

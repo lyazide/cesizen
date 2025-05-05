@@ -1,7 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { Box, Button, Input, Heading, VStack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Input,
+  Heading,
+  VStack,
+  Text,
+  Container,
+} from "@chakra-ui/react";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -37,32 +45,65 @@ const Signup = () => {
   };
 
   return (
-    <Box maxW="md" mx="auto" mt={10} p={5} boxShadow="lg" borderRadius="md">
-      <Heading textAlign="center" mb={6}>
-        Inscription
-      </Heading>
-      <VStack gap={4}>
-        <Box>
-          <Text>Nom</Text>
-          <Input name="nom" type="text" onChange={handleChange} />
+    <Box as="main" flex="1">
+      <Container
+        as="main"
+        backgroundColor={"brand.600"}
+        padding="0px"
+        pt="130px"
+        minHeight="100vh"
+        maxW="100%" // 90% de la largeur de l'écran
+        height="100vh" // 90% de la hauteur de l'écran
+        boxShadow="lg" // Ombre pour un effet esthétique
+        borderRadius="lg" // Coins arrondis
+        overflow="auto" // Permettre le défilement si contenu trop long
+        //p={6} // Padding interne
+      >
+        <Box
+          maxW="md"
+          mx="auto"
+          mt={10}
+          p={5}
+          boxShadow="lg"
+          borderRadius="md"
+          backgroundColor={"brand.50"}
+        >
+          <Heading textAlign="center" mb={6}>
+            Inscription
+          </Heading>
+          <VStack gap={4}>
+            <Box>
+              <Text>Nom</Text>
+              <Input name="nom" type="text" onChange={handleChange} />
+            </Box>
+            <Box>
+              <Text>Prénom</Text>
+              <Input name="prenom" type="text" onChange={handleChange} />
+            </Box>
+            <Box>
+              <Text>Email</Text>
+              <Input name="email" type="email" onChange={handleChange} />
+            </Box>
+            <Box>
+              <Text>Mot de passe</Text>
+              <Input
+                name="motDePasse"
+                type="password"
+                onChange={handleChange}
+              />
+            </Box>
+            <Button
+              colorScheme="teal"
+              width="full"
+              onClick={handleSubmit}
+              backgroundColor={"brand.600"}
+            >
+              S inscrire
+            </Button>
+            {message && <Text>{message}</Text>}
+          </VStack>
         </Box>
-        <Box>
-          <Text>Prénom</Text>
-          <Input name="prenom" type="text" onChange={handleChange} />
-        </Box>
-        <Box>
-          <Text>Email</Text>
-          <Input name="email" type="email" onChange={handleChange} />
-        </Box>
-        <Box>
-          <Text>Mot de passe</Text>
-          <Input name="motDePasse" type="password" onChange={handleChange} />
-        </Box>
-        <Button colorScheme="teal" width="full" onClick={handleSubmit}>
-          S inscrire
-        </Button>
-        {message && <Text>{message}</Text>}
-      </VStack>
+      </Container>
     </Box>
   );
 };

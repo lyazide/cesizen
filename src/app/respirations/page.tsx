@@ -1,6 +1,6 @@
 /**
  * @file ExerciseRespiration.tsx
- * @description Composant React pour un exercice de respiration guidé
+ * @description Composant React pour un exercice de respiration guidé.
  * Implémente une séquence de respiration en trois phases (inspiration, rétention, expiration)
  * avec visualisation, minuteur et sélection d'exercices depuis l'API.
  */
@@ -8,7 +8,7 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
-import { Box, Container } from "@chakra-ui/react";
+import { Box, Flex, Text, Button, Spinner } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 /**
@@ -46,7 +46,7 @@ const ExerciseRespiration: React.FC = () => {
   const [selectedRespiration, setSelectedRespiration] =
     useState<Respiration | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  //const [/*error,*/ setError] = useState<string | null>(null);
   const [stepIndex, setStepIndex] = useState<number>(0);
   const [count, setCount] = useState<number>(0);
   const [isRunning, setIsRunning] = useState<boolean>(false);
@@ -60,14 +60,14 @@ const ExerciseRespiration: React.FC = () => {
     if (!selectedRespiration) {
       return [
         { name: "Inspiration", duration: 4 },
-        { name: "Retention", duration: 4 },
+        { name: "Rétention", duration: 4 },
         { name: "Expiration", duration: 7 },
       ];
     }
 
     return [
       { name: "Inspiration", duration: selectedRespiration.inspiration },
-      { name: "Retention", duration: selectedRespiration.apnee },
+      { name: "Rétention", duration: selectedRespiration.apnee },
       { name: "Expiration", duration: selectedRespiration.expiration },
     ];
   }, [selectedRespiration]);
@@ -103,7 +103,7 @@ const ExerciseRespiration: React.FC = () => {
       } catch (err) {
         const errorMsg =
           err instanceof Error ? err.message : "Une erreur est survenue";
-        setError(errorMsg);
+        /*setError(errorMsg);*/
         setNotification({
           message: errorMsg,
           type: "error",
@@ -212,7 +212,7 @@ const ExerciseRespiration: React.FC = () => {
     switch (stepName) {
       case "Inspiration":
         return "#90CDF4"; // Bleu clair (équivalent brand.300)
-      case "Retention":
+      case "Rétention":
         return "#63B3ED"; // Bleu moyen (équivalent brand.400)
       case "Expiration":
         return "#4299E1"; // Bleu foncé (équivalent brand.500)
@@ -223,119 +223,84 @@ const ExerciseRespiration: React.FC = () => {
 
   // Rendu du composant
   return (
-    <Box as="main" flex="1">
-      <Container
-        as="main"
-        backgroundColor={"brand.600"}
-        padding="0px"
-        pt="130px"
-        minHeight="100vh"
-        maxW="100%" // 90% de la largeur de l'écran
-        height="100vh" // 90% de la hauteur de l'écran
-        boxShadow="lg" // Ombre pour un effet esthétique
-        //borderRadius="lg" // Coins arrondis
-        overflow="auto" // Permettre le défilement si contenu trop long
-        //p={6} // Padding interne
+    <Flex
+      as="main"
+      flex="1"
+      direction="column"
+      align="center"
+      justify="center"
+      bg="brand.600"
+      minH="100vh"
+      p={6}
+    >
+      <Box
+        bg="brand.300"
+        color="white"
+        fontSize="1.5rem"
+        fontFamily="Pacifico, cursive"
+        textAlign="center"
+        p={4}
+        mb={8}
+        borderRadius="md"
+        boxShadow="md"
       >
-        {/* En-tête de l'exercice */}
-        <h1
-          style={{
-            fontSize: "1.5rem",
-            fontFamily: "Pacifico, cursive",
-            textAlign: "center",
-            color: "white",
-          }}
+        Exercice de Respiration
+      </Box>
+
+      {notification && (
+        <Box
+          bg={getNotificationColor(notification.type)}
+          color="white"
+          borderRadius="md"
+          p={4}
+          mb={4}
+          textAlign="center"
+          maxWidth="md"
+          width="100%"
         >
-          Exercice de Respiration
-        </h1>
+          <Text>{notification.message}</Text>
+        </Box>
+      )}
 
-        {/* Notification simple */}
-        {notification && (
-          <div
-            style={{
-              padding: "1rem",
-              backgroundColor: getNotificationColor(notification.type),
-              color: "white",
-              borderRadius: "0.375rem",
-              width: "100%",
-              maxWidth: "400px",
-              marginBottom: "1rem",
-            }}
-          >
-            <p>{notification.message}</p>
-          </div>
-        )}
-
+      <Box
+        bg="brand.50"
+        p={8}
+        borderRadius="md"
+        boxShadow="lg"
+        maxWidth="md"
+        width="100%"
+        textAlign="center"
+      >
         {loading ? (
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <div
-              style={{
-                width: "2rem",
-                height: "2rem",
-                border: "4px solid #E2E8F0",
-                borderTopColor: "#4299E1",
-                borderRadius: "50%",
-                animation: "spin 1s linear infinite",
-              }}
-            />
-            <style jsx>{`
-              @keyframes spin {
-                to {
-                  transform: rotate(360deg);
-                }
-              }
-            `}</style>
-          </div>
+          <Flex justify="center" align="center">
+            <Spinner size="xl" color="brand.500" />
+          </Flex>
         ) : (
-          <>
+          <Flex direction="column" align="center">
             {/* Sélecteur d'exercice de respiration */}
-            <div style={{ width: "100%", maxWidth: "400px" }}>
-              <select
-                style={{
-                  width: "100%",
-                  padding: "0.5rem",
-                  borderRadius: "0.375rem",
-                  border: "1px solid #E2E8F0",
-                  marginBottom: "1rem",
-                  backgroundColor: "white",
-                }}
-                value={selectedRespiration?.id ?? ""}
-                onChange={handleRespirationChange}
-                disabled={isRunning}
-              >
-                <option value="" disabled>
-                  Sélectionnez un exercice
+            <select
+              value={selectedRespiration?.id ?? ""}
+              onChange={handleRespirationChange}
+              disabled={isRunning}
+              //mb={4}
+              //placeholder="Sélectionnez un exercice"
+              //size="lg"
+            >
+              {respirations.map((respiration) => (
+                <option key={respiration.id} value={respiration.id}>
+                  {respiration.nom} : {respiration.description}
                 </option>
-                {respirations.map((respiration) => (
-                  <option key={respiration.id} value={respiration.id}>
-                    {respiration.nom} : {respiration.description}
-                  </option>
-                ))}
-              </select>
+              ))}
+            </select>
 
-              {selectedRespiration && (
-                <p
-                  style={{
-                    fontSize: "0.875rem",
-                    color: "white",
-                    textAlign: "center",
-                    marginBottom: "1rem",
-                  }}
-                >
-                  {selectedRespiration.description}
-                </p>
-              )}
-            </div>
+            {selectedRespiration && (
+              <Text color="gray.600" mb={4}>
+                {selectedRespiration.description}
+              </Text>
+            )}
 
             {/* Visualisation de l'exercice avec animation */}
-            <div
-              style={{
-                position: "relative",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
+            <Flex position="relative" direction="column" align="center" mb={6}>
               <motion.div
                 animate={{
                   scale: isRunning ? [1, 1.1, 1] : 1,
@@ -347,62 +312,45 @@ const ExerciseRespiration: React.FC = () => {
                   ease: "easeInOut",
                 }}
               >
-                <div
-                  style={{
-                    width: "100px",
-                    height: "100px",
-                    borderRadius: "50%",
-                    backgroundColor: getCircleColor(
-                      steps[stepIndex]?.name || ""
-                    ),
-                    marginBottom: "1rem",
-                  }}
+                <Box
+                  width="100px"
+                  height="100px"
+                  borderRadius="full"
+                  bg={getCircleColor(steps[stepIndex]?.name || "")}
+                  mb={2}
                 />
               </motion.div>
-              <p
-                style={{
-                  fontSize: "1.125rem",
-                  fontWeight: "bold",
-                  color: "white",
-                }}
-              >
+              <Text fontSize="xl" fontWeight="bold" color="brand.500">
                 {steps[stepIndex]?.name || "Terminé"}
-              </p>
-            </div>
+              </Text>
+            </Flex>
 
             {/* Affichage du compte à rebours */}
-            <p
-              style={{
-                fontSize: "1.5rem",
-                fontWeight: "bold",
-                color: "white",
-              }}
-            >
+            <Text fontSize="3xl" fontWeight="bold" color="brand.500" mb={4}>
               {count > 0 ? count : ""}
-            </p>
+            </Text>
 
             {/* Bouton pour démarrer l'exercice */}
-            <button
+            <Button
               onClick={startExercise}
               disabled={isRunning || !selectedRespiration}
-              style={{
-                backgroundColor: "#38B2AC",
-                color: "white",
-                padding: "0.5rem 1rem",
-                borderRadius: "0.375rem",
-                border: "none",
-                fontWeight: "bold",
-                cursor:
-                  isRunning || !selectedRespiration ? "not-allowed" : "pointer",
-                opacity: isRunning || !selectedRespiration ? 0.7 : 1,
-              }}
+              bg="teal.500"
+              color="white"
+              fontWeight="bold"
+              size="lg"
+              borderRadius="md"
+              _hover={{ bg: "teal.600" }}
+              cursor={
+                isRunning || !selectedRespiration ? "not-allowed" : "pointer"
+              }
+              opacity={isRunning || !selectedRespiration ? 0.7 : 1}
             >
               {isRunning ? "En cours..." : "Commencer"}
-            </button>
-          </>
+            </Button>
+          </Flex>
         )}
-      </Container>
-    </Box>
+      </Box>
+    </Flex>
   );
 };
 

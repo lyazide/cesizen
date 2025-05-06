@@ -5,6 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 const roleAccessMap: Record<string, string[]> = {
   admin: [
     "/",
+    "/apropos",
     "/dashboard",
     "/api/dashboard",
     "/diagnostics",
@@ -26,6 +27,7 @@ const roleAccessMap: Record<string, string[]> = {
   ],
   user: [
     "/",
+    "/apropos",
     "/dashboard",
     "/api/dashboard",
     "/diagnostics",
@@ -47,6 +49,7 @@ const roleAccessMap: Record<string, string[]> = {
   ],
   guest: [
     "/",
+
     "/diagnostics",
     "/api/diagnostics",
     "/signin",
@@ -89,8 +92,8 @@ export async function middleware(req: NextRequest) {
   const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
   const urlPath = req.nextUrl.pathname;
 
-  console.log("🔹 URL demandée :", urlPath);
-  console.log("🔹 Token data :", token);
+  //console.log("🔹 URL demandée :", urlPath);
+  //console.log("🔹 Token data :", token);
 
   if (!token) {
     // 🔹 Vérifier les droits des invités

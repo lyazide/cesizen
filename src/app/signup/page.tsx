@@ -40,7 +40,8 @@ const Signup = () => {
         setMessage("Erreur lors de la création de l'utilisateur.");
       }
     } catch (error) {
-      setMessage("Une erreur s'est produite.");
+      console.error("Erreur lors de la soumission :", error);
+      setMessage("Une erreur s'est produite");
     }
   };
 

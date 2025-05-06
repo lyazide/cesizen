@@ -1,17 +1,28 @@
 import React from "react";
-import { Container, VStack, Heading } from "@chakra-ui/react";
+import { Box, Container } from "@chakra-ui/react";
 import Rgpd from "../../components/Rgpd"; // Import du composant réutilisable
+import Title from "../../components/Header";
 
 const GDPRPage = () => {
   return (
-    <Container maxW="container.md" py={10}>
-      <VStack gap={8} align="start">
-        <Heading as="h1" size="xl">
-          Règles de confidentialité
-        </Heading>
+    <Box as="main" flex="1">
+      <Container
+        as="main"
+        backgroundColor={"brand.600"}
+        padding="0px"
+        pt="130px"
+        minHeight="100vh"
+        maxW="100%" // 90% de la largeur de l'écran
+        height="100vh" // 90% de la hauteur de l'écran
+        boxShadow="lg" // Ombre pour un effet esthétique
+        borderRadius="lg" // Coins arrondis
+        overflow="auto" // Permettre le défilement si contenu trop long
+        //p={6} // Padding interne
+      >
+        <Title name="Questionnaire emotion de stress" />
         <Rgpd />
-      </VStack>
-    </Container>
+      </Container>
+    </Box>
   );
 };
 

@@ -1,9 +1,10 @@
-import { Box, HStack, Text } from "@chakra-ui/react";
-import { Logo } from "./logo";
+import { Box, HStack /*Text*/ } from "@chakra-ui/react";
+import { Logo, Text } from "./logo";
 import { NavbarLinks } from "./navbar-links";
 //import LogoutButton from "./LogoutButton";
 
 export const Block = () => {
+  const cesizenText = "Cesizen";
   return (
     <Box as="header" width="100vw">
       <Box
@@ -15,18 +16,17 @@ export const Block = () => {
         width={"100vw"}
         zIndex="10"
       >
-        <Box py={{ base: "3.5", md: "4" }}>
-          <HStack justify="space-between" align="center">
-            <Logo />
+        <Box py={{ base: "0.2", md: "0.2" }}>
+          <HStack justify="space-between" align="center" width="100%">
+            <HStack gap="20px">
+              <Logo />
 
-            <Text
-              color="white"
-              fontSize={{ base: "md", md: "lg" }}
-              textAlign="center"
-              fontFamily="dancing-script"
-            >
-              CesiZen
-            </Text>
+              <Text
+                text={cesizenText}
+                color="white"
+                fontFamily="dancing-script"
+              />
+            </HStack>
             <HStack gap="20px">
               <NavbarLinks />
             </HStack>

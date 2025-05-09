@@ -1,4 +1,4 @@
-import { CheckboxCard } from "@chakra-ui/react";
+import { CheckboxCard, Box } from "@chakra-ui/react";
 import { useSession } from "next-auth/react"; // Importation pour next-auth
 
 type DiagnosticDetailsProps = {
@@ -32,35 +32,37 @@ const DiagnosticCard: React.FC<DiagnosticDetailsProps> = ({
   });
 
   return (
-    <CheckboxCard.Root
-      key={id}
-      value={points.toString()}
-      w="100%"
-      p="30"
-      checked={checked}
-      onChange={handleCheckboxChange}
-      //bg="brand.50"
-      bg="rgba(246, 244, 231, 0.6)" // Couleur avec opacité
-      _hover={{
-        bg: "rgba(246, 244, 231, 0.2)", // Couleur pour hover
-      }}
-      style={{
-        backdropFilter: "blur(30px)", // Effet flou
-        boxShadow: "0 4px 30px rgba(246, 244, 231, 0.5)", // Ombre lumineuse
-        border: "1px solid rgba(246, 244, 231, 0.3)",
-        // Bordure subtile
-      }}
-    >
-      <CheckboxCard.HiddenInput />
-      <CheckboxCard.Control>
-        <CheckboxCard.Content>
-          <CheckboxCard.Label>
-            {evenement} ({points}&nbsp;points)
-          </CheckboxCard.Label>
-        </CheckboxCard.Content>
-        <CheckboxCard.Indicator />
-      </CheckboxCard.Control>
-    </CheckboxCard.Root>
+    <Box>
+      <CheckboxCard.Root
+        key={id}
+        value={points.toString()}
+        w="100%"
+        p="30"
+        checked={checked}
+        onChange={handleCheckboxChange}
+        //bg="brand.50"
+        bg="rgba(246, 244, 231, 0.6)" // Couleur avec opacité
+        _hover={{
+          bg: "rgba(246, 244, 231, 0.2)", // Couleur pour hover
+        }}
+        style={{
+          backdropFilter: "blur(30px)", // Effet flou
+          boxShadow: "0 4px 30px rgba(246, 244, 231, 0.5)", // Ombre lumineuse
+          border: "1px solid rgba(246, 244, 231, 0.3)",
+          // Bordure subtile
+        }}
+      >
+        <CheckboxCard.HiddenInput />
+        <CheckboxCard.Control>
+          <CheckboxCard.Content>
+            <CheckboxCard.Label>
+              {evenement} ({points}&nbsp;points)
+            </CheckboxCard.Label>
+          </CheckboxCard.Content>
+          <CheckboxCard.Indicator />
+        </CheckboxCard.Control>
+      </CheckboxCard.Root>
+    </Box>
   );
 };
 

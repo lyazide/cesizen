@@ -1,10 +1,17 @@
+/*
+Plus de 300 points : stress très élevé, risque évalué à 80 %
+Entre 100 et 300 points : stress élevé, risque évalué à 51 %
+Moins de 100 points : stress modéré, risque évalué à 30% 
+  */
+
 "use client";
 import { Box, Text, Heading, Container, Button } from "@chakra-ui/react";
 import DiagnosticCard from "../../components/DiagnosticCard";
 import Title from "../../components/Header";
 import { useState, useEffect } from "react";
-//import { useSession } from "next-auth/react"; // Importation pour next-auth
+import { useSession } from "next-auth/react"; // Importation pour next-auth
 import { v4 as uuidv4 } from "uuid";
+import { Toaster, toaster } from "../..//components/ui/toaster"; // Importation du composant Toaster
 
 type diagnostic = {
   id: number;
@@ -14,21 +21,21 @@ type diagnostic = {
 
 type SoumissionData = {
   id_Diagnostic: number;
-  id_Utilisateur: number;
+  id_Utilisateur: number | undefined;
   date_: string;
 };
 
 const DiagnosticsPage = () => {
   const [diagnostics, setDiagnostics] = useState<diagnostic[]>([]);
   const [checkedItems, setCheckedItems] = useState<number[]>([]);
-  //const { data: session } = useSession(); // Récupération de la session utilisateur
-  //const utilisateurId = session?.user?.id; // ID utilisateur extrait de la session
-  const utilisateurId = 2; // ID utilisateur pour les tests (à remplacer par l'ID réel de l'utilisateur connecté)
+  const { data: session } = useSession(); // Récupération de la session utilisateur
+  const utilisateurId = session?.user?.id; // ID utilisateur extrait de la session
+  //const utilisateurId = 7; // ID utilisateur pour les tests (à remplacer par l'ID réel de l'utilisateur connecté)
   const [loading, setLoading] = useState<boolean>(true); // Ajout d'un état de chargement
 
-  console.log("DiagnosticsPage component rendered");
-  console.log(diagnostics);
-  console.log(checkedItems);
+  // console.log("DiagnosticsPage component rendered");
+  // console.log(diagnostics);
+  // console.log(checkedItems);
 
   useEffect(() => {
     console.log("useEffect is running");
@@ -68,12 +75,13 @@ const DiagnosticsPage = () => {
       checkedItems.includes(diagnostic.id)
     );
     const soumetUUID = uuidv4();
+    const dateSoumissionUnique = new Date().toISOString();
 
     const soumetData: SoumissionData[] = selectedDiagnostics.map(
       (diagnostic) => ({
         id_Diagnostic: diagnostic.id,
         id_Utilisateur: utilisateurId, // ID utilisateur récupéré
-        date_: new Date().toISOString(), // Format ISO
+        date_: dateSoumissionUnique, // Format ISO
         uuid: soumetUUID,
       })
     );
@@ -106,6 +114,32 @@ const DiagnosticsPage = () => {
       (diagnostics.find((diagnostic) => diagnostic.id === id)?.points || 0),
     0
   );
+  useEffect(() => {
+    //if (totalPoints > 0) {
+    let description = "";
+    let type = "success";
+
+    // Ensure there's a meaningful update
+    if (totalPoints > 300) {
+      description = "Stress très élevé, risque évalué à 80 %";
+      type = "error";
+    } else if (totalPoints > 100) {
+      description = "Stress élevé, risque évalué à 51 %";
+      type = "warning";
+    } else {
+      description = "Stress modéré, risque évalué à 30%";
+      type = "success";
+    }
+    setTimeout(() => {
+      toaster.create({
+        title: "Total de points : " + totalPoints,
+        duration: 2000,
+        type: type,
+        description: description,
+      });
+    }, 0); // Allows React to finish rendering before executing
+    //}
+  }, [totalPoints]);
 
   if (loading) {
     return <Text>Chargement...</Text>; // Affichage d'un message de chargement
@@ -113,6 +147,7 @@ const DiagnosticsPage = () => {
 
   return (
     <Box as="main" flex="1">
+      <Toaster /> {/* Affichage du toaster */}
       <Container
         as="main"
         backgroundColor={"brand.600"}

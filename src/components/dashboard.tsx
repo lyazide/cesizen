@@ -1,7 +1,16 @@
 "use client";
 
 import { Chart, useChart } from "@chakra-ui/charts";
-import { Area, AreaChart, Tooltip, XAxis, YAxis } from "recharts";
+import {
+  Bar,
+  Area,
+  BarChart,
+  CartesianGrid,
+  Tooltip,
+  XAxis,
+  YAxis,
+  Cell,
+} from "recharts";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
@@ -34,12 +43,31 @@ const Dashboard = () => {
           return response.json();
         })
         .then((data: DiagnosticData[]) => {
-          // Transform the data
-          const formattedData = data.map((item: DiagnosticData) => ({
-            date: item.date_,
-            points: item.Diagnostic.points,
-          }));
-          console.log("Formatted data:", formattedData);
+          // Transformation des données : regrouper et cumuler les points par date
+          const aggregatedData: Record<string, number> = {};
+
+          data.forEach((item) => {
+            const date = item.date_;
+            if (aggregatedData[date]) {
+              aggregatedData[date] += item.Diagnostic.points;
+            } else {
+              aggregatedData[date] = item.Diagnostic.points;
+            }
+          });
+
+          // Conversion en tableau formaté
+          const formattedData = Object.entries(aggregatedData).map(
+            ([date, points]) => ({
+              date,
+              points,
+            })
+          );
+          // Trier les données par date (du plus ancien au plus récent)
+          formattedData.sort(
+            (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+          );
+
+          console.log("Données agrégées:", formattedData);
           setDiagnosticData(formattedData);
         })
         .catch((error) => console.error("Fetch error:", error));
@@ -53,17 +81,37 @@ const Dashboard = () => {
 
   return (
     <Chart.Root maxH="sm" chart={chart}>
-      <AreaChart data={chart.data} margin={{ bottom: 24, left: 24 }}>
+      <BarChart data={chart.data} margin={{ bottom: 24, left: 24 }}>
+        <CartesianGrid stroke={chart.color("border.muted")} vertical={false} />
         <XAxis
+          axisLine={false}
+          tickLine={false}
           dataKey="date"
           tickFormatter={(value: string) =>
             new Date(value).toLocaleDateString()
           }
         />
         <YAxis />
+
+        {/* Définition des barres avec couleur dynamique */}
+        <Bar dataKey="points">
+          {diagnosticData.map((entry, index) => (
+            <Cell
+              key={`cell-${index}`}
+              fill={
+                entry.points > 300
+                  ? "red"
+                  : entry.points < 100
+                  ? "green"
+                  : "orange"
+              }
+            />
+          ))}
+        </Bar>
+
         <Tooltip cursor={false} content={<Chart.Tooltip />} />
         <Area type="natural" dataKey="points" fillOpacity={0.2} stroke="teal" />
-      </AreaChart>
+      </BarChart>
     </Chart.Root>
   );
 };

@@ -10,6 +10,7 @@ const roleAccessMap: Record<string, string[]> = {
     "/api/dashboard",
     "/diagnostics",
     "/api/diagnostics",
+    "/api/soumettreDiagnostic",
     "/signin",
     "/signup",
     "/api/signup",
@@ -32,7 +33,7 @@ const roleAccessMap: Record<string, string[]> = {
     "/api/dashboard",
     "/diagnostics",
     "/api/diagnostics",
-
+    "/api/soumettreDiagnostic",
     "/signin",
     "/signup",
     "/api/signup",

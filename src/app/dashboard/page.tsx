@@ -1,4 +1,6 @@
+import RootLayout from "../layout";
 import React from "react";
+
 import Header from "../../components/mainHeader";
 import Footer from "../../components/Footer";
 import Dashboard from "../../components/dashboard";
@@ -7,7 +9,7 @@ import { Box, Text } from "@chakra-ui/react";
 
 export default function Page() {
   return (
-    <>
+    <RootLayout>
       <Box as="main" backgroundColor={"brand.200"} padding="20px">
         <Header />
         <Box as="main" py={8} px={4}>
@@ -18,6 +20,6 @@ export default function Page() {
 
         <Footer />
       </Box>
-    </>
+    </RootLayout>
   );
 }

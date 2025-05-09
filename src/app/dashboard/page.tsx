@@ -1,25 +1,38 @@
-import RootLayout from "../layout";
 import React from "react";
 
-import Header from "../../components/mainHeader";
 import Footer from "../../components/Footer";
 import Dashboard from "../../components/dashboard";
 /*import TestSession from "../../components/testcomponent";*/
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Container } from "@chakra-ui/react";
+import Header from "../../components/Header";
 
 export default function Page() {
   return (
-    <RootLayout>
-      <Box as="main" backgroundColor={"brand.200"} padding="20px">
-        <Header />
-        <Box as="main" py={8} px={4}>
-          <Text fontSize="xl">Dashboard</Text>
-
-          <Dashboard />
+    <Box as="main" flex="1">
+      <Container
+        as="main"
+        backgroundColor={"brand.600"}
+        padding="0px"
+        pt="130px"
+        minHeight="100vh"
+        maxW="100%" // 90% de la largeur de l'écran
+        height="100vh" // 90% de la hauteur de l'écran
+        boxShadow="lg" // Ombre pour un effet esthétique
+        //borderRadius="lg" // Coins arrondis
+        overflow="auto" // Permettre le défilement si contenu trop long
+        //p={6} // Padding interne
+      >
+        <Header name="Tableau de bord" />
+        <Box p={4}>
+          <Box
+            backgroundColor={"brand.500"}
+            // Centrer verticalement
+          >
+            <Dashboard />
+          </Box>
+          <Footer />
         </Box>
-
-        <Footer />
-      </Box>
-    </RootLayout>
+      </Container>
+    </Box>
   );
 }

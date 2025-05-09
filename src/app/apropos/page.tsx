@@ -19,7 +19,7 @@ const GDPRPage = () => {
         overflow="auto" // Permettre le défilement si contenu trop long
         //p={6} // Padding interne
       >
-        <Title name="Questionnaire emotion de stress" />
+        <Title name="Politique de Confidentialité - CesiZen" />
         <Rgpd />
       </Container>
     </Box>

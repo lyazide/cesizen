@@ -3,6 +3,7 @@
 import React from "react";
 import { Text, Box, Heading, List, Button } from "@chakra-ui/react";
 import { toaster } from "../components/ui/toaster";
+import Header from "./Header";
 
 const Rgpd = () => {
   const handleDeleteData = () => {
@@ -19,10 +20,6 @@ const Rgpd = () => {
 
   return (
     <Box p={6} maxW="800px" mx="auto" bg="brand.50">
-      <Heading as="h2" size="xl" mb={4}>
-        Politique de Confidentialité – CESIZEN
-      </Heading>
-
       <Text fontSize="lg" mb={6}>
         Nous respectons votre vie privée et nous nous engageons à protéger vos
         données personnelles conformément aux réglementations RGPD. Vos données
@@ -126,9 +123,17 @@ const Rgpd = () => {
         confidentialité, veuillez consulter notre documentation officielle ou{" "}
         <strong>nous contacter directement</strong>.
       </Text>
-      <Button colorScheme="red" onClick={handleDeleteData} bg="brand.600">
-        Supprimer toutes mes données
-      </Button>
+
+      <Box display="flex" justifyContent="center">
+        <Button
+          colorScheme="red"
+          onClick={handleDeleteData}
+          bg="brand.600"
+          mt={4}
+        >
+          Supprimer toutes mes données
+        </Button>
+      </Box>
     </Box>
   );
 };

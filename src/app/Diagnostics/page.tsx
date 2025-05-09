@@ -7,7 +7,7 @@ Moins de 100 points : stress modéré, risque évalué à 30%
 "use client";
 import { Box, Text, Heading, Container, Button } from "@chakra-ui/react";
 import DiagnosticCard from "../../components/DiagnosticCard";
-import Title from "../../components/Header";
+import Header from "../../components/Header";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react"; // Importation pour next-auth
 import { v4 as uuidv4 } from "uuid";
@@ -161,7 +161,7 @@ const DiagnosticsPage = () => {
         overflow="auto" // Permettre le défilement si contenu trop long
         //p={6} // Padding interne
       >
-        <Title name="Questionnaire diagnostic de stress" />
+        <Header name="Questionnaire diagnostic de stress" />
         <Heading rowGap="20" height="20" color={"brand.200"} textAlign="center">
           Total des points: {totalPoints}
         </Heading>

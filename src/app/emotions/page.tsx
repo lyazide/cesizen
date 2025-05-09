@@ -1,7 +1,7 @@
 "use client";
 import { Box, Text, Container } from "@chakra-ui/react";
 import EmotionCard from "../../components/EmotionCard";
-import Title from "../../components/Header";
+import Header from "../../components/Header";
 import { useState, useEffect } from "react";
 
 type emotion = {
@@ -86,7 +86,7 @@ const EmotionsPage = () => {
       overflow="auto" // Permettre le défilement si contenu trop long
       p={6} // Padding interne
     >
-      <Title name="Questionnaire emotion de stress" />
+      <Header name="Questionnaire emotion de stress" />
 
       <Box
         as="main"

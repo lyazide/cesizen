@@ -10,7 +10,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { Box, Flex, Text, Button, Spinner } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-
+import Header from "../../components/Header";
 /**
  * Interface définissant un exercice de respiration récupéré depuis l'API
  */
@@ -233,20 +233,7 @@ const ExerciseRespiration: React.FC = () => {
       minH="100vh"
       p={6}
     >
-      <Box
-        bg="brand.300"
-        color="white"
-        fontSize="1.5rem"
-        fontFamily="Pacifico, cursive"
-        textAlign="center"
-        p={4}
-        mb={8}
-        borderRadius="md"
-        boxShadow="md"
-      >
-        Exercice de Respiration
-      </Box>
-
+      <Header name="Exercice de Respiration" />
       {notification && (
         <Box
           bg={getNotificationColor(notification.type)}
@@ -292,12 +279,6 @@ const ExerciseRespiration: React.FC = () => {
                 </option>
               ))}
             </select>
-
-            {selectedRespiration && (
-              <Text color="gray.600" mb={4}>
-                {selectedRespiration.description}
-              </Text>
-            )}
 
             {/* Visualisation de l'exercice avec animation */}
             <Flex position="relative" direction="column" align="center" mb={6}>

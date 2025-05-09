@@ -1,20 +1,34 @@
 import React from "react";
-import Header from "../components/mainHeader";
-import Footer from "../components/Footer";
-import { Box, Text, Link } from "@chakra-ui/react";
+import Header from "../components/Header";
+import { Box, Container, SimpleGrid } from "@chakra-ui/react";
+import InformationDetails from "../components/InformationDetails";
 
 export default function Page() {
   return (
-    <>
-      <Box as="main" backgroundColor={"brand.200"} padding="20px">
-        <Header />
-        <Box as="main" py={8} px={4}>
-          <Text fontSize="xl">Bienvenue sur notre site !</Text>
-          <h1>Home</h1>
-          <Link href="/about">About</Link>
+    <Box as="main" flex="1">
+      <Container
+        as="main"
+        backgroundColor={"brand.600"}
+        padding="0px"
+        pt="130px"
+        minHeight="100vh"
+        maxW="100%" // 90% de la largeur de l'écran
+        height="100vh" // 90% de la hauteur de l'écran
+        boxShadow="lg" // Ombre pour un effet esthétique
+        //borderRadius="lg" // Coins arrondis
+        overflow="auto" // Permettre le défilement si contenu trop long
+        //p={6} // Padding interne
+      >
+        <Header name="Acccueil" />
+        <Box p={4} marginTop="80px">
+          <SimpleGrid minChildWidth="sm" gap="20px">
+            <InformationDetails
+              titre="ceci est un titre"
+              contenu="ceci est un contenu"
+            />
+          </SimpleGrid>
         </Box>
-        <Footer />
-      </Box>
-    </>
+      </Container>
+    </Box>
   );
 }

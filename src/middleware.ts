@@ -25,6 +25,7 @@ const roleAccessMap: Record<string, string[]> = {
     "/api/emotions",
     "/respirations",
     "/api/respirations",
+    "/userManagement",
   ],
   user: [
     "/",

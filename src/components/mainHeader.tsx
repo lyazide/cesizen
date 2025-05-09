@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  Box,
   Button,
   CloseButton,
   Drawer,
@@ -8,11 +9,54 @@ import {
   Link,
   Stack,
   Container,
+  HStack,
+  Text,
 } from "@chakra-ui/react";
+
 import { HiMenu } from "react-icons/hi";
 import { signIn, signOut } from "next-auth/react";
+import { useState, useEffect } from "react";
+import { FaShieldAlt, FaUser, FaUserSlash } from "react-icons/fa";
+import { useSession } from "next-auth/react";
 
 const Header = () => {
+  const { data: session } = useSession();
+
+  // Récupération des informations utilisateur
+  const userName = session?.user?.name || "Invité";
+  const userStatus = session?.user?.isActif ? "Actif" : "Inactif";
+  const userRole = session?.user?.isAdministrateur ? "Admin" : "Utilisateur";
+
+  const [currentTime, setCurrentTime] = useState(
+    new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" })
+  );
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(
+        new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" })
+      );
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Détermine l'icône à afficher
+  const getStatusIcon = () => {
+    if (userRole === "Admin") {
+      return userStatus === "Actif" ? (
+        <FaShieldAlt color="green" />
+      ) : (
+        <FaShieldAlt color="red" />
+      );
+    } else {
+      return userStatus === "Actif" ? (
+        <FaUser color="green" />
+      ) : (
+        <FaUserSlash color="red" />
+      );
+    }
+  };
   const navItems = [
     { label: "A propos", href: "/apropos" },
     { label: "Dashboard", href: "/dashboard" },
@@ -35,8 +79,45 @@ const Header = () => {
           <Drawer.Backdrop />
           <Drawer.Positioner padding="4">
             <Drawer.Content rounded="md">
-              <Drawer.Header>
-                <Drawer.Title>Menu</Drawer.Title>
+              <Drawer.Header
+                width="100%"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+              >
+                <Stack
+                  py="2"
+                  textAlign="center"
+                  color="white"
+                  bg="brand.600"
+                  width="100%"
+                >
+                  <Drawer.Title bg="brand.600">Menu</Drawer.Title>
+
+                  <Text fontSize="sm" bg="brand.600">
+                    {currentTime}
+                  </Text>
+
+                  <Text fontSize="sm" bg="brand.600">
+                    {userName}
+                  </Text>
+
+                  <HStack bg="brand.600" justifyContent="center">
+                    <Box
+                      bg="white"
+                      borderRadius="full"
+                      p="2" // Ajuste l'espace autour de l'icône
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      {getStatusIcon()}
+                    </Box>
+                    <Text fontSize="sm" bg="brand.600">
+                      {userRole}
+                    </Text>
+                  </HStack>
+                </Stack>
               </Drawer.Header>
               <Drawer.Body>
                 <Stack direction="column" gap="4">

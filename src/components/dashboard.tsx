@@ -11,6 +11,7 @@ import {
   YAxis,
   Cell,
 } from "recharts";
+import { Box } from "@chakra-ui/react";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
@@ -80,39 +81,59 @@ const Dashboard = () => {
   });
 
   return (
-    <Chart.Root maxH="sm" chart={chart}>
-      <BarChart data={chart.data} margin={{ bottom: 24, left: 24 }}>
-        <CartesianGrid stroke={chart.color("border.muted")} vertical={false} />
-        <XAxis
-          axisLine={false}
-          tickLine={false}
-          dataKey="date"
-          tickFormatter={(value: string) =>
-            new Date(value).toLocaleDateString()
-          }
-        />
-        <YAxis />
+    <Box>
+      <Box
+        backgroundColor={"brand.500"}
+        alignItems="center"
+        justifyContent="center"
+        width="90%"
+      >
+        {/* Ajout d'un espace entre le header et le graphique */}
+        <Box>
+          <Chart.Root maxH="sm" chart={chart}>
+            <BarChart data={chart.data} margin={{ bottom: 24, left: 24 }}>
+              <CartesianGrid
+                stroke={chart.color("border.muted")}
+                vertical={false}
+              />
+              <XAxis
+                axisLine={false}
+                tickLine={false}
+                dataKey="date"
+                tickFormatter={(value: string) =>
+                  new Date(value).toLocaleDateString()
+                }
+              />
+              <YAxis />
 
-        {/* Définition des barres avec couleur dynamique */}
-        <Bar dataKey="points">
-          {diagnosticData.map((entry, index) => (
-            <Cell
-              key={`cell-${index}`}
-              fill={
-                entry.points > 300
-                  ? "red"
-                  : entry.points < 100
-                  ? "green"
-                  : "orange"
-              }
-            />
-          ))}
-        </Bar>
+              {/* Définition des barres avec couleur dynamique */}
+              <Bar dataKey="points">
+                {diagnosticData.map((entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={
+                      entry.points > 300
+                        ? "rgba(230, 96, 103, 0.7)" // Rouge semi-transparent
+                        : entry.points < 100
+                        ? "rgba(141, 172, 157, 0.7)" // Vert semi-transparent
+                        : "rgba(246, 244, 231, 0.7)" // Orange semi-transparent
+                    }
+                  />
+                ))}
+              </Bar>
 
-        <Tooltip cursor={false} content={<Chart.Tooltip />} />
-        <Area type="natural" dataKey="points" fillOpacity={0.2} stroke="teal" />
-      </BarChart>
-    </Chart.Root>
+              <Tooltip cursor={false} content={<Chart.Tooltip />} />
+              <Area
+                type="natural"
+                dataKey="points"
+                fillOpacity={0.2}
+                stroke="teal"
+              />
+            </BarChart>
+          </Chart.Root>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

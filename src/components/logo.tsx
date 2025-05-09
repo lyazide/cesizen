@@ -37,7 +37,7 @@ export const Logo = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const Text = ({
+export const LogoText = ({
   text,
   ...props
 }: { text: string } & React.SVGProps<SVGSVGElement>) => (

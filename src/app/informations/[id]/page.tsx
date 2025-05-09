@@ -44,6 +44,8 @@ const InformationDetailsPage = async ({
               contenu={information.contenu}
               dateCreation={information.dateCreation}
               dateModification={information.dateModification}
+              boutonNom="Retour"
+              boutonUrl="/informations"
             />
           </SimpleGrid>
         </Box>

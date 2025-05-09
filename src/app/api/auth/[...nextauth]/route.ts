@@ -6,6 +6,27 @@ import bcrypt from "bcrypt";
 //import { RequestInternal } from "next-auth/core/types";
 //import { Awaitable } from "next-auth/lib/utils";
 
+/*added for debug*/
+declare module "next-auth" {
+  interface Session {
+    user: {
+      id: number;
+      name?: string;
+      email?: string;
+      image?: string;
+      isActif: boolean;
+      isAdministrateur: boolean;
+    };
+  }
+
+  interface JWT {
+    sub: string;
+    email?: string;
+    isActif: boolean;
+    isAdministrateur: boolean;
+  }
+}
+/*end added for debug*/
 // Définir les types pour l'utilisateur (correspondant à ce que NextAuth attend)
 interface CustomUser extends Omit<User, "id"> {
   nom: string;

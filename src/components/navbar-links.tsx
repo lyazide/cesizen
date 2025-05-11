@@ -11,8 +11,6 @@ export const NavbarLinks = (props: StackProps) => {
         gap={{ base: "6", md: "8" }}
         {...props}
       >
-        <ColorModeButton />
-
         <Header />
       </HStack>
     </Container>

@@ -60,7 +60,7 @@ export const Block = () => {
           <HStack justify="space-between" align="center" width="100%">
             {/* Rectangle arrondi à gauche avec icône du rôle */}
 
-            <HStack gap="20px">
+            <HStack gap="20px" pl="10px" pr="30px">
               <Logo />
               <LogoText
                 text={cesizenText}
@@ -69,7 +69,7 @@ export const Block = () => {
               />
             </HStack>
 
-            <HStack gap="20px">
+            <HStack gap="20px" pr="20px">
               <NavbarLinks />
             </HStack>
 

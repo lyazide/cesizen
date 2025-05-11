@@ -2,7 +2,6 @@ import { createMocks } from "node-mocks-http";
 import { GET, POST, PUT, DELETE } from "./route"; // Assure-toi que le chemin est correct
 import prisma from "@/utils/db"; // Si Prisma est utilisé dans les tests
 import Diagnostic from "../../../types/diagnostics";
-import { NextResponse } from "next/server"; // Importation de NextResponse
 
 // ✅ Mock de NextResponse pour éviter l'erreur "Request is not defined"
 jest.mock("next/server", () => ({
@@ -44,12 +43,13 @@ describe("Diagnostics API", () => {
     );
 
     // ✅ Création de mocks pour req et res
-    const { req, res } = createMocks();
+    const { req } = createMocks();
 
     // ✅ Simulation de la fonction GET
-    const response = await GET(req, res);
+    const response = await GET(req);
 
     // ✅ Assertions sur la réponse
+
     expect(response.status).toBe(200);
     expect(response.body.data).toHaveLength(2);
     expect(response.body.data[0].evenement).toBe("Événement 1");
@@ -63,10 +63,10 @@ describe("Diagnostics API", () => {
     (prisma.diagnostic.findMany as jest.Mock).mockResolvedValue([]);
 
     // ✅ Création de mocks pour req et res
-    const { req, res } = createMocks();
+    const { req } = createMocks();
 
     // ✅ Simulation de la fonction GET
-    const response = await GET(req, res);
+    const response = await GET(req);
 
     // ✅ Assertions sur la réponse
     expect(response.status).toBe(404);
@@ -84,7 +84,7 @@ describe("Diagnostics API", () => {
     (prisma.diagnostic.create as jest.Mock).mockResolvedValue(newDiagnostic);
 
     // ✅ Création de mocks pour req et res
-    const { req, res } = createMocks({
+    const { req } = createMocks({
       method: "POST",
       body: { evenement: "Événement 3", points: 30 },
     });
@@ -93,7 +93,7 @@ describe("Diagnostics API", () => {
     req.json = async () => ({ evenement: "Événement 3", points: 30 });
 
     // ✅ Simulation de la fonction POST
-    const response = await POST(req, res);
+    const response = await POST(req);
 
     // ✅ Assertions sur la réponse
     expect(response.status).toBe(201);
@@ -113,7 +113,7 @@ describe("Diagnostics API", () => {
     );
 
     // ✅ Création de mocks pour req et res
-    const { req, res } = createMocks({
+    const { req } = createMocks({
       method: "PUT",
       body: { id: 1, evenement: "Événement 1 modifié", points: 15 },
     });
@@ -126,7 +126,7 @@ describe("Diagnostics API", () => {
     });
 
     // ✅ Simulation de la fonction PUT
-    const response = await PUT(req, res);
+    const response = await PUT(req);
 
     // ✅ Assertions sur la réponse
     expect(response.status).toBe(201);
@@ -146,7 +146,7 @@ describe("Diagnostics API", () => {
     );
 
     // ✅ Création de mocks pour req et res
-    const { req, res } = createMocks({
+    const { req } = createMocks({
       method: "DELETE",
       body: { id: 1 },
     });
@@ -155,7 +155,7 @@ describe("Diagnostics API", () => {
     req.json = async () => ({ id: 1 });
 
     // ✅ Simulation de la fonction DELETE
-    const response = await DELETE(req, res);
+    const response = await DELETE(req);
 
     // ✅ Assertions sur la réponse
     expect(response.status).toBe(201);

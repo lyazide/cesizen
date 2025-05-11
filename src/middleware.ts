@@ -13,6 +13,7 @@ const roleAccessMap: Record<string, string[]> = {
     "/api/soumettreDiagnostic",
     "/signin",
     "/signup",
+
     "/api/signup",
     "/informations/editor",
 
@@ -28,6 +29,8 @@ const roleAccessMap: Record<string, string[]> = {
     "/respirations",
     "/api/respirations",
     "/userManagement",
+    "/userManagement/list",
+    "/userManagement/edit",
     "/infoManagement",
   ],
   user: [

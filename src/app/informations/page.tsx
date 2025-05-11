@@ -1,9 +1,10 @@
 import {
   Box,
-  //  Heading,
+  Heading,
   SimpleGrid,
   Container,
   Text,
+  Button,
   Link as ChakraLink,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
@@ -53,6 +54,11 @@ const InformationsPage = async () => {
       >
         <Header name="Informations sur la santé mentale" />
         <Box p={4}>
+          <Box display="flex" justifyContent="flex-end" mb={4}>
+            <ChakraLink as={NextLink} href="/informations/create">
+              <Button colorScheme="teal">Ajouter une information</Button>
+            </ChakraLink>
+          </Box>
           {detentes.length > 0 ? (
             <SimpleGrid minChildWidth="sm" gap="20px">
               {detentes.map((information) => (

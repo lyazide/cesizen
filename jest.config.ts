@@ -26,6 +26,11 @@ const additionalConfig: Config = {
     "^@/prisma$": "<rootDir>/utils/db.ts",
     ...pathsToModuleNameMapper(compilerOptions.paths, { prefix: "<rootDir>/" }),
   },
+  reporters: [
+    "default", // Pour afficher le rapport dans le terminal
+    ["jest-junit", { outputDirectory: "reports", outputName: "junit.xml" }],
+  ],
+  coverageDirectory: "coverage", // Pour générer le rapport de couverture
 };
 
 // Merge base Jest config with additional custom config

@@ -14,9 +14,11 @@ const roleAccessMap: Record<string, string[]> = {
     "/signin",
     "/signup",
     "/api/signup",
+    "/informations/editor",
 
     "/informations",
     "/api/informations",
+    "/api/informations/[id]",
     "/informations/[id]", // Gestion dynamique des pages
     "/detentes",
     "/api/detentes",
@@ -26,6 +28,7 @@ const roleAccessMap: Record<string, string[]> = {
     "/respirations",
     "/api/respirations",
     "/userManagement",
+    "/infoManagement",
   ],
   user: [
     "/",

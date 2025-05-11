@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="7" failures="0" errors="0" time="17.586">
-  <testsuite name="DetenteCard" errors="0" failures="0" skipped="0" timestamp="2025-05-11T13:30:16" time="7.532" tests="2">
-    <testcase classname="DetenteCard affiche correctement les informations fournies en props" name="DetenteCard affiche correctement les informations fournies en props" time="0.033">
+<testsuites name="jest tests" tests="7" failures="0" errors="0" time="1.902">
+  <testsuite name="DetenteCard" errors="0" failures="0" skipped="0" timestamp="2025-05-11T14:24:01" time="0.493" tests="2">
+    <testcase classname="DetenteCard affiche correctement les informations fournies en props" name="DetenteCard affiche correctement les informations fournies en props" time="0.035">
     </testcase>
     <testcase classname="DetenteCard applique les styles correctement" name="DetenteCard applique les styles correctement" time="0.006">
     </testcase>
   </testsuite>
-  <testsuite name="Diagnostics API" errors="0" failures="0" skipped="0" timestamp="2025-05-11T13:30:23" time="0.768" tests="5">
+  <testsuite name="Diagnostics API" errors="0" failures="0" skipped="0" timestamp="2025-05-11T14:24:02" time="0.118" tests="5">
     <testcase classname="Diagnostics API devrait renvoyer une liste de diagnostics avec GET" name="Diagnostics API devrait renvoyer une liste de diagnostics avec GET" time="0.001">
     </testcase>
     <testcase classname="Diagnostics API devrait renvoyer une erreur si aucun diagnostic n&apos;est trouvé avec GET" name="Diagnostics API devrait renvoyer une erreur si aucun diagnostic n&apos;est trouvé avec GET" time="0.001">
     </testcase>
-    <testcase classname="Diagnostics API devrait créer un nouveau diagnostic avec POST" name="Diagnostics API devrait créer un nouveau diagnostic avec POST" time="0">
+    <testcase classname="Diagnostics API devrait créer un nouveau diagnostic avec POST" name="Diagnostics API devrait créer un nouveau diagnostic avec POST" time="0.001">
     </testcase>
     <testcase classname="Diagnostics API devrait mettre à jour un diagnostic existant avec PUT" name="Diagnostics API devrait mettre à jour un diagnostic existant avec PUT" time="0">
     </testcase>
-    <testcase classname="Diagnostics API devrait supprimer un diagnostic avec DELETE" name="Diagnostics API devrait supprimer un diagnostic avec DELETE" time="0">
+    <testcase classname="Diagnostics API devrait supprimer un diagnostic avec DELETE" name="Diagnostics API devrait supprimer un diagnostic avec DELETE" time="0.001">
     </testcase>
   </testsuite>
 </testsuites>

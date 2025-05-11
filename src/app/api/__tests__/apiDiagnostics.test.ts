@@ -1,6 +1,6 @@
 import { createMocks } from "node-mocks-http";
-import { GET, POST, PUT, DELETE } from "./route"; // Assure-toi que le chemin est correct
-import prisma from "@/utils/db"; // Si Prisma est utilisé dans les tests
+import { GET, POST, PUT, DELETE } from "../diagnostics/route";
+import prisma from "@/utils/db";
 import Diagnostic from "../../../types/diagnostics";
 
 // ✅ Mock de NextResponse pour éviter l'erreur "Request is not defined"

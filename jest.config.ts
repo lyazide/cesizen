@@ -1,42 +1,42 @@
+// jest.config.ts
+
 import type { Config } from "jest";
-import { pathsToModuleNameMapper } from "ts-jest";
-import nextJest from "next/jest";
-import { compilerOptions } from "./tsconfig.json";
+import nextJest from "next/jest.js";
 
 const createJestConfig = nextJest({
-  // Path to Next.js app to load next.config.js and .env files in the test environment
   dir: "./",
 });
 
-const baseJestConfig = {
-  preset: "ts-jest",
-  testEnvironment: "node",
-  extensionsToTreatAsEsm: [".ts", ".tsx"], // Treat TypeScript files as ESM
-  transform: {
-    "^.+\\.tsx?$": "ts-jest", // Transform TS files
-  },
-};
+// Add any custom config to be passed to Jest
+// the ones listed should cover for most projects
 
-const additionalConfig: Config = {
+const config: Config = {
   coverageProvider: "v8",
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"], // Setup files after the test environment is initialized
-  testEnvironment: "jsdom", // Override test environment to jsdom
-  moduleNameMapper: {
-    "^@/components/(.*)$": "<rootDir>/components/$1",
-    "^@/prisma$": "<rootDir>/utils/db.ts",
-    ...pathsToModuleNameMapper(compilerOptions.paths, { prefix: "<rootDir>/" }),
+  testEnvironment: "jsdom",
+
+  // Check the structuredClone Conundrum to understand this line
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  moduleFileExtensions: ["js", "jsx", "ts", "tsx"],
+  transform: {
+    "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
   },
-  reporters: [
-    "default", // Pour afficher le rapport dans le terminal
-    ["jest-junit", { outputDirectory: "reports", outputName: "junit.xml" }],
+  moduleNameMapper: {
+    "^@/components/(.*)$": "<rootDir>/src/components/$1",
+    "^@/app/(.*)$": "<rootDir>/src/app/$1",
+    "^@/(.*)$": "<rootDir>/src/$1",
+  },
+  // This part is crucial for handling static assets
+  moduleDirectories: ["node_modules", "<rootDir>/"],
+  testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
+  collectCoverageFrom: [
+    "src/**/*.{js,jsx,ts,tsx}",
+    "!src/**/*.d.ts",
+    "!src/**/types.ts",
   ],
-  coverageDirectory: "coverage", // Pour générer le rapport de couverture
+  watchPlugins: [
+    "jest-watch-typeahead/filename",
+    "jest-watch-typeahead/testname",
+  ],
 };
 
-// Merge base Jest config with additional custom config
-const finalJestConfig = {
-  ...baseJestConfig,
-  ...additionalConfig,
-};
-
-export default createJestConfig(finalJestConfig);
+export default createJestConfig(config);

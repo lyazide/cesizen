@@ -10,11 +10,17 @@ interface HeaderProps {
 
 const Title: React.FC<HeaderProps> = ({ name }) => {
   return (
-    <Box bg="brand.400" color="white" p={4} textAlign="center">
+    <Box
+      data-testid="header-box"
+      bg="brand.400"
+      color="white"
+      p={4}
+      textAlign="center"
+    >
       <Heading as="h1" size="lg">
         {name}
       </Heading>
-      <HStack gap="20px" justify="center"></HStack>
+      <HStack data-testid="header-actions" gap="20px" justify="center"></HStack>
     </Box>
   );
 };

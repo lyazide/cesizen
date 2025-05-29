@@ -57,6 +57,8 @@ describe("Header Component", () => {
         // ADD THE 'id' PROPERTY HERE
         id: 1, // Use a unique number for each mock user
         name: "Jean Dupont",
+        nom: "Dupont",
+        prenom: "Jean",
         email: "jean.dupont@example.com",
         isActif: true,
         isAdministrateur: false,
@@ -85,6 +87,8 @@ describe("Header Component", () => {
         // ADD THE 'id' PROPERTY HERE
         id: 2, // Use a unique number for each mock user
         name: "Admin User",
+        nom: "Admin",
+        prenom: "User",
         email: "admin@example.com",
         isActif: true,
         isAdministrateur: true,
@@ -109,6 +113,8 @@ describe("Header Component", () => {
         // ADD THE 'id' PROPERTY HERE
         id: 3, // Use a unique number for each mock user
         name: "Utilisateur Inactif",
+        nom: "Inactif",
+        prenom: "Utilisateur",
         email: "inactive@example.com",
         isActif: false,
         isAdministrateur: false,

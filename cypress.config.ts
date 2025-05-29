@@ -13,7 +13,7 @@ export default defineConfig({
       codeCoverageTask(on, config);
       return config;
     },
-    specPattern: "src/**/*.cy.{js,jsx,ts,tsx}",
+    specPattern: "cypress/**/*.cy.{js,jsx,ts,tsx}",
   },
 
   e2e: {

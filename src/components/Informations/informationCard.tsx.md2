@@ -1,4 +1,4 @@
-// src/components/InformationCard.tsx strange
+// src/components/InformationCard.tsx
 import { Box, Button, Center, Heading, Text } from "@chakra-ui/react";
 
 type InformationCardProps = {

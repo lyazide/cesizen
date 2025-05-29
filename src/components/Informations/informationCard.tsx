@@ -1,18 +1,30 @@
-import {
-  Box,
-  Button,
-  Center,
-  Heading,
-  HStack,
-  Image,
-  Tag,
-  Text,
-} from "@chakra-ui/react";
+// src/components/InformationCard.tsx
+import { Box, Button, Center, Heading, Text } from "@chakra-ui/react";
 
-export function InformationCard2() {
+type InformationCardProps = {
+  titre: string;
+  contenu: string;
+  dateCreation: Date;
+  dateModification: Date;
+};
+
+const convertirDate = (date: Date): string => {
+  return new Date(date).toLocaleDateString("fr-FR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+};
+
+const InformationCard: React.FC<InformationCardProps> = ({
+  titre,
+  contenu,
+  dateCreation,
+}) => {
   return (
-    <Center as="section" bg="gray.100" h="100vh">
-      <Box maxW="420px" bg="white" p="6">
+    <Center as="section" bg="brand.600" h="45vh">
+      <Box maxW="420px" borderWidth="1px" borderRadius="lg" p="6" bg="brand.50">
+        {/*
         <Image
           src="https://images.unsplash.com/photo-1667420170858-39d40cb413e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
           alt="Svartifoss Waterfall"
@@ -20,6 +32,9 @@ export function InformationCard2() {
           objectFit="cover"
           mx="auto"
         />
+        */}
+        <Text mt={2}>{convertirDate(dateCreation)}</Text>
+        {/*}
         <HStack mt="5" gap="3">
           {["Waterfall", "Nature"].map((item) => (
             <Tag.Root key={item} variant="outline">
@@ -27,19 +42,20 @@ export function InformationCard2() {
             </Tag.Root>
           ))}
         </HStack>
-        <Heading my="4" size="lg">
-          Svartifoss Waterfall
+        */}
+        <Heading as="h2" size="md">
+          {titre}
         </Heading>
-        <Text>
-          Svartifoss is a waterfall in Skaftafell in Vatnajökull National Park
-          in Iceland, and is one of the most popular sights in the park. It is
-          surrounded by dark lava columns, which gave rise to its name. The base
-          of this waterfall is noteworthy for its sharp rocks.
-        </Text>
+
+        <Text mt={2} dangerouslySetInnerHTML={{ __html: contenu }}></Text>
         <Center my="6">
-          <Button colorScheme="blue">Learn more</Button>
+          <Button bg="brand.400" colorScheme="blue">
+            Détails
+          </Button>
         </Center>
       </Box>
     </Center>
   );
-}
+};
+
+export default InformationCard;

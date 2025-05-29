@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import DetenteCard from "../DetenteCard"; // Assurez-vous que le chemin est correct
+import DetenteCard from "../Detente/DetenteCard"; // Assurez-vous que le chemin est correct
 
 jest.mock("@chakra-ui/react", () => ({
   Box: jest.fn(({ children }) => (

@@ -10,7 +10,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { Box, Flex, Text, Button, Spinner } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import Header from "../../components/Header";
+import Header from "../../components/Header/Header";
 /**
  * Interface définissant un exercice de respiration récupéré depuis l'API
  */

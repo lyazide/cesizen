@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Container } from "@chakra-ui/react";
 import Rgpd from "../../components/Rgpd"; // Import du composant réutilisable
-import Title from "../../components/Header";
+import Title from "../../components/Header/Header";
 
 const GDPRPage = () => {
   return (

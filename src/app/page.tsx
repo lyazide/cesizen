@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 import { Box, Container, SimpleGrid } from "@chakra-ui/react";
-import InformationDetails from "../components/InformationDetails";
+import InformationDetails from "../components/Informations/InformationDetails";
 
 export default function Page() {
   return (

@@ -2,8 +2,8 @@
 
 // Importation de bibliothèques et de composants nécessaires
 import { Provider } from "../components/ui/provider"; // Un composant personnalisé utilisé pour fournir le contexte global de l'application.
-import { Block } from "../components/Block"; //Un composant comportant notre barre de navigation
-import Footer from "../components/Footer"; // Un composant de pied de page personnalisé
+import { Block } from "../components/Header/Block"; //Un composant comportant notre barre de navigation
+import Footer from "../components/Footer/Footer"; // Un composant de pied de page personnalisé
 import { SessionProvider } from "next-auth/react"; // Un composant de fournisseur de session pour gérer l'authentification des utilisateurs
 import { Box } from "@chakra-ui/react"; // Un composant de boîte de Chakra UI pour la mise en page
 import { Suspense } from "react";

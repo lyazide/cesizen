@@ -6,7 +6,7 @@ export async function GET() {
     // Fetch all emotions
     const emotions = await prisma.emotion.findMany();
 
-    console.log(emotions);
+    //console.log(emotions);
     if (!emotions || emotions.length === 0) {
       return NextResponse.json(
         { error: "No emotions found." },

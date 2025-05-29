@@ -1,10 +1,10 @@
 import React from "react";
 
-import Footer from "../../components/Footer";
-import Dashboard from "../../components/dashboard";
+import Footer from "../../components/Footer/Footer";
+import Dashboard from "../../components/Dashboard/dashboard";
 /*import TestSession from "../../components/testcomponent";*/
 import { Box, Container } from "@chakra-ui/react";
-import Header from "../../components/Header";
+import Header from "../../components/Header/Header";
 
 export default function Page() {
   return (

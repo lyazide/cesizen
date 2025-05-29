@@ -1,7 +1,7 @@
 import React from "react";
 import { mount } from "@cypress/react";
 import { Provider } from "../../src/components/ui/provider";
-import Footer from "../../src/components/Footer";
+import Footer from "../../src/components/Footer/Footer";
 
 //const theme = Theme({});
 

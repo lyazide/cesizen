@@ -1,7 +1,7 @@
 "use client";
 import { Box, Text, Container } from "@chakra-ui/react";
-import EmotionCard from "../../components/EmotionCard";
-import Header from "../../components/Header";
+import EmotionCard from "../../components/Emotions/EmotionCard";
+import Header from "../../components/Header/Header";
 import { useState, useEffect } from "react";
 
 type emotion = {
@@ -15,21 +15,21 @@ const EmotionsPage = () => {
   const [checkedItems, setCheckedItems] = useState<number[]>([]);
   //const [loading, setLoading] = useState<boolean>(true); // Ajout d'un état de chargement
 
-  console.log("DiagnosticsPage component rendered");
-  console.log(emotions);
-  console.log(checkedItems);
+  //console.log("DiagnosticsPage component rendered");
+  //console.log(emotions);
+  //console.log(checkedItems);
 
   useEffect(() => {
     console.log("useEffect is running");
     const fetchData = async () => {
       try {
         const response = await fetch("/api/emotions");
-        console.log("API Response:", response);
+        //console.log("API Response:", response);
         if (!response.ok) {
           throw new Error("Failed to fetch emotions");
         }
         const reponse = await response.json();
-        console.log("API Data:", reponse);
+        //console.log("API Data:", reponse);
         setEmotions(reponse.data);
       } catch (error) {
         console.error("Error fetching emotions:", error);
@@ -41,7 +41,7 @@ const EmotionsPage = () => {
   }, []);
 
   useEffect(() => {
-    console.log("emotions state updated:", emotions);
+    //console.log("emotions state updated:", emotions);
   }, [emotions]);
 
   /*const handleCheckboxChange = (checked: boolean, id: number) => {

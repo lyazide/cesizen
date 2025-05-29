@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Header from "../../../components/Header";
+import Header from "../../../components/Header/Header";
 
 const CreateInformationPage = () => {
   const [titre, setTitre] = useState("");

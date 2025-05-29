@@ -1,8 +1,8 @@
 // src/app/informations/[id]/page.tsx
-import InformationDetails from "../../../components/InformationDetails";
+import InformationDetails from "../../../components/Informations/InformationDetails";
 import prisma from "@/utils/db";
 import { Box, Container, /*Text,*/ SimpleGrid } from "@chakra-ui/react";
-import Header from "../../../components/Header";
+import Header from "../../../components/Header/Header";
 import { notFound } from "next/navigation";
 
 async function InformationDetailsPage({

@@ -6,8 +6,8 @@ Moins de 100 points : stress modéré, risque évalué à 30%
 
 "use client";
 import { Box, Text, Heading, Container, Button } from "@chakra-ui/react";
-import DiagnosticCard from "../../components/DiagnosticCard";
-import Header from "../../components/Header";
+import DiagnosticCard from "../../components/Diagnostics/DiagnosticCard";
+import Header from "../../components/Header/Header";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react"; // Importation pour next-auth
 import { v4 as uuidv4 } from "uuid";

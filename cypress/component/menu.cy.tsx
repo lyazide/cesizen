@@ -6,7 +6,7 @@ import { Provider } from "../../src/components/ui/provider";
 import { SessionProvider } from "next-auth/react";
 import { Session } from "next-auth"; // Import Session from the main package
 
-import { Block } from "../../src/components/Block";
+import { Block } from "../../src/components/Header/Block";
 
 // NO MORE `interface CustomSession` HERE, as it's now handled by next-auth.d.ts
 

@@ -11,6 +11,7 @@ import InformationCard from "../../components/Informations/InformationCard";
 import prisma from "../../utils/db";
 import Header from "../../components/Header/Header";
 
+//test rename
 //import { Block } from "@/components/block";
 type Information = {
   id: number;

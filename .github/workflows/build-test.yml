@@ -1,6 +1,7 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
+env: DATABASE_URL="postgresql://postgres:Rebecca151205@localhost:5432/cesizen?schema=public"
 jobs:
   Build:
     runs-on: ubuntu-latest

@@ -18,6 +18,12 @@ jobs:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Wait for PostgreSQL to be ready
+        run: |
+          until pg_isready -h localhost -p 5432; do
+            echo "Waiting for PostgreSQL..."
+            sleep 2
+          done
       - name: Check out repository code
         uses: actions/checkout@v4
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
@@ -26,6 +32,11 @@ jobs:
         run: echo DATABASE_URL="postgresql://postgres:Rebecca151205@localhost:5432/cesizen?schema=public" >> $GITHUB_ENV
       - name: install dependencies
         run: npm clean-install
+      - name: Apply Prisma migrations
+        run: npx prisma migrate deploy
+      - name: Verify Prisma schema (Optional)
+        run: npx prisma db push # Ensure database schema is correct
+
       - name: Build
         run: npm run build
       - run: echo "🍏 This job's status is ${{ job.status }}."

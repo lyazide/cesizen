@@ -30,18 +30,16 @@ if (typeof global.structuredClone !== "function") {
 
 // Mock de window.matchMedia uniquement si window n'est pas défini
 if (typeof window === "undefined") {
-  global.window = {
-    matchMedia: jest.fn().mockImplementation((query) => ({
-      matches: false,
-      media: query,
-      onchange: null,
-      addListener: jest.fn(),
-      removeListener: jest.fn(),
-      addEventListener: jest.fn(),
-      removeEventListener: jest.fn(),
-      dispatchEvent: jest.fn(),
-    })),
-  };
+  global.window.matchMedia = jest.fn().mockImplementation((query) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: jest.fn(),
+    removeListener: jest.fn(),
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn(),
+  }));
 }
 
 // Window matchMedia mock

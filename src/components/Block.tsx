@@ -1,13 +1,26 @@
-import { useSession } from "next-auth/react";
-import { Box, HStack, Text, Flex } from "@chakra-ui/react";
+//import { useSession } from "next-auth/react";
+import { Box, HStack } from "@chakra-ui/react";
 import { Logo, LogoText } from "./logo";
 import { NavbarLinks } from "./navbar-links";
-import { useState, useEffect } from "react";
-import { FaShieldAlt, FaUser, FaUserSlash } from "react-icons/fa";
+//import { useState, useEffect } from "react";
+//import dynamic from "next/dynamic";
+//import { FaShieldAlt, FaUser, FaUserSlash } from "react-icons/fa";
+/*const FaShieldAlt = dynamic(
+  () => import("react-icons/fa").then((mod) => mod.FaShieldAlt),
+  { ssr: false }
+);
+const FaUser = dynamic(
+  () => import("react-icons/fa").then((mod) => mod.FaUser),
+  { ssr: false }
+);
+const FaUserSlash = dynamic(
+  () => import("react-icons/fa").then((mod) => mod.FaUserSlash),
+  { ssr: false }
+);*/
 
 export const Block = () => {
   const cesizenText = "Cesizen";
-  const { data: session } = useSession();
+  /*const { data: session } = useSession();
 
   // Récupération des informations utilisateur
   const userName = session?.user?.name || "Invité";
@@ -43,7 +56,7 @@ export const Block = () => {
         <FaUserSlash color="red" />
       );
     }
-  };
+  };*/
 
   return (
     <Box as="header" width="100vw">

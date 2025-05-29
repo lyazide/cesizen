@@ -13,11 +13,31 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-import { HiMenu } from "react-icons/hi";
+//import { HiMenu } from "react-icons/hi";
 import { signIn, signOut } from "next-auth/react";
 import { useState, useEffect } from "react";
-import { FaShieldAlt, FaUser, FaUserSlash } from "react-icons/fa";
+//import { FaShieldAlt, FaUser, FaUserSlash } from "react-icons/fa";
 import { useSession } from "next-auth/react";
+
+import dynamic from "next/dynamic";
+//import { FaShieldAlt, FaUser, FaUserSlash } from "react-icons/fa";
+const HiMenu = dynamic(
+  () => import("react-icons/hi").then((mod) => mod.HiMenu),
+  { ssr: false }
+);
+
+const FaShieldAlt = dynamic(
+  () => import("react-icons/fa").then((mod) => mod.FaShieldAlt),
+  { ssr: false }
+);
+const FaUser = dynamic(
+  () => import("react-icons/fa").then((mod) => mod.FaUser),
+  { ssr: false }
+);
+const FaUserSlash = dynamic(
+  () => import("react-icons/fa").then((mod) => mod.FaUserSlash),
+  { ssr: false }
+);
 
 const Header = () => {
   const { data: session } = useSession();
@@ -70,15 +90,15 @@ const Header = () => {
   return (
     <Container as="header">
       <Drawer.Root>
-        <Drawer.Trigger asChild>
-          <Button variant="outline" size="sm">
+        <Drawer.Trigger>
+          <Button variant="outline" size="sm" aria-label="Toggle navigation">
             <HiMenu size="20" fill="white" />
           </Button>
         </Drawer.Trigger>
         <Portal>
           <Drawer.Backdrop />
-          <Drawer.Positioner padding="4">
-            <Drawer.Content rounded="md">
+          <Drawer.Positioner>
+            <Drawer.Content>
               <Drawer.Header
                 width="100%"
                 display="flex"
@@ -92,7 +112,7 @@ const Header = () => {
                   bg="brand.600"
                   width="100%"
                 >
-                  <Drawer.Title bg="brand.600">Menu</Drawer.Title>
+                  <Drawer.Title>Menu</Drawer.Title>
 
                   <Text fontSize="sm" bg="brand.600">
                     {currentTime}
@@ -143,7 +163,7 @@ const Header = () => {
                   Logout
                 </Button>
               </Drawer.Footer>
-              <Drawer.CloseTrigger asChild>
+              <Drawer.CloseTrigger>
                 <CloseButton size="sm" />
               </Drawer.CloseTrigger>
             </Drawer.Content>

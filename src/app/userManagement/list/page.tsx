@@ -16,7 +16,7 @@ type Utilisateur = {
 
 const UserManagement = () => {
   const [users, setUsers] = useState<Utilisateur[]>([]);
-  const [setFormData] = useState<
+  const [formData, setFormData] = useState<
     Omit<Utilisateur, "id"> & { id: number | null }
   >({
     id: null,
@@ -71,7 +71,7 @@ const UserManagement = () => {
         </Flex>
         {users.map((user) => (
           <Flex key={user.id} p={2} borderBottom="1px solid #ccc">
-            <Box flex="1">{user.nom}</Box>
+            <Box flex="1">{formData.nom}</Box>
             <Box flex="1">{user.prenom}</Box>
             <Box flex="2">{user.email}</Box>
             <Box flex="1">{user.isActif ? "Oui" : "Non"}</Box>

@@ -1,13 +1,16 @@
-import NextAuth, { NextAuthOptions, User, Session } from "next-auth";
-import { JWT } from "next-auth/jwt";
-import CredentialsProvider from "next-auth/providers/credentials";
-import prisma from "@/utils/db";
-import bcrypt from "bcrypt";
+import NextAuth /*, { NextAuthOptions, User, Session } */ from "next-auth";
+//import { JWT } from "next-auth/jwt";
+//import CredentialsProvider from "next-auth/providers/credentials";
+//import prisma from "@/utils/db";
+//import bcrypt from "bcrypt";
+//import { CustomUser } from "@/types/auth";
+import { authOptions } from "@/utils/authOptions";
+
 //import { RequestInternal } from "next-auth/core/types";
 //import { Awaitable } from "next-auth/lib/utils";
 
-/*added for debug*/
-declare module "next-auth" {
+/* added for debug */
+/*declare module "next-auth" {
   interface Session {
     user: {
       id: number;
@@ -25,10 +28,11 @@ declare module "next-auth" {
     isActif: boolean;
     isAdministrateur: boolean;
   }
-}
+}*/
 /*end added for debug*/
+
 // Définir les types pour l'utilisateur (correspondant à ce que NextAuth attend)
-interface CustomUser extends Omit<User, "id"> {
+/*interface CustomUser extends Omit<User, "id"> {
   nom: string;
   prenom: string;
   isActif: boolean;
@@ -37,18 +41,18 @@ interface CustomUser extends Omit<User, "id"> {
   name?: string | null; // Ajouter la propriété name avec le type approprié
   email?: string | null; // Ajouter email si ce n'est pas déjà dans User
   image?: string | null; // Ajouter image si ce n'est pas déjà dans User
-}
+}*/
 
-export const authOptions: NextAuthOptions = {
+/*export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
       credentials: {
         username: { label: "Username", type: "text", placeholder: "jsmith" },
         password: { label: "Password", type: "password" },
-      },
-      async authorize(credentials /*, req*/): Promise<CustomUser | null> {
-        if (!credentials?.username || !credentials?.password) return null;
+      },*/
+//     async authorize(credentials /*, req*/): Promise<CustomUser | null> {
+/*       if (!credentials?.username || !credentials?.password) return null;
 
         const user = await prisma.utilisateur.findFirst({
           where: { email: credentials.username },
@@ -115,7 +119,7 @@ export const authOptions: NextAuthOptions = {
   pages: {
     signIn: "/signin",
   },
-};
+};*/
 
 /*export const GET = NextAuth(authOptions);
 export const POST = NextAuth(authOptions);*/

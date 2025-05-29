@@ -12,7 +12,7 @@ import {
   HStack,
 } from "@chakra-ui/react";
 
-import { useColorModeValue } from "../components/ui/color-mode";
+//import { useColorModeValue } from "../components/ui/color-mode";
 import { BsArrowUpRight, BsHeartFill, BsHeart } from "react-icons/bs";
 
 export default function PostWithLike() {
@@ -29,7 +29,7 @@ export default function PostWithLike() {
         bg="white"
         border={"1px"}
         borderColor="black"
-        boxShadow={useColorModeValue("6px 6px 0 black", "6px 6px 0 cyan")}
+        //      boxShadow={useColorModeValue("6px 6px 0 black", "6px 6px 0 cyan")}
       >
         <Box h={"200px"} borderBottom={"1px"} borderColor="black">
           <Img

@@ -1,10 +1,42 @@
 // src/app/informations/[id]/page.tsx
 import InformationDetails from "../../../components/InformationDetails";
 import prisma from "@/utils/db";
-import { Box, Container, Text, SimpleGrid } from "@chakra-ui/react";
+import { Box, Container, /*Text,*/ SimpleGrid } from "@chakra-ui/react";
 import Header from "../../../components/Header";
+import { notFound } from "next/navigation";
 
-const getInformationById = async (id: number) => {
+async function InformationDetailsPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const information = await prisma.information.findUnique({
+    where: { id: parseInt(id) },
+    /*  include: {
+      //titre: true,
+      contenu: true,
+      dateCreation: true,
+      dateModification: true,
+    },*/
+  });
+
+  if (!information) {
+    notFound();
+  }
+
+  // Define the interface for the component's props, aligning with Next.js PageProps structure
+  /*interface InformationDetailsPageProps {
+  params: {
+    id: string; // Dynamic route parameter
+  };
+  // searchParams are often part of PageProps in Next.js app directory,
+  // even if not directly used by the component. Adding it can help satisfy
+  // Next.js's internal type constraints.
+  searchParams?: { [key: string]: string | string[] | undefined };
+}*/
+
+  /*const getInformationById = async (id: number) => {
   return await prisma.information.findUnique({
     where: { id },
   });
@@ -15,11 +47,12 @@ const InformationDetailsPage = async ({
 }: {
   params: { id: string };
 }) => {
-  const information = await getInformationById(parseInt(params.id));
+  // Use the defined interface here
+  const information = await getInformationById(parseInt( params.id));
 
   if (!information) {
     return <Text>Information non trouvée.</Text>;
-  }
+  }*/
 
   return (
     <Box as="main" flex="1">
@@ -52,6 +85,6 @@ const InformationDetailsPage = async ({
       </Container>
     </Box>
   );
-};
+}
 
 export default InformationDetailsPage;

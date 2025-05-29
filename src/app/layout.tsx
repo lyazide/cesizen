@@ -8,6 +8,7 @@ import { SessionProvider } from "next-auth/react"; // Un composant de fournisseu
 import { Box } from "@chakra-ui/react"; // Un composant de boîte de Chakra UI pour la mise en page
 import { Suspense } from "react";
 import Loading from "./loading"; // Un composant de chargement personnalisé
+
 // Déclare un composant fonctionnel RootLayout qui prend children comme prop.
 // children représente tous les composants et pages qui seront affichés dans l'application.
 export default function RootLayout({

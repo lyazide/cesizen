@@ -1,10 +1,18 @@
 "use client";
 
-import { Icon, IconButton, Popover, Portal } from "@chakra-ui/react";
+import {
+  Icon,
+  IconButton,
+  Popover,
+  Portal /*, PopoverContext*/,
+} from "@chakra-ui/react";
 import type { PropsWithChildren } from "react";
 import { LuAlignRight, LuX } from "react-icons/lu";
 
 export const MobilePopover = (props: PropsWithChildren) => {
+  type PopoverContextType = {
+    open: boolean;
+  };
   return (
     <Popover.Root
       positioning={{
@@ -14,8 +22,8 @@ export const MobilePopover = (props: PropsWithChildren) => {
       }}
     >
       <Popover.Context>
-        {(context) => (
-          <Popover.Trigger asChild>
+        {(context: PopoverContextType) => (
+          <Popover.Trigger>
             <IconButton
               aria-label="Open Menu"
               variant="ghost"
@@ -30,17 +38,7 @@ export const MobilePopover = (props: PropsWithChildren) => {
       </Popover.Context>
       <Portal>
         <Popover.Positioner>
-          <Popover.Content
-            textStyle="md"
-            boxShadow="none"
-            borderRadius="none"
-            maxW="unset"
-            px="4"
-            py="6"
-            width="var(--available-width)"
-            height="var(--available-height)"
-            {...props}
-          />
+          <Popover.Content {...props} />
         </Popover.Positioner>
       </Portal>
     </Popover.Root>

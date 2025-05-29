@@ -9,6 +9,14 @@ import {
   createToaster,
 } from "@chakra-ui/react";
 
+type CustomToastType = {
+  type?: "loading" | "success" | "error" | "info";
+  title?: string;
+  description?: string;
+  action?: { label: string };
+  meta?: { closable?: boolean };
+};
+
 export const toaster = createToaster({
   placement: "bottom-end",
   pauseOnPageIdle: true,
@@ -19,8 +27,8 @@ export const toaster = createToaster({
 export const Toaster = () => {
   return (
     <Portal>
-      <ChakraToaster toaster={toaster} insetInline={{ mdDown: "4" }}>
-        {(toast) => (
+      <ChakraToaster /*toaster={toaster} insetInline={{ mdDown: "4" }}*/>
+        {(toast: CustomToastType) => (
           <Toast.Root width={{ md: "sm" }}>
             {toast.type === "loading" ? (
               <Spinner size="sm" color="blue.solid" />

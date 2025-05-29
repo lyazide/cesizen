@@ -3,7 +3,7 @@
 import React from "react";
 import { Text, Box, Heading, List, Button } from "@chakra-ui/react";
 import { toaster } from "../components/ui/toaster";
-import Header from "./Header";
+//import Header from "./Header";
 
 const Rgpd = () => {
   const handleDeleteData = () => {

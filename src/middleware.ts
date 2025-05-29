@@ -133,6 +133,8 @@ export async function middleware(req: NextRequest) {
 
 // 🔹 Exclusion des fichiers statiques
 export const config = {
+  //  runtime: "nodejs",
+
   matcher: [
     "/((?!_next/static|_next/image|favicon.ico|api/auth).*)", // Exclut les routes NextAuth
   ],

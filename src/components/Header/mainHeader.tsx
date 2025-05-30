@@ -95,9 +95,9 @@ const Header = () => {
     <Container as="header">
       <Drawer.Root>
         <Drawer.Trigger>
-          <Button variant="outline" size="sm" aria-label="Toggle navigation">
-            <HiMenu size="20" fill="white" />
-          </Button>
+          {/* <Button variant="outline" size="sm" aria-label="Toggle navigation">*/}
+          <HiMenu size="20" fill="white" aria-label="Toggle navigation" />
+          {/*</Button>*/}
         </Drawer.Trigger>
         <Portal>
           <Drawer.Backdrop />

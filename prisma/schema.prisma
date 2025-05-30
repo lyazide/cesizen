@@ -18,6 +18,7 @@ model Detente {
   nom         String
   description String    @db.Text
   duree       Int
+  imagePath   String?
   Realise     Realise[]
 }
 

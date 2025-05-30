@@ -32,6 +32,7 @@ const roleAccessMap: Record<string, string[]> = {
     "/userManagement/list",
     "/userManagement/edit",
     "/infoManagement",
+    "/assets/photos/*",
   ],
   user: [
     "/",
@@ -54,6 +55,7 @@ const roleAccessMap: Record<string, string[]> = {
     "/api/emotions",
     "/respirations",
     "/api/respirations",
+    "/assets/photos/*",
   ],
   guest: [
     "/",
@@ -68,7 +70,9 @@ const roleAccessMap: Record<string, string[]> = {
     "/informations/[id]", // Autorisation pour les invités
     "/detentes",
     "/api/detentes",
-    "/detentes/[id]", // Autorisation pour les invités
+    "/detentes/[id]",
+    "/assets/photos/*",
+    // Autorisation pour les invités
   ],
 };
 
@@ -136,6 +140,6 @@ export const config = {
   //  runtime: "nodejs",
 
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|api/auth).*)", // Exclut les routes NextAuth
+    "/((?!_next/static|_next/image|favicon.ico|api/auth|assets/photos).*)", // Exclut les routes NextAuth
   ],
 };

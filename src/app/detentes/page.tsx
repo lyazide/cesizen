@@ -16,6 +16,7 @@ type Detente = {
   nom: string;
   description: string;
   duree: number;
+  imagePath?: string | null;
 };
 
 // Fonction pour récupérer toutes les exercise de detente
@@ -26,6 +27,7 @@ const getAllDetentes = async (): Promise<Detente[]> => {
       nom: true,
       description: true,
       duree: true,
+      imagePath: true,
     },
   });
 };
@@ -63,6 +65,7 @@ const DetentesPage = async () => {
                       nom={detente.nom}
                       description={detente.description}
                       duree={detente.duree}
+                      imagePath={detente.imagePath ?? undefined}
                     />
                   </ChakraLink>
                 </Box>

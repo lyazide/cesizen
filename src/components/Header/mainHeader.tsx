@@ -13,13 +13,15 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-//import { HiMenu } from "react-icons/hi";
+import { HiMenu } from "@react-icons/all-files/hi/HiMenu";
 import { signIn, signOut } from "next-auth/react";
 import { useState, useEffect } from "react";
-//import { FaShieldAlt, FaUser, FaUserSlash } from "react-icons/fa";
+import { FaShieldAlt } from "@react-icons/all-files/fa/FaShieldAlt";
+import { FaUser } from "@react-icons/all-files/fa/FaUser";
+import { FaUserSlash } from "@react-icons/all-files/fa/FaUserSlash";
 import { useSession } from "next-auth/react";
 
-import dynamic from "next/dynamic";
+/*import dynamic from "next/dynamic";
 //import { FaShieldAlt, FaUser, FaUserSlash } from "react-icons/fa";
 const HiMenu = dynamic(
   () => import("react-icons/hi").then((mod) => mod.HiMenu),
@@ -37,7 +39,9 @@ const FaUser = dynamic(
 const FaUserSlash = dynamic(
   () => import("react-icons/fa").then((mod) => mod.FaUserSlash),
   { ssr: false }
-);
+);*/
+
+//import { HiMenu, FaShieldAlt, FaUser, FaUserSlash } from "../icons";
 
 const Header = () => {
   const { data: session } = useSession();

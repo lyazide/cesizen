@@ -6,12 +6,16 @@
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
+    // added for cypress test coverage and babelrc
+    //"forceConsistentCasingInFileNames": true,
+    //"declaration": true,
+    // end
     "sourceMap": true,/*added for cypress test coverage*/
 
     "esModuleInterop": true,
     "module": "ESNext",
    // "moduleResolution": "Bundler",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -32,6 +36,6 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/jest.config.js"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules","./cypress.config.ts"]
 
 }

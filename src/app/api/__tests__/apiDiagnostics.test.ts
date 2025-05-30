@@ -4,12 +4,22 @@ import prisma from "@/utils/db";
 import Diagnostic from "../../../types/diagnostics";
 
 // ✅ Mock de NextResponse pour éviter l'erreur "Request is not defined"
-jest.mock("next/server", () => ({
+/*jest.mock("next/server", () => ({
   NextResponse: {
     json: jest.fn((data, options) => ({
       status: options?.status || 200,
       body: data,
     })),
+  },
+}));*/
+jest.mock("next/server", () => ({
+  NextResponse: {
+    json: jest.fn((data, options) => {
+      return new Response(JSON.stringify(data), {
+        status: options?.status || 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    }),
   },
 }));
 
@@ -43,19 +53,21 @@ describe("Diagnostics API", () => {
     );
 
     // ✅ Création de mocks pour req et res
-    const { req } = createMocks();
+    //const { req } = createMocks();
 
     // ✅ Simulation de la fonction GET
-    const response = await GET(req);
+    const response = await GET();
+    const bodyResponse = await response.json();
 
     // ✅ Assertions sur la réponse
 
-    expect(response.status).toBe(200);
-    expect(response.body.data).toHaveLength(2);
-    expect(response.body.data[0].evenement).toBe("Événement 1");
-    expect(response.body.data[1].evenement).toBe("Événement 2");
-    expect(response.body.data[0].points).toBe(10);
-    expect(response.body.data[1].points).toBe(20);
+    expect(response?.status ?? 500).toBe(200);
+
+    expect(bodyResponse!.data.length).toBe(2);
+    expect(bodyResponse!.data[0].evenement).toBe("Événement 1");
+    expect(bodyResponse!.data[1].evenement).toBe("Événement 2");
+    expect(bodyResponse!.data[0].points).toBe(10);
+    expect(bodyResponse!.data[1].points).toBe(20);
   });
 
   it("devrait renvoyer une erreur si aucun diagnostic n'est trouvé avec GET", async () => {
@@ -63,14 +75,14 @@ describe("Diagnostics API", () => {
     (prisma.diagnostic.findMany as jest.Mock).mockResolvedValue([]);
 
     // ✅ Création de mocks pour req et res
-    const { req } = createMocks();
+    //const { req } = createMocks();
 
     // ✅ Simulation de la fonction GET
-    const response = await GET(req);
-
+    const response = await GET();
+    const bodyResponse = await response.json();
     // ✅ Assertions sur la réponse
     expect(response.status).toBe(404);
-    expect(response.body.error).toBe("No diagnostics found.");
+    expect(bodyResponse!.error).toBe("No diagnostics found.");
   });
 
   it("devrait créer un nouveau diagnostic avec POST", async () => {
@@ -94,10 +106,11 @@ describe("Diagnostics API", () => {
 
     // ✅ Simulation de la fonction POST
     const response = await POST(req);
+    const bodyResponse = await response.json();
 
     // ✅ Assertions sur la réponse
     expect(response.status).toBe(201);
-    expect(response.body.data.evenement).toBe("Événement 3");
+    expect(bodyResponse!.data.evenement).toBe("Événement 3");
   });
 
   it("devrait mettre à jour un diagnostic existant avec PUT", async () => {
@@ -127,10 +140,10 @@ describe("Diagnostics API", () => {
 
     // ✅ Simulation de la fonction PUT
     const response = await PUT(req);
-
+    const bodyResponse = await response.json();
     // ✅ Assertions sur la réponse
     expect(response.status).toBe(201);
-    expect(response.body.data.evenement).toBe("Événement 1 modifié");
+    expect(bodyResponse!.data.evenement).toBe("Événement 1 modifié");
   });
 
   it("devrait supprimer un diagnostic avec DELETE", async () => {
@@ -156,9 +169,9 @@ describe("Diagnostics API", () => {
 
     // ✅ Simulation de la fonction DELETE
     const response = await DELETE(req);
-
+    const bodyResponse = await response.json();
     // ✅ Assertions sur la réponse
     expect(response.status).toBe(201);
-    expect(response.body.data.id).toBe(1);
+    expect(bodyResponse!.data.id).toBe(1);
   });
 });

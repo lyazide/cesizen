@@ -24,7 +24,7 @@ describe("Header Component", () => {
   it("should render correctly for a logged-out user (Guest)", () => {
     mountHeaderWithSession(null);
     cy.viewport(480, 720);
-    cy.get('button[aria-label="Toggle navigation"]')
+    cy.get('[aria-label="Toggle navigation"]')
       .as("menuButton")
       .should("be.visible");
 
@@ -47,7 +47,7 @@ describe("Header Component", () => {
       return /\d{2}\/\d{2}\/\d{4} \d{2}:\d{2}:\d{2}/.test(text);
     });
 
-    cy.get('button[aria-label="Close"]').click();
+    cy.get('[aria-label="Close"]').click();
     cy.contains("Invité").should("not.be.visible");
   });
 
@@ -67,7 +67,7 @@ describe("Header Component", () => {
     };
     mountHeaderWithSession(regularUserSession);
     cy.viewport(480, 720);
-    cy.get('button[aria-label="Toggle navigation"]').click();
+    cy.get('[aria-label="Toggle navigation"]').click();
 
     cy.contains("Jean Dupont").should("be.visible");
     cy.contains("Utilisateur").should("be.visible");
@@ -97,7 +97,7 @@ describe("Header Component", () => {
     };
     mountHeaderWithSession(adminSession);
     cy.viewport(480, 720);
-    cy.get('button[aria-label="Toggle navigation"]').click();
+    cy.get('[aria-label="Toggle navigation"]').click();
 
     cy.contains("Admin User").should("be.visible");
     cy.contains("Admin").should("be.visible");
@@ -123,7 +123,7 @@ describe("Header Component", () => {
     };
     mountHeaderWithSession(inactiveUserSession);
     cy.viewport(480, 720);
-    cy.get('button[aria-label="Toggle navigation"]').click();
+    cy.get('[aria-label="Toggle navigation"]').click();
 
     cy.contains("Utilisateur Inactif").should("be.visible");
     cy.contains("Utilisateur").should("be.visible");
@@ -158,23 +158,7 @@ describe("Header Component", () => {
   it("should navigate to the correct URL when a navigation link is clicked", () => {
     mountHeaderWithSession();
     cy.viewport(480, 720);
-    cy.get('button[aria-label="Toggle navigation"]').click();
-
-    //cy.contains("a", "A propos").click({ force: true });
-    //cy.url().should("include", "/apropos");
-
-    /*cy.visit("/");
-    cy.get('button[aria-label="Toggle navigation"]').click();
-    cy.contains("a", "Dashboard").click({ force: true });
-    cy.url().should("include", "/dashboard");*/
-    /*{ label: "A propos", href: "/apropos" },
-    { label: "Dashboard", href: "/dashboard" },
-    { label: "Diagnostic de stress", href: "/diagnostics" },
-    { label: "Exercises de respiration", href: "/respirations" },
-    { label: "Suivis des emotions", href: "/emotions" },
-    { label: "Activités Détente", href: "/detentes" },
-    { label: "Informations sur la santé mentale", href: "/informations" },
-    { label: "S'enregistrer", href: "/signup" },*/
+    cy.get('[aria-label="Toggle navigation"]').click();
 
     cy.contains("a", "A propos").should("have.attr", "href", "/apropos");
     cy.contains("a", "Dashboard").should("have.attr", "href", "/dashboard");

@@ -44,170 +44,8 @@
     "f": {},
     "b": {}
   },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Block.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Block.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/dashboard.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/dashboard.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/DetenteCard.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/DetenteCard.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/DiadnosticCard2.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/DiadnosticCard2.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/DiagnosticCard.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/DiagnosticCard.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/EmotionCard.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/EmotionCard.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Footer.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Footer.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Horaires.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Horaires.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/InformationCard.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/InformationCard.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/InformationDetails.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/InformationDetails.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Location.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Location.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/logo.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/logo.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/mainHeader.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/mainHeader.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/mobile-popover.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/mobile-popover.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/navbar-links.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/navbar-links.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/PhotoGallery.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/PhotoGallery.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/post_like.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/post_like.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/RespirationCard.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/RespirationCard.tsx",
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/icons.ts": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/icons.ts",
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},
@@ -224,8 +62,8 @@
     "f": {},
     "b": {}
   },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/testcomponent.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/testcomponent.tsx",
+  "C:/Users/lyazi/projets/cesi/cesizen/src/types/auth.ts": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/types/auth.ts",
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},
@@ -233,8 +71,8 @@
     "f": {},
     "b": {}
   },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/types/auth.ts": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/types/auth.ts",
+  "C:/Users/lyazi/projets/cesi/cesizen/src/types/detentes.ts": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/types/detentes.ts",
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},
@@ -431,6 +269,114 @@
     "f": {},
     "b": {}
   },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Dashboard/dashboard.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Dashboard/dashboard.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Detente/DetenteCard.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Detente/DetenteCard.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Diagnostics/DiadnosticCard2.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Diagnostics/DiadnosticCard2.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Diagnostics/DiagnosticCard.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Diagnostics/DiagnosticCard.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Emotions/EmotionCard.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Emotions/EmotionCard.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Footer/Footer.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Footer/Footer.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/Block.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/Block.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/Header.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/Header.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/logo.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/logo.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/mainHeader.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/mainHeader.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/mobile-popover.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/mobile-popover.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/navbar-links.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/navbar-links.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
   "C:/Users/lyazi/projets/cesi/cesizen/src/components/Informations/informationCard.tsx": {
     "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Informations/informationCard.tsx",
     "statementMap": {},
@@ -440,8 +386,17 @@
     "f": {},
     "b": {}
   },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/ui/color-mode.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/ui/color-mode.tsx",
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Informations/InformationDetails.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Informations/InformationDetails.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Respiration/RespirationCard.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Respiration/RespirationCard.tsx",
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},
@@ -496,6 +451,15 @@
   },
   "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/dashboard/route.ts": {
     "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/dashboard/route.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/detentes/route.ts": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/detentes/route.ts",
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},
@@ -656,8 +620,8 @@
     "f": {},
     "b": {}
   },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Dashboard/dashboard.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Dashboard/dashboard.tsx",
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__mock__/prisma.ts": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__mock__/prisma.ts",
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},
@@ -665,143 +629,8 @@
     "f": {},
     "b": {}
   },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Detente/DetenteCard.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Detente/DetenteCard.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Detente/post_like.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Detente/post_like.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Diagnostics/DiadnosticCard2.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Diagnostics/DiadnosticCard2.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Diagnostics/DiagnosticCard.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Diagnostics/DiagnosticCard.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Emotions/EmotionCard.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Emotions/EmotionCard.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Footer/Footer.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Footer/Footer.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/Block.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/Block.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/Header.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/Header.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/logo.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/logo.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/mainHeader.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/mainHeader.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/mobile-popover.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/mobile-popover.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/navbar-links.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Header/navbar-links.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Informations/InformationCard.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Informations/InformationCard.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Informations/InformationDetails.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Informations/InformationDetails.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Respiration/RespirationCard.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Respiration/RespirationCard.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/icons.ts": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/icons.ts",
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiDiagnostics.test.ts": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiDiagnostics.test.ts",
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},

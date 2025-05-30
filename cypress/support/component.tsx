@@ -31,6 +31,7 @@ declare global {
     }
   }
 }
+//
 
 // Custom mount function that wraps components in ChakraProvider
 const mountComponent = (component: React.ReactNode) => {
@@ -46,3 +47,5 @@ Cypress.on("window:before:load", (win) => {
 
 // Example use:
 // cy.mount(<MyComponent />)
+
+export {};

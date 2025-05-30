@@ -68,19 +68,19 @@ jobs:
           path: |
             node_modules
             /home/runner/.cache/Cypress
-          key: ${{ runner.os }}--node-modules-${{ hashFiles('**/package-lock.json') }} ##{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}--node-modules-${{ hashFiles('**/package-lock.json') }}
+
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+
+      - run: echo "🍏 This job's status is cuurently ${{ job.status }}."
       - uses: cypress-io/github-action@v6
         with:
           install: false
           start: npm run dev
           browser: ${{ matrix.browser }}
           component: true
-          headless: true
-
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-
-      - run: echo "🍏 This job's status is cuurently ${{ job.status }}."
+          headed: false
 
       - uses: actions/upload-artifact@v4
         if: always()

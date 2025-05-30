@@ -14,6 +14,7 @@ export default defineConfig({
       return config;
     },
     specPattern: "cypress/**/*.cy.{js,jsx,ts,tsx}",
+    video: true,
   },
 
   e2e: {
@@ -23,5 +24,6 @@ export default defineConfig({
       return config;
       // implement node event listeners here
     },
+    video: true,
   },
 });

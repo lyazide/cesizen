@@ -59,7 +59,7 @@ const roleAccessMap: Record<string, string[]> = {
   ],
   guest: [
     "/",
-
+    "/apropos",
     "/diagnostics",
     "/api/diagnostics",
     "/signin",

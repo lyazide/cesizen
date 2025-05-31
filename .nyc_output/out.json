@@ -637,5 +637,41 @@
     "s": {},
     "f": {},
     "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Detentes/DetenteCard.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Detentes/DetenteCard.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Detentes/DetenteDetails.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Detentes/DetenteDetails.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiDetentes.test.ts": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiDetentes.test.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/detentes/[id]/page.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/detentes/[id]/page.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
   }
 }

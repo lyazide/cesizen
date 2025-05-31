@@ -7,7 +7,7 @@ import {
   Link as ChakraLink,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
-import DetenteCard from "../../components/Detente/DetenteCard";
+import DetenteCard from "../../components/Detentes/DetenteCard";
 import prisma from "../../utils/db";
 import Header from "../../components/Header/Header";
 //import { Block } from "@/components/block";

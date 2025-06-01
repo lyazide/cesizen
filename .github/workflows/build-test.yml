@@ -97,7 +97,7 @@ jobs:
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
 
-      - run: echo "🍏 This job's status is cuurently ${{ job.status }}."
+      - run: echo "🍏 This job's status is currently ${{ job.status }}."
       - uses: cypress-io/github-action@v6
         with:
           install: false
@@ -109,13 +109,13 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: Download cypress test videos on ${{ matrix.browser }}
+          name: Download cypress test videos on ${{ github.run_id }}-${{ github.job }}-${{ matrix.browser }}
           path: cypress/videos/
           retention-days: 5
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
-          name: Download cypress test failed screenshots on ${{ matrix.browser }}
+          name: Download cypress test failed screenshots on ${{ github.run_id }}-${{ github.job }}-${{ matrix.browser }}
           path: cypress/screenshots/
           retention-days: 5
 
@@ -144,7 +144,7 @@ jobs:
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
 
-      - run: echo "🍏 This job's status is cuurently ${{ job.status }}."
+      - run: echo "🍏 This job's status is currently ${{ job.status }}."
       - uses: cypress-io/github-action@v6
         with:
           install: false
@@ -157,12 +157,13 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: Download cypress test videos on ${{ matrix.browser }}
+          name: Download cypress test videos on ${{ github.run_id }}-${{ github.job }}-${{ matrix.browser }}
+
           path: cypress/videos/
           retention-days: 5
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
-          name: Download cypress test failed screenshots on ${{ matrix.browser }}
+          name: Download cypress test failed screenshots on ${{ github.run_id }}-${{ github.job }}-${{ matrix.browser }}
           path: cypress/screenshots/
           retention-days: 5

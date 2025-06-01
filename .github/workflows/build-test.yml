@@ -104,7 +104,7 @@ jobs:
           start: npm run dev
           browser: ${{ matrix.browser }}
           component: true
-          e2e: false
+
           wait-on: "http://localhost:5173"
           headed: false
 
@@ -152,7 +152,7 @@ jobs:
           install: false
           start: npm run dev
           browser: ${{ matrix.browser }}
-          component: false
+
           e2e: true
           headed: false
 

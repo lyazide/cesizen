@@ -63,6 +63,8 @@ jobs:
       - run: echo "🍏 This job's status is cuurently ${{ job.status }}."
       - name: Run API tests
         uses: willcaul/jest-github-action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   Test_Component:
     runs-on: ubuntu-latest

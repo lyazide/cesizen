@@ -104,8 +104,6 @@ jobs:
           start: npm run dev
           browser: ${{ matrix.browser }}
           component: true
-
-          wait-on: "http://localhost:5173"
           headed: false
 
       - uses: actions/upload-artifact@v4

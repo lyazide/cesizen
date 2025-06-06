@@ -9,7 +9,12 @@ import {
   VStack,
   Heading,
   Checkbox,
+  IconButton,
 } from "@chakra-ui/react";
+
+//import { FaPlus } from "@react-icons/all-files/fa/FaPlus";
+import { FaEdit } from "@react-icons/all-files/fa/FaEdit";
+import { FaTrash } from "@react-icons/all-files/fa/FaTrash";
 
 // Définir le type Utilisateur
 type Utilisateur = {
@@ -132,28 +137,52 @@ const Edit = () => {
   };
 
   return (
-    <Box maxW="lg" mx="auto" mt={10}>
-      <Heading textAlign="center" mb={6}>
+    <Box
+      pt="80px"
+      mx="auto"
+      mt="80px"
+      minWidth="100%"
+      maxW="420px"
+      borderWidth="1px"
+      borderRadius="lg"
+      p="6"
+      bg="brand.600"
+    >
+      <Heading color="white" textAlign="center" mb={6}>
         Gestion des Utilisateurs
       </Heading>
-      <VStack gap={4} mb={6}>
+      <VStack
+        gap={4}
+        mb={6}
+        pt="10px"
+        mx="auto"
+        minWidth="90%"
+        maxW="420px"
+        borderWidth="1px"
+        borderRadius="lg"
+        p="6"
+        bg="brand.50"
+      >
         <Input
           placeholder="Nom"
           name="nom"
           value={formData.nom}
           onChange={handleChange}
+          bg="white"
         />
         <Input
           placeholder="Prénom"
           name="prenom"
           value={formData.prenom}
           onChange={handleChange}
+          bg="white"
         />
         <Input
           placeholder="Email"
           name="email"
           value={formData.email}
           onChange={handleChange}
+          bg="white"
         />
         <Input
           placeholder="Mot de Passe"
@@ -161,6 +190,7 @@ const Edit = () => {
           type="password"
           value={formData.motDePasse}
           onChange={handleChange}
+          bg="white"
         />
         <Checkbox.Root
           name="isActif"
@@ -170,7 +200,7 @@ const Edit = () => {
           }}
         >
           <Checkbox.HiddenInput />
-          <Checkbox.Control />
+          <Checkbox.Control bg="white" />
           <Checkbox.Label> Actif </Checkbox.Label>
         </Checkbox.Root>
         <Checkbox.Root
@@ -183,7 +213,9 @@ const Edit = () => {
             });
           }}
         >
-          Administrateur
+          <Checkbox.HiddenInput />
+          <Checkbox.Control bg="white" />
+          <Checkbox.Label> Administrateur </Checkbox.Label>
         </Checkbox.Root>
         {isEditing ? (
           <Button colorScheme="blue" onClick={handleUpdate}>
@@ -195,25 +227,53 @@ const Edit = () => {
           </Button>
         )}
       </VStack>
-      <Box>
-        <Flex bg="gray.200" p={2} fontWeight="bold">
-          <Box flex="1">Nom</Box>
-          <Box flex="1">Prénom</Box>
-          <Box flex="2">Email</Box>
-          <Box flex="1">Actif</Box>
-          <Box flex="1">Admin</Box>
-          <Box flex="1" textAlign="center">
-            Actions
-          </Box>
-        </Flex>
-        {users.map((user) => (
-          <Flex key={user.id} p={2} borderBottom="1px solid #ccc">
-            <Box flex="1">{user.nom}</Box>
-            <Box flex="1">{user.prenom}</Box>
-            <Box flex="2">{user.email}</Box>
-            <Box flex="1">{user.isActif ? "Oui" : "Non"}</Box>
-            <Box flex="1">{user.isAdministrateur ? "Oui" : "Non"}</Box>
+      <Box
+        pt="10px"
+        mx="auto"
+        mt="10px"
+        minWidth="90%"
+        maxW="420px"
+        borderWidth="1px"
+        borderRadius="lg"
+        p="6"
+        bg="brand.50"
+      >
+        <Box>
+          <Flex bg="gray.200" p={2} fontWeight="bold">
+            <Box flex="1">Nom</Box>
+            <Box flex="1">Prénom</Box>
+            <Box flex="2">Email</Box>
+            <Box flex="1">Actif</Box>
+            <Box flex="1">Admin</Box>
             <Box flex="1" textAlign="center">
+              Actions
+            </Box>
+          </Flex>
+          {users.map((user) => (
+            <Flex key={user.id} p={2} borderBottom="1px solid #ccc">
+              <Box flex="1">{user.nom}</Box>
+              <Box flex="1">{user.prenom}</Box>
+              <Box flex="2">{user.email}</Box>
+              <Box flex="1">{user.isActif ? "Oui" : "Non"}</Box>
+              <Box flex="1">{user.isAdministrateur ? "Oui" : "Non"}</Box>
+              <Box flex="1" textAlign="center">
+                <IconButton
+                  colorScheme="red"
+                  onClick={() => handleEdit(user)}
+                  aria-label="Delete item"
+                  variant="outline"
+                >
+                  <FaEdit />
+                </IconButton>
+                <IconButton
+                  colorScheme="red"
+                  onClick={() => handleDelete(user.id)}
+                  aria-label="Delete item"
+                  variant="outline"
+                >
+                  <FaTrash />
+                </IconButton>
+                {/*
               <Button
                 size="sm"
                 colorScheme="yellow"
@@ -228,10 +288,11 @@ const Edit = () => {
                 onClick={() => handleDelete(user.id)}
               >
                 Supprimer
-              </Button>
-            </Box>
-          </Flex>
-        ))}
+              </Button>*/}
+              </Box>
+            </Flex>
+          ))}
+        </Box>
       </Box>
     </Box>
   );

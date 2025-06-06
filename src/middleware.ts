@@ -33,6 +33,7 @@ const roleAccessMap: Record<string, string[]> = {
     "/userManagement/edit",
     "/infoManagement",
     "/assets/photos/*",
+    "/crud",
   ],
   user: [
     "/",
@@ -56,6 +57,7 @@ const roleAccessMap: Record<string, string[]> = {
     "/respirations",
     "/api/respirations",
     "/assets/photos/*",
+    "/crud",
   ],
   guest: [
     "/",
@@ -72,6 +74,7 @@ const roleAccessMap: Record<string, string[]> = {
     "/api/detentes",
     "/detentes/[id]",
     "/assets/photos/*",
+    "/crud",
     // Autorisation pour les invités
   ],
 };

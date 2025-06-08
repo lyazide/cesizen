@@ -10,7 +10,7 @@ export async function GET() {
 
     if (!soumettreDiagnostics || soumettreDiagnostics.length === 0) {
       return NextResponse.json(
-        { error: "No soumettreDiagnostics found." },
+        { error: "No soumissions found." },
         { status: 404 }
       );
     }
@@ -20,7 +20,7 @@ export async function GET() {
       { status: 200 }
     );
   } catch (error) {
-    console.error("Error fetching soumettreDiagnostics:", error);
+    console.error("Error fetching soumissions:", error);
     return NextResponse.json(
       { error: "An error occurred while fetching the soumettreDiagnostics." },
       { status: 500 }
@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json(); // Retrieve full JSON body
     const soumissions: SoumissionData[] = body.soumissions;
-    console.log("Soumissions reçues :", soumissions);
+
     if (!soumissions || !Array.isArray(soumissions)) {
       return NextResponse.json(
         { error: "Données de soumission invalides" },
@@ -74,9 +74,9 @@ export async function PUT(req: NextRequest) {
       { status: 200 }
     );
   } catch (error) {
-    console.error("Error updating soumettreDiagnostics:", error);
+    console.error("Error updating soumissions:", error);
     return NextResponse.json(
-      { error: "An error occurred while updating the soumettreDiagnostics." },
+      { error: "An error occurred while updating the soumissions." },
       { status: 500 }
     );
   }
@@ -98,7 +98,7 @@ export async function DELETE(req: NextRequest) {
   } catch (error) {
     console.error("Error deleting soumettreDiagnostics:", error);
     return NextResponse.json(
-      { error: "An error occurred while deleting the soumettreDiagnostics." },
+      { error: "An error occurred while deleting the soumissions." },
       { status: 500 }
     );
   }

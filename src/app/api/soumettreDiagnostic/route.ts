@@ -1,11 +1,36 @@
+import prisma from "@/utils/db";
+import { Prisma } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
+import SoumissionData from "../../../types/soumettreDiagnotics";
 
-const prisma = new PrismaClient();
+export async function GET() {
+  try {
+    const soumettreDiagnostics: SoumissionData[] =
+      await prisma.soumet.findMany();
+
+    if (!soumettreDiagnostics || soumettreDiagnostics.length === 0) {
+      return NextResponse.json(
+        { error: "No soumettreDiagnostics found." },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json<{ data: SoumissionData[] }>(
+      { data: soumettreDiagnostics },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Error fetching soumettreDiagnostics:", error);
+    return NextResponse.json(
+      { error: "An error occurred while fetching the soumettreDiagnostics." },
+      { status: 500 }
+    );
+  }
+}
 
 export async function POST(req: NextRequest) {
   try {
-    const { soumissions } = await req.json();
+    const soumissions: SoumissionData[] = await req.json(); // Ensure proper type for soumissions
 
     if (!soumissions || !Array.isArray(soumissions)) {
       return NextResponse.json(
@@ -14,18 +39,64 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const results = await prisma.soumet.createMany({
-      data: soumissions, // Soumissions avec le même UUID
+    const results: Prisma.BatchPayload = await prisma.soumet.createMany({
+      data: soumissions,
     });
 
-    return NextResponse.json({
-      message: "Soumissions enregistrées avec succès.",
-      results,
-    });
+    return NextResponse.json<{ message: string; results: Prisma.BatchPayload }>(
+      {
+        message: "Soumissions enregistrées avec succès.",
+        results,
+      },
+      { status: 201 }
+    );
   } catch (error) {
     console.error("Erreur lors de l'enregistrement :", error);
     return NextResponse.json(
       { error: "Une erreur est survenue." },
+      { status: 500 }
+    );
+  }
+}
+
+export async function PUT(req: NextRequest) {
+  try {
+    const soumission: SoumissionData = await req.json(); // Ensure proper typing
+
+    const updatedSoumission: SoumissionData = await prisma.soumet.update({
+      where: { id: soumission.id },
+      data: soumission,
+    });
+
+    return NextResponse.json<{ data: SoumissionData }>(
+      { data: updatedSoumission },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Error updating soumettreDiagnostics:", error);
+    return NextResponse.json(
+      { error: "An error occurred while updating the soumettreDiagnostics." },
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(req: NextRequest) {
+  try {
+    const { id }: { id: number } = await req.json();
+
+    const deletedSoumission: SoumissionData = await prisma.soumet.delete({
+      where: { id },
+    });
+
+    return NextResponse.json<{ data: SoumissionData }>(
+      { data: deletedSoumission },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Error deleting soumettreDiagnostics:", error);
+    return NextResponse.json(
+      { error: "An error occurred while deleting the soumettreDiagnostics." },
       { status: 500 }
     );
   }

@@ -30,8 +30,9 @@ export async function GET() {
 
 export async function POST(req: NextRequest) {
   try {
-    const soumissions: SoumissionData[] = await req.json(); // Ensure proper type for soumissions
-
+    const body = await req.json(); // Retrieve full JSON body
+    const soumissions: SoumissionData[] = body.soumissions;
+    console.log("Soumissions reçues :", soumissions);
     if (!soumissions || !Array.isArray(soumissions)) {
       return NextResponse.json(
         { error: "Données de soumission invalides" },
@@ -83,7 +84,8 @@ export async function PUT(req: NextRequest) {
 
 export async function DELETE(req: NextRequest) {
   try {
-    const { id }: { id: number } = await req.json();
+    const body = await req.json(); // Retrieve full request body
+    const id: number = body.id; // Ensure correct extraction
 
     const deletedSoumission: SoumissionData = await prisma.soumet.delete({
       where: { id },

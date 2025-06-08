@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 export async function POST(req: NextRequest) {
   try {
     const { soumissions } = await req.json();
-
+    console.log("Soumissions reçues :", soumissions);
     if (!soumissions || !Array.isArray(soumissions)) {
       return NextResponse.json(
         { error: "Données de soumission invalides" },

@@ -4,7 +4,7 @@ import {
   Center,
   Heading,
   Text,
-  Link,
+  //Link,
   Image as Img,
   Flex,
 } from "@chakra-ui/react";
@@ -56,11 +56,12 @@ const DetenteDetails: React.FC<InformationCardProps> = ({
             {/* Retour button below the image */}
             {boutonNom && boutonUrl && (
               <Center my="4">
-                <Link href={boutonUrl}>
-                  <Button bg="brand.400" colorScheme="blue">
-                    {boutonNom}
-                  </Button>
-                </Link>
+                {/*}
+                <Link href={boutonUrl} >*/}
+                <Button bg="brand.400" colorScheme="blue">
+                  <a href={boutonUrl}>{boutonNom} </a>
+                </Button>
+                {/*} </Link>*/}
               </Center>
             )}
           </Box>

@@ -70,7 +70,7 @@ const InformationDetailsPage = async ({
         //p={6} // Padding interne
       >
         <Header name={information.titre} />
-        <Box p={4} marginTop="80px">
+        <Box p={4} mt="200px">
           <SimpleGrid minChildWidth="sm" gap="20px">
             <InformationDetails
               titre={information.titre}

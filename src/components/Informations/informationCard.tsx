@@ -1,3 +1,5 @@
+"use client";
+
 // src/components/InformationCard.tsx strange
 import { Box, Button, Center, Heading, Text } from "@chakra-ui/react";
 

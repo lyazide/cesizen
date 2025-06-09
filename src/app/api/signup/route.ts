@@ -1,8 +1,9 @@
 import { NextRequest } from "next/server";
-import { PrismaClient } from "@prisma/client";
+//import { PrismaClient } from "@prisma/client";
+import prisma from "../../../utils/db"; // Adjust the import path as necessary
 import bcrypt from "bcrypt";
 
-const prisma = new PrismaClient();
+//const prisma = new PrismaClient();
 
 // Handle GET requests: Retrieve all users or a specific user by ID
 export async function GET(req: NextRequest) {
@@ -22,7 +23,7 @@ export async function GET(req: NextRequest) {
       return new Response(JSON.stringify(utilisateurs), { status: 200 });
     }
   } catch (error) {
-    console.error("Error fetching recettes:", error);
+    console.error("Error fetching utilisateurs:", error);
     return new Response(
       JSON.stringify({
         message: "Erreur lors de la récupération des utilisateurs : ",
@@ -54,7 +55,7 @@ export async function POST(req: NextRequest) {
       status: 201,
     });
   } catch (error) {
-    console.error("Error fetching recettes:", error);
+    console.error("Error fetching utilisateurs:", error);
     return new Response(
       JSON.stringify({
         message: "Erreur lors de la création de l'utilisateur.",
@@ -108,7 +109,7 @@ export async function DELETE(req: NextRequest) {
 
     return new Response("Utilisateur supprimé avec succès.", { status: 200 });
   } catch (error) {
-    console.error("Error fetching recettes:", error);
+    console.error("Error fetching utilisateurs:", error);
     return new Response(
       JSON.stringify({
         message: "Erreur lors de la suppression de l'utilisateur.",

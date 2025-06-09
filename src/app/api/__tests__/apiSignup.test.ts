@@ -32,7 +32,7 @@ jest.mock("@/utils/db", () => ({
       findUnique: jest.fn(),
       create: jest.fn(),
       update: jest.fn(),
-      //delete: jest.fn(),
+      delete: jest.fn(),
     },
   },
 }));
@@ -43,7 +43,7 @@ describe("Utilisateurs API", () => {
   });
 
   it("devrait renvoyer un utilisateur spécifique avec GET et un ID", async () => {
-    const utilisateurData: Utilisateur = {
+    /* const utilisateurData: Utilisateur = {
       id: 1,
       email: "lyazide@hotmail.com",
       nom: "Oudjoudi",
@@ -51,11 +51,23 @@ describe("Utilisateurs API", () => {
       motDePasse: "password123",
       isActif: true,
       isAdministrateur: false,
-    };
+    };*/
 
     // ✅ Mock de la réponse de Prisma
-    (prisma.utilisateur.findUnique as jest.Mock).mockResolvedValue(
-      utilisateurData
+    (prisma.utilisateur.findUnique as jest.Mock).mockImplementation(
+      ({ where }) => {
+        return where.id === 1
+          ? {
+              id: 1,
+              email: "lyazide@hotmail.com",
+              nom: "Oudjoudi",
+              prenom: "Lyazide",
+              motDePasse: "password123",
+              isActif: true,
+              isAdministrateur: false,
+            }
+          : null; // ✅ Renvoie `null` si l'ID est inexistant
+      }
     );
 
     // ✅ Création de mocks pour req et res
@@ -64,7 +76,7 @@ describe("Utilisateurs API", () => {
     // ✅ Simulation de la fonction GET
     const req = createMocks({
       method: "GET",
-      url: "http://localhost/api/utilisateurs?id=1",
+      url: "http://localhost/api/signup?id=1",
     }).req;
     const response = await GET(req);
     const bodyResponse = await response.json();
@@ -83,24 +95,33 @@ describe("Utilisateurs API", () => {
     expect(bodyResponse.isAdministrateur).toBe(false);
   });
 
-  /*
   it("devrait renvoyer une erreur si aucun utilisateur n'est trouvé avec GET", async () => {
     // ✅ Mock de Prisma renvoyant une liste vide
-    (prisma.utilisateur.findMany as jest.Mock).mockResolvedValue([]);
+
+    (prisma.utilisateur.findUnique as jest.Mock).mockImplementation(
+      ({ where }) => {
+        return where.id === 99 ? null : null; // ✅ Simule un ID inexistant
+      }
+    );
 
     // ✅ Création de mocks pour req et res
     //const { req } = createMocks();
 
     // ✅ Simulation de la fonction GET
-    const response = await GET();
+    const req = createMocks({
+      method: "GET",
+      url: "http://localhost/api/signup?id=99",
+    }).req;
+    const response = await GET(req);
     const bodyResponse = await response.json();
+
     // ✅ Assertions sur la réponse
-    expect(response.status).toBe(404);
-    expect(bodyResponse!.error).toBe("No utilisateurs found.");
+    //expect(response.status).toBe(404);
+    expect(bodyResponse!.error).toBe("Utilisateur non trouvé.");
   });
 
   it("devrait créer un nouveau utilisateur avec POST", async () => {
-    const newDiagnostic: Utilisateur = {
+    const newUtilisateur: Utilisateur = {
       id: 3,
       email: "test@essai.org",
       nom: "Test",
@@ -111,7 +132,7 @@ describe("Utilisateurs API", () => {
     };
 
     // ✅ Mock de la création de utilisateur dans Prisma
-    (prisma.utilisateur.create as jest.Mock).mockResolvedValue(newDiagnostic);
+    (prisma.utilisateur.create as jest.Mock).mockResolvedValue(newUtilisateur);
 
     // ✅ Création de mocks pour req et res
     const { req } = createMocks({
@@ -142,12 +163,12 @@ describe("Utilisateurs API", () => {
 
     // ✅ Assertions sur la réponse
     expect(response.status).toBe(201);
-    expect(bodyResponse!.data.email).toBe("test@essai.org");
-    expect(bodyResponse!.data.nom).toBe("Test");
-    expect(bodyResponse!.data.prenom).toBe("Essai");
-    expect(bodyResponse!.data.motDePasse).toBe("passwordtest");
-    expect(bodyResponse!.data.isActif).toBe(true);
-    expect(bodyResponse!.data.isAdministrateur).toBe(true);
+    expect(bodyResponse!.email).toBe("test@essai.org");
+    expect(bodyResponse!.nom).toBe("Test");
+    expect(bodyResponse!.prenom).toBe("Essai");
+    expect(bodyResponse!.motDePasse).toBe("passwordtest");
+    expect(bodyResponse!.isActif).toBe(true);
+    expect(bodyResponse!.isAdministrateur).toBe(true);
   });
 
   it("devrait mettre à jour un utilisateur existant avec PUT", async () => {
@@ -169,6 +190,7 @@ describe("Utilisateurs API", () => {
     // ✅ Création de mocks pour req et res
     const { req } = createMocks({
       method: "PUT",
+      url: "http://localhost/api/signup?id=1",
       body: {
         id: 1,
         email: "lyazide@hotmail.co.uk",
@@ -195,17 +217,17 @@ describe("Utilisateurs API", () => {
     const response = await PUT(req);
     const bodyResponse = await response.json();
     // ✅ Assertions sur la réponse
-    expect(response.status).toBe(201);
-    expect(bodyResponse!.data.email).toBe("lyazide@hotmail.co.uk");
-    expect(bodyResponse!.data.nom).toBe("nom modifié");
-    expect(bodyResponse!.data.prenom).toBe("prenom modifié");
-    expect(bodyResponse!.data.motDePasse).toBe("password modifié");
-    expect(bodyResponse!.data.isActif).toBe(false);
-    expect(bodyResponse!.data.isAdministrateur).toBe(true);
+    expect(response.status).toBe(200);
+    expect(bodyResponse!.email).toBe("lyazide@hotmail.co.uk");
+    expect(bodyResponse!.nom).toBe("nom modifié");
+    expect(bodyResponse!.prenom).toBe("prenom modifié");
+    expect(bodyResponse!.motDePasse).toBe("password modifié");
+    expect(bodyResponse!.isActif).toBe(false);
+    expect(bodyResponse!.isAdministrateur).toBe(true);
   });
 
   it("devrait supprimer un utilisateur avec DELETE", async () => {
-    const deletedDiagnostic: Utilisateur = {
+    const deletedUtilisateur: Utilisateur = {
       id: 1,
       email: "lyazide@hotmail.com",
       nom: "Oudjoudi",
@@ -217,23 +239,23 @@ describe("Utilisateurs API", () => {
 
     // ✅ Mock de la suppression de utilisateur dans Prisma
     (prisma.utilisateur.delete as jest.Mock).mockResolvedValue(
-      deletedDiagnostic
+      deletedUtilisateur
     );
 
     // ✅ Création de mocks pour req et res
     const { req } = createMocks({
       method: "DELETE",
-      body: { id: 1 },
+      url: "http://localhost/api/signup?id=1",
     });
 
     // ✅ Mock de req.json() pour éviter l'erreur
-    req.json = async () => ({ id: 1 });
+    //req.json = async () => ({ id: 1 });
 
     // ✅ Simulation de la fonction DELETE
     const response = await DELETE(req);
     const bodyResponse = await response.json();
     // ✅ Assertions sur la réponse
-    expect(response.status).toBe(201);
-    expect(bodyResponse!.data.id).toBe(1);
-  });*/
+    expect(response.status).toBe(200);
+    expect(bodyResponse.error).toBe("Utilisateur supprimé avec succès.");
+  });
 });

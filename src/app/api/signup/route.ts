@@ -17,7 +17,9 @@ export async function GET(req: NextRequest) {
       });
       return utilisateur
         ? new Response(JSON.stringify(utilisateur), { status: 200 })
-        : new Response("Utilisateur non trouvé.", { status: 404 });
+        : new Response(JSON.stringify({ error: "Utilisateur non trouvé." }), {
+            status: 404,
+          });
     } else {
       const utilisateurs = await prisma.utilisateur.findMany();
       return new Response(JSON.stringify(utilisateurs), { status: 200 });
@@ -100,14 +102,20 @@ export async function DELETE(req: NextRequest) {
 
   try {
     if (!userId) {
-      return new Response("ID de l'utilisateur manquant.", { status: 400 });
+      return new Response(
+        JSON.stringify({ error: "ID de l'utilisateur manquant." }),
+        { status: 400 }
+      );
     }
 
     await prisma.utilisateur.delete({
       where: { id: parseInt(userId) },
     });
 
-    return new Response("Utilisateur supprimé avec succès.", { status: 200 });
+    return new Response(
+      JSON.stringify({ error: "Utilisateur supprimé avec succès." }),
+      { status: 200 }
+    );
   } catch (error) {
     console.error("Error fetching utilisateurs:", error);
     return new Response(

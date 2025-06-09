@@ -29,9 +29,11 @@ const config: Config = {
   moduleDirectories: ["node_modules", "<rootDir>/"],
   testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
   collectCoverageFrom: [
-    "src/**/*.{js,jsx,ts,tsx}",
-    "!src/**/*.d.ts",
-    "!src/**/types.ts",
+    //"src/**/*.{js,jsx,ts,tsx}",
+    //"!src/**/*.d.ts",
+    //"!src/**/types.ts",
+    "src/app/api/**/*.{js,jsx,ts,tsx}",
+    "!src/app/api/__mock__/**/*.{js,jsx,ts,tsx}", // Exclude mocks
   ],
   watchPlugins: [
     "jest-watch-typeahead/filename",

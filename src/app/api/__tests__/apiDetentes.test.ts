@@ -102,6 +102,23 @@ describe("Detentes API", () => {
     expect(bodyResponse!.error).toBe("No detentes found.");
   });
 
+  it("devrait renvoyer une erreur 500 en cas d'exception", async () => {
+    // 🔄 Muter console.error pour éviter les logs indésirables
+    jest.spyOn(console, "error").mockImplementation(() => {});
+
+    (prisma.detente.findMany as jest.Mock).mockRejectedValue(
+      new Error("Erreur de base de données")
+    );
+
+    const response = await GET();
+    const bodyResponse = await response.json();
+
+    expect(response?.status ?? 500).toBe(500);
+    expect(bodyResponse.error).toBe(
+      "An error occurred while fetching the detentes."
+    );
+  });
+
   it("devrait créer un nouveau detente avec POST", async () => {
     const newDiagnostic: Detente = {
       id: 3,

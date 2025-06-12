@@ -170,7 +170,7 @@ jobs:
 
   build-and-push-image:
     runs-on: ubuntu-latest
-    if: github.ref_name == 'main'
+    #    if: github.ref_name == 'main'
     permissions:
       contents: read
       packages: write
@@ -194,7 +194,7 @@ jobs:
 
   deploy-image:
     runs-on: ubuntu-latest
-    if: github.ref_name == 'main'
+    # if: github.ref_name == 'main'
     needs: [build-and-push-image, Test_Api]
     steps:
       - uses: webfactory/ssh-agent@v0.5.4

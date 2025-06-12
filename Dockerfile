@@ -1,21 +1,30 @@
-# FROM node:24-alpine3.18
-FROM debian:12
+FROM node:24.2-alpine3.21 AS builder
 
 LABEL org.opencontainers.image.source=https://github.com/lyazide/cesizen
-
-RUN apt-get update -yq \
-    && apt-get install curl gnupg -yq \
-    && curl -sL https://deb.nodesource.com/setup_24.x | bash \
-    && apt-get install nodejs -yq \
-    && apt-get clean -y
 
 ADD . /app/
 
 WORKDIR /app
 
-RUN npm install
+COPY package.json package-lock.json ./
+
+RUN npm ci --omit=dev
+
 RUN npm run build
 
 EXPOSE 3000
 
-CMD npm run start
+WORKDIR /app
+
+# Copie uniquement les fichiers indispensables pour l'exécution
+
+COPY --from=builder /app/public ./public
+
+COPY --from=builder /app/.next/standalone /app/
+COPY --from=builder /app/.next/static /app/.next/static
+
+COPY docker/next/entrypoint.sh /usr/local/bin/entrypoint
+RUN chmod +x /usr/local/bin/entrypoint
+
+ENTRYPOINT [ "entrypoint" ]
+CMD [ "node", "server.js"]

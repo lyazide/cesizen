@@ -190,6 +190,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
         with:
+          secrets: |
+            DATABASE_URL=${{ secrets.DATABASE_URL }}
           context: .
           push: true
           tags: ghcr.io/${{ github.repository }}:${{ github.ref_name }}

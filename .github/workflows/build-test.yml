@@ -211,8 +211,8 @@ jobs:
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
             cd test
-            sudo docker compose -f docker-compose.test.yml pull
-            sudo docker compose -f docker-compose.test.yml up -d
+            docker compose -f docker-compose.test.yml pull
+            docker compose -f docker-compose.test.yml up -d
 
   deploy-prod:
     runs-on: ubuntu-latest
@@ -230,5 +230,5 @@ jobs:
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
             cd prod
-            sudo docker compose -f docker-compose.prod.yml pull
-            sudo docker compose -f docker-compose.prod.yml up -d
+            docker compose -f docker-compose.prod.yml pull
+            docker compose -f docker-compose.prod.yml up -d

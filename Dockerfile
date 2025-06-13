@@ -16,7 +16,7 @@ LABEL org.opencontainers.image.source=https://github.com/lyazide/cesizen
 
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/prisma ./prisma
-COPY --from=builder /app/.next/standalone /app/
+#COPY --from=builder /app/.next/standalone /app/
 COPY --from=builder /app/.next/static /app/.next/static
 
 ENV CHECKPOINT_DISABLE=1

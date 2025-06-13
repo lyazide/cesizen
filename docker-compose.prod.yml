@@ -1,9 +1,1 @@
-services:
-  next-app:
-    image: ghcr.io/lyazide/cesizen/cesizen
-    container_name: next-cesizen
-    ports:
-      - "80:3000"
-    environment:
-      - NODE_ENV=production
-    restart: unless-stopped
+

@@ -13,6 +13,7 @@ RUN npm run build
 FROM node:24.2-alpine3.21 AS next
 
 LABEL org.opencontainers.image.source=https://github.com/lyazide/cesizen
+ENV DATABASE_URL="postgresql://postgres:Rebecca151205@postgres:5432/cesizen?schema=public"
 WORKDIR /app
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/prisma ./prisma

@@ -11,6 +11,9 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ["@chakra-ui/react"],
     /*swcPlugins: [["swc-plugin-coverage-instrument", {}]],*/
   },
+  output: "standalone",
 };
+
+module.exports = nextConfig;
 
 export default nextConfig;

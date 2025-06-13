@@ -39,10 +39,10 @@ model Utilisateur {
 }
 
 model Emotion {
-  id            Int          @id @default(autoincrement())
-  emotion       String?
-  emotiopsnBase String?
-  Enregistre    Enregistre[]
+  id           Int          @id @default(autoincrement())
+  emotion      String?
+  emotionsBase String?
+  Enregistre   Enregistre[]
 }
 
 model Respiration {

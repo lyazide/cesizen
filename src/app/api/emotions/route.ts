@@ -25,12 +25,12 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
-  const { emotion, emotionBase } = await req.json();
+  const { emotion, emotionsBase } = await req.json();
   try {
     const newEmotion = await prisma.emotion.create({
       data: {
         emotion,
-        emotionBase,
+        emotionsBase,
       },
     });
     return NextResponse.json({ data: newEmotion }, { status: 201 });
@@ -40,13 +40,13 @@ export async function POST(req: NextRequest) {
 }
 
 export async function PUT(req: NextRequest) {
-  const { emotion, emotionBase, id } = await req.json();
+  const { emotion, emotionsBase, id } = await req.json();
   try {
     const newEmotion = await prisma.emotion.update({
       where: { id: id },
       data: {
         emotion,
-        emotionBase,
+        emotionsBase,
       },
     });
     return NextResponse.json({ data: newEmotion }, { status: 201 });

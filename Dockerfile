@@ -34,5 +34,5 @@ COPY docker/next/entrypoint.sh /usr/local/bin/entrypoint
 RUN chmod +x /usr/local/bin/entrypoint
 
 ENTRYPOINT [ "entrypoint" ]
-CMD ["node", ".next/standalone/server.js"]
-#CMD ["npm", "run", "start"]
+#CMD ["node", ".next/standalone/server.js"]
+CMD ["npm", "run", "start"]

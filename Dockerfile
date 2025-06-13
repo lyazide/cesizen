@@ -26,6 +26,7 @@ WORKDIR /app
 EXPOSE 3000
 
 COPY docker/next/entrypoint.sh /usr/local/bin/entrypoint
+RUN chmod +x /usr/local/bin/entrypoint
 
 ENTRYPOINT [ "entrypoint" ]
 #CMD ["node", "server.js"]

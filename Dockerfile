@@ -67,7 +67,7 @@ COPY --from=builder --chown=nextjs:nodejs /app/node_modules/@prisma/client ./nod
 ENV CHECKPOINT_DISABLE=1
 #disable data collection from Prisma
 ENV DISABLE_PRISMA_TELEMETRY=true 
-
+ENV NEXTAUTH_SECRET="mysecret"
 
 EXPOSE 3000
 

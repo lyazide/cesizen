@@ -77,7 +77,7 @@ RUN chmod +x /usr/local/bin/entrypointRUN chmod +x /usr/local/bin/entrypoint
 ENV PORT=3000
 
 ENTRYPOINT [ "entrypoint" ]
-RUN chown -R nextjs:nodejs .next/server/app/diagnostics
+#RUN chown -R nextjs:nodejs .next/server/app/diagnostics
 ENV HOSTNAME="0.0.0.0"
 
 #CMD ["node", ".next/standalone/server.js"]

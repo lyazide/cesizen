@@ -48,7 +48,7 @@ RUN adduser --system --uid 1001 nextjs
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
+COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
 # Set the correct permission for prerender cache
 #RUN mkdir .next
 #RUN chown -R nextjs:nodejs .next
@@ -75,11 +75,11 @@ RUN chmod +x /usr/local/bin/entrypoint
 
 ENV PORT=3000
 
-ENTRYPOINT [ "entrypoint" ]
+#ENTRYPOINT [ "entrypoint" ]
 ENV HOSTNAME="0.0.0.0"
 
 #CMD ["node", ".next/standalone/server.js"]
 #CMD ["npm", "run", "start"]
-#RUN npx --no-update-notifier prisma migrate deploy
+RUN npx --no-update-notifier prisma migrate deploy
 USER nextjs
 CMD ["node", "server.js"]

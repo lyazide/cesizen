@@ -1,5 +1,5 @@
-FROM node:24.2-alpine3.21 AS builder
-#FROM node:24.2-alpine3.21 AS next
+#FROM node:24.2-alpine3.21 AS builder
+FROM node:24.2-alpine3.21 AS next
 ENV DATABASE_URL="postgresql://postgres:Rebecca151205@postgres:5432/cesizen?schema=public"
 
 ADD . /app/

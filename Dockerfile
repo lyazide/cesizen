@@ -66,7 +66,7 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 ENV CHECKPOINT_DISABLE=1
 #disable data collection from Prisma
 ENV DISABLE_PRISMA_TELEMETRY=true 
-USER nextjs
+
 
 EXPOSE 3000
 
@@ -81,5 +81,5 @@ ENV HOSTNAME="0.0.0.0"
 #CMD ["node", ".next/standalone/server.js"]
 #CMD ["npm", "run", "start"]
 #RUN npx --no-update-notifier prisma migrate deploy
-
+USER nextjs
 CMD ["node", "server.js"]

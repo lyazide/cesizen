@@ -31,7 +31,7 @@ RUN chown -R nextjs:nodejs .next
 
 
 #RUN npm install
-#COPY --from=builder /app/.next/static /app/.next/static
+#COPY --from=builder /app/.next/static /app/.next/staticcd 
 
 ENV CHECKPOINT_DISABLE=1
 #disable data collection from Prisma

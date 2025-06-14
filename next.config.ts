@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
     /*swcPlugins: [["swc-plugin-coverage-instrument", {}]],*/
   },
   output: "standalone",
+  assetPrefix: process.env.ASSET_PREFIX || "",
 };
 
 module.exports = nextConfig;

@@ -28,7 +28,7 @@ RUN chown nextjs:nodejs .next
 #COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-USER nextjs
+
 
 #RUN npm install
 #COPY --from=builder /app/.next/static /app/.next/static
@@ -42,6 +42,8 @@ EXPOSE 3000
 
 COPY docker/next/entrypoint.sh /usr/local/bin/entrypoint
 RUN chmod +x /usr/local/bin/entrypoint
+
+USER nextjs
 
 ENTRYPOINT [ "entrypoint" ]
 CMD ["node", ".next/standalone/server.js"]

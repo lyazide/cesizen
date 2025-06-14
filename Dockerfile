@@ -80,4 +80,6 @@ ENV HOSTNAME="0.0.0.0"
 
 #CMD ["node", ".next/standalone/server.js"]
 #CMD ["npm", "run", "start"]
+RUN npx --no-update-notifier prisma migrate deploy
+
 CMD ["node", "server.js"]

@@ -202,7 +202,7 @@ jobs:
     #if: github.ref == 'refs/heads/develop' # Exécuter uniquement sur develop
     environment:
       name: develop
-      url: http://ec2-52-207-103-28.compute-1.amazonaws.com:3000
+      url: http://ec2-107-23-85-12.compute-1.amazonaws.com:3000
     steps:
       - uses: appleboy/ssh-action@v1
         with:
@@ -221,7 +221,7 @@ jobs:
     #if: github.ref == 'refs/heads/main' # Exécuter uniquement sur main
     environment:
       name: prod
-      url: http://ec2-52-207-103-28.compute-1.amazonaws.com
+      url: http://ec2-107-23-85-12.compute-1.amazonaws.com
     steps:
       - uses: appleboy/ssh-action@v1
         with:

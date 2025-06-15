@@ -6,7 +6,7 @@ export async function GET() {
     // Fetch all emotions
     const emotions = await prisma.emotion.findMany();
 
-    //console.log(emotions);
+    console.log(emotions);
     if (!emotions || emotions.length === 0) {
       return NextResponse.json(
         { error: "No emotions found." },
@@ -25,12 +25,12 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
-  const { emotion, emotionsBase } = await req.json();
+  const { emotion, emotionBase } = await req.json();
   try {
     const newEmotion = await prisma.emotion.create({
       data: {
         emotion,
-        emotionsBase,
+        emotionBase,
       },
     });
     return NextResponse.json({ data: newEmotion }, { status: 201 });
@@ -40,13 +40,13 @@ export async function POST(req: NextRequest) {
 }
 
 export async function PUT(req: NextRequest) {
-  const { emotion, emotionsBase, id } = await req.json();
+  const { emotion, emotionBase, id } = await req.json();
   try {
     const newEmotion = await prisma.emotion.update({
       where: { id: id },
       data: {
         emotion,
-        emotionsBase,
+        emotionBase,
       },
     });
     return NextResponse.json({ data: newEmotion }, { status: 201 });

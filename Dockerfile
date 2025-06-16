@@ -41,6 +41,7 @@ FROM node:24.2-alpine3.21 AS next
 
 LABEL org.opencontainers.image.source=https://github.com/lyazide/cesizen
 ENV DATABASE_URL="postgresql://postgres:Rebecca151205@postgres:5432/cesizen?schema=public"
+ENV NEXTAUTH_URL=http://ec2-107-23-85-12.compute-1.amazonaws.com
 WORKDIR /app
 ENV NODE_ENV=production
 RUN addgroup --system --gid 1001 nodejs

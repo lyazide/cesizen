@@ -216,6 +216,8 @@ jobs:
           summary: true
 
       - name: Upload SARIF result
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         id: upload-sarif
         if: ${{ github.event_name != 'pull_request_target' }}
         uses: github/codeql-action/upload-sarif@v3

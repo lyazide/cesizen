@@ -1,1 +1,58 @@
+services:
+  postgres:
+    image: postgres:17.5-alpine
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    networks:
+      - cesizen
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 2s
 
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - cesizen
+
+  next-app:
+    image: ghcr.io/lyazide/cesizen:master
+    container_name: next-cesizen
+    ports:
+      - "80:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    networks:
+      - cesizen
+#    labels:
+#      - "traefik.enable=true"
+#      - "traefik.http.routers.next-test.rule=Host(`52.207.103.28`)"
+#      - "traefik.http.routers.next-test.entrypoints=web"
+ #     - "traefik.http.services.next.loadbalancer.server.port=80"
+ #     - "traefik.http.routers.next.tls.certresolver=myresolver"
+#    networks:
+#      - web
+
+#networks:
+#  web:
+#    external: true
+volumes:
+  pgdata:
+
+networks:
+  cesizen:
+    driver: bridge

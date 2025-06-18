@@ -107,9 +107,9 @@ jobs:
         with:
           install: false
           start: npm run dev
-          browser: ${{ matrix.browser }}
-          command: npm run component:headless
-          headed: false
+          #browser: ${{ matrix.browser }}
+          command: npm run component:headless --browser ${{ matrix.browser }}
+          #headed: false
 
       - uses: actions/upload-artifact@v4
         if: always()
@@ -154,11 +154,11 @@ jobs:
         with:
           install: false
           start: npm run dev
-          browser: ${{ matrix.browser }}
+          #browser: ${{ matrix.browser }}
 
-          command: npm run e2e:headless
+          command: npm run e2e:headless --browser ${{ matrix.browser }}
 
-          headed: false
+          #headed: false
 
       - uses: actions/upload-artifact@v4
         if: always()

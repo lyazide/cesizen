@@ -108,7 +108,7 @@ jobs:
           install: false
           start: npm run dev
           browser: ${{ matrix.browser }}
-          component: true
+          command: npm run component:headless
           headed: false
 
       - uses: actions/upload-artifact@v4
@@ -156,7 +156,8 @@ jobs:
           start: npm run dev
           browser: ${{ matrix.browser }}
 
-          e2e: true
+          command: npm run e2e:headless
+
           headed: false
 
       - uses: actions/upload-artifact@v4

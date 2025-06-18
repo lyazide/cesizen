@@ -81,7 +81,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        browser: [chrome, edge]
+        browser: [chrome, edge, firefox, safari]
     needs:
       - Test_Api
     steps:
@@ -107,8 +107,8 @@ jobs:
         with:
           install: false
           start: npm run dev
-          #browser: ${{ matrix.browser }}
-          command: npm run component:headless --browser ${{ matrix.browser }}
+          browser: ${{ matrix.browser }}
+          command: npm run component:headless
           #headed: false
 
       - uses: actions/upload-artifact@v4
@@ -154,9 +154,9 @@ jobs:
         with:
           install: false
           start: npm run dev
-          #browser: ${{ matrix.browser }}
+          browser: ${{ matrix.browser }}
 
-          command: npm run e2e:headless --browser ${{ matrix.browser }}
+          command: npm run e2e:headless
 
           #headed: false
 

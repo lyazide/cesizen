@@ -71,6 +71,11 @@ jobs:
       - run: echo "🍏 This job's status is cuurently ${{ job.status }}."
       - name: run API tests
         run: npm test
+      - name: Publish Jest Test Results
+        uses: test-summary/action@v2
+        if: always()
+        with:
+          paths: "test-results/jest-junit.xml"
 
   Test_Component:
     runs-on: ubuntu-latest

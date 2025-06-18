@@ -81,6 +81,18 @@
     "wait-on": "^8.0.3",
     "whatwg-fetch": "^3.6.20"
   },
+  "jest": {
+    "reporters": [
+      "default",
+      [
+        "jest-junit",
+        {
+          "outputDirectory": "test-results",
+          "outputName": "jest-junit.xml"
+        }
+      ]
+    ]
+  },
   "nyc": {
     "extends": "@istanbuljs/nyc-config-typescript",
     "reporter": [

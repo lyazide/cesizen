@@ -39,6 +39,16 @@ const config: Config = {
     "jest-watch-typeahead/filename",
     "jest-watch-typeahead/testname",
   ],
+  reporters: [
+    "default",
+    [
+      "jest-junit",
+      {
+        outputDirectory: "test-results",
+        outputName: "jest-junit.xml",
+      },
+    ],
+  ],
 };
 
 export default createJestConfig(config);

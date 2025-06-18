@@ -47,7 +47,7 @@ jobs:
           path: |
             node_modules
             /home/runner/.cache/Cypress
-          key: ${{ runner.os }}--node-modules-${{ hashFiles('**/package-lock.json') }} ##{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}--node-modules-${{ hashFiles('**/package-lock.json') }}-${{ github.run_id }} ##{ hashFiles('**/package-lock.json') }}
   Test_Api:
     runs-on: ubuntu-latest
     needs:

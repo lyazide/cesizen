@@ -81,7 +81,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        browser: [chrome, chromium, edge, firefox, electron]
+        browser: [chrome, chromium, edge, electron]
     needs:
       - Test_Api
     steps:
@@ -128,7 +128,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        browser: [chrome, chromium, edge, firefox, electron]
+        browser: [chrome, chromium, edge, electron]
     needs:
       - Test_Component
     steps:

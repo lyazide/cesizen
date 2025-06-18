@@ -128,7 +128,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        browser: [chrome, edge]
+        browser: [chrome, edge, firefox, safari]
     needs:
       - Test_Component
     steps:

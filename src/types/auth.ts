@@ -19,6 +19,10 @@ declare module "next-auth" {
   interface JWT {
     sub: string;
     email?: string;
+    name?: string;
+    image?: string;
+    nom: string;
+    prenom: string;
     isActif: boolean;
     isAdministrateur: boolean;
   }

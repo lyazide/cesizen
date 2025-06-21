@@ -1,10 +1,3 @@
-/**
- * @file ExerciseRespiration.tsx
- * @description Composant React pour un exercice de respiration guidé.
- * Implémente une séquence de respiration en trois phases (inspiration, rétention, expiration)
- * avec visualisation, minuteur et sélection d'exercices depuis l'API.
- */
-
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";

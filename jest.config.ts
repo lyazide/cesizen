@@ -34,6 +34,9 @@ const config: Config = {
     //"!src/**/types.ts",
     "src/app/api/**/*.{js,jsx,ts,tsx}",
     "!src/app/api/__mock__/**/*.{js,jsx,ts,tsx}", // Exclude mocks
+    "!src/app/api/auth/**/*.{js,jsx,ts,tsx}", //Exclude Nextauth
+    "!src/app/api/dashboard/*.{js,jsx,ts,tsx}",
+    "!src/app/api/utilisateurs/*.{js,jsx,ts,tsx}", //Exclude Nextauth //Exclude Nextauth
   ],
   watchPlugins: [
     "jest-watch-typeahead/filename",

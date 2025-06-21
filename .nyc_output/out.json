@@ -673,5 +673,95 @@
     "s": {},
     "f": {},
     "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/types/emotions.ts": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/types/emotions.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/types/informations.ts": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/types/informations.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/crud/page.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/crud/page.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/CRUD/crudTable.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/CRUD/crudTable.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiEmotions.test.ts": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiEmotions.test.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiInformations.test.ts": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiInformations.test.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiRespiration.test.ts": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiRespiration.test.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiSignup.test.ts": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiSignup.test.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiSoumettreDiagnostics.test.ts": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiSoumettreDiagnostics.test.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiUsers.test.ts": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiUsers.test.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
   }
 }

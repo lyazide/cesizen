@@ -146,6 +146,6 @@ export const config = {
   //  runtime: "nodejs",
 
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|api/auth|assets/photos).*)", // Exclut les routes NextAuth
+    "/((?!_next/static|_next/image|favicon.ico|api/auth|assets/photos|__coverage__|__/fonts).*)", // Exclut les routes NextAuth
   ],
 };

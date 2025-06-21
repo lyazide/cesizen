@@ -23,6 +23,15 @@ describe("Navigation", () => {
     // The new url should include "/about"
     cy.url().should("include", "/detentes");
 
+    cy.get('a[href*="detentes/1"]').click();
+
+    // The new url should include "/about"
+    cy.url().should("include", "/detentes/1");
+
+    cy.contains("Retour").click();
+
+    cy.url().should("include", "/detentes");
+
     // The new page should contain an h1 with "About page"
     //cy.get("h1").contains("Politique de Confidentialité - CesiZen");
   });

@@ -89,6 +89,24 @@
     "f": {},
     "b": {}
   },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/types/emotions.ts": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/types/emotions.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/types/informations.ts": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/types/informations.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
   "C:/Users/lyazi/projets/cesi/cesizen/src/types/respirations.ts": {
     "path": "C:/Users/lyazi/projets/cesi/cesizen/src/types/respirations.ts",
     "statementMap": {},
@@ -145,6 +163,15 @@
   },
   "C:/Users/lyazi/projets/cesi/cesizen/src/app/apropos/page.tsx": {
     "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/apropos/page.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/crud/page.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/crud/page.tsx",
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},
@@ -269,6 +296,15 @@
     "f": {},
     "b": {}
   },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/CRUD/crudTable.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/CRUD/crudTable.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
   "C:/Users/lyazi/projets/cesi/cesizen/src/components/Dashboard/dashboard.tsx": {
     "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Dashboard/dashboard.tsx",
     "statementMap": {},
@@ -278,8 +314,17 @@
     "f": {},
     "b": {}
   },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Detente/DetenteCard.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Detente/DetenteCard.tsx",
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Detentes/DetenteCard.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Detentes/DetenteCard.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Detentes/DetenteDetails.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Detentes/DetenteDetails.tsx",
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},
@@ -431,24 +476,6 @@
     "f": {},
     "b": {}
   },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/__test__/DetenteCard.test.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/__test__/DetenteCard.test.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/__test__/Header.test.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/__test__/Header.test.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
   "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/dashboard/route.ts": {
     "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/dashboard/route.ts",
     "statementMap": {},
@@ -487,24 +514,6 @@
   },
   "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/informations/route.ts": {
     "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/informations/route.ts",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/items/apiitems.test.js": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/items/apiitems.test.js",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/items/route.ts": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/items/route.ts",
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},
@@ -566,96 +575,6 @@
     "f": {},
     "b": {}
   },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/app/informations/create/page.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/informations/create/page.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/app/informations/editor/page.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/informations/editor/page.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/app/informations/[id]/page.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/informations/[id]/page.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/app/userManagement/edit/page.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/userManagement/edit/page.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/app/userManagement/list/page.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/userManagement/list/page.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/auth/[...nextauth]/route.ts": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/auth/[...nextauth]/route.ts",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__mock__/prisma.ts": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__mock__/prisma.ts",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiDiagnostics.test.ts": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiDiagnostics.test.ts",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Detentes/DetenteCard.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Detentes/DetenteCard.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/Detentes/DetenteDetails.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/Detentes/DetenteDetails.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
   "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiDetentes.test.ts": {
     "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiDetentes.test.ts",
     "statementMap": {},
@@ -665,44 +584,8 @@
     "f": {},
     "b": {}
   },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/app/detentes/[id]/page.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/detentes/[id]/page.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/types/emotions.ts": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/types/emotions.ts",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/types/informations.ts": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/types/informations.ts",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/app/crud/page.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/crud/page.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "C:/Users/lyazi/projets/cesi/cesizen/src/components/CRUD/crudTable.tsx": {
-    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/components/CRUD/crudTable.tsx",
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiDiagnostics.test.ts": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiDiagnostics.test.ts",
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},
@@ -757,6 +640,69 @@
   },
   "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiUsers.test.ts": {
     "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/__tests__/apiUsers.test.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/detentes/[id]/page.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/detentes/[id]/page.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/informations/create/page.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/informations/create/page.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/informations/editor/page.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/informations/editor/page.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/informations/[id]/page.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/informations/[id]/page.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/userManagement/edit/page.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/userManagement/edit/page.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/userManagement/list/page.tsx": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/userManagement/list/page.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/auth/[...nextauth]/route.ts": {
+    "path": "C:/Users/lyazi/projets/cesi/cesizen/src/app/api/auth/[...nextauth]/route.ts",
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},

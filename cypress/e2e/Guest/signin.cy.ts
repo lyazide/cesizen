@@ -18,7 +18,8 @@ describe("Navigation", () => {
     cy.get("@menuButton").click();
 
     // Find a link with an href attribute containing "about" and click it
-    cy.get('a[href*="singin"]').click();
+    //cy.get('a[href*="singin"]').click();
+    cy.contains("Login").click();
 
     // The new url should include "/about"
     cy.url().should("include", "/signin");

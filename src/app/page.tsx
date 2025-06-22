@@ -19,7 +19,7 @@ export default function Page() {
         overflow="auto" // Permettre le défilement si contenu trop long
         //p={6} // Padding interne
       >
-        <Header name="Acccueil" />
+        <Header name="Accueil" />
         <Box p={4} marginTop="80px">
           <SimpleGrid minChildWidth="sm" gap="20px">
             <InformationDetails

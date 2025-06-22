@@ -4,5 +4,5 @@
     "lib": ["es5", "dom"],
     "types": ["cypress", "node"]
   },
-  "include": ["**/*.ts", "support/component.ts"]
+  "include": ["**/*.ts", "support/component.ts", "cypress", "cypress/support/index.d.ts"]
 }

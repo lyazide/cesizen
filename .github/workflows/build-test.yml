@@ -130,7 +130,10 @@ jobs:
       matrix:
         browser: [chrome, chromium, edge, electron]
     needs:
-      - Test_Component
+      - Test_Component4
+    env:
+      NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
+      NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"

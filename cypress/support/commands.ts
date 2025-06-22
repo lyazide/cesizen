@@ -41,7 +41,7 @@ Cypress.Commands.add("login", (email: string, password: string) => {
   cy.visit("http://localhost:3000/signin");
   cy.get('[type="email"]').type(email);
   cy.get('[type="password"]').type(password);
-  cy.contains("button", "Se connecter").click();
+  cy.contains("Se connecter").click();
 
   // Vérifie qu’on est bien redirigé après connexion
   cy.url().should("not.include", "/signin");

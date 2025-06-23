@@ -129,8 +129,8 @@ jobs:
     strategy:
       matrix:
         browser: [chrome, chromium, edge, electron]
-    needs:
-      - Test_Component
+    #needs:
+    #- Test_Component
     env:
       NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
       NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
@@ -153,6 +153,9 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
 
       - run: echo "🍏 This job's status is currently ${{ job.status }}."
+      - name: Generate Prisma client
+        run: npx prisma generate
+
       - name: Run diagnostics script
         run: npm run diagnostics
         env:

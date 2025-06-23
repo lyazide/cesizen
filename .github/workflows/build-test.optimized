@@ -42,10 +42,7 @@ jobs:
 
       - run: npm run 
       
-      - name: Run diagnostics script
-        run: npm run diagnostics
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
 
 
   test-api:

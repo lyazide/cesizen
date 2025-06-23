@@ -143,6 +143,7 @@ jobs:
     env:
       NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
       NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -169,8 +170,7 @@ jobs:
 
       - name: Run diagnostics script
         run: npm run diagnostics
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
       - uses: cypress-io/github-action@v6
         with:
           install: false

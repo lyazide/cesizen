@@ -6,7 +6,7 @@
 // Cypress E2E Test
 describe("Navigation", () => {
   beforeEach(() => {
-    cy.login("lyazide11@hotmail.com", "password123"); // Remplace par tes identifiants de test
+    cy.login("lyazide@hotmail.com", "password123"); // Remplace par tes identifiants de test
   });
 
   it("Dois naviguer vers la page à propos", () => {

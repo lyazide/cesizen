@@ -177,7 +177,8 @@ jobs:
 
       - name: Run diagnostics script
         run: npm run diagnostics
-
+      - name: Run detentes script
+        run: npm run detentes
       - uses: cypress-io/github-action@v6
         with:
           install: false

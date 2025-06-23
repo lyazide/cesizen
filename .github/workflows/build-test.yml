@@ -149,7 +149,8 @@ jobs:
     env:
       NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
       NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      DATABASE_URL: postgresql://postgres:Rebecca151205@localhost:5432/cesizen
+
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"

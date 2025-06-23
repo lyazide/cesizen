@@ -126,6 +126,15 @@ jobs:
 
   Test_E2E:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: Rebecca151205
+          POSTGRES_DB: cesizen
+        ports:
+          - 5432:5432
     strategy:
       matrix:
         browser: [chrome, chromium, edge, electron]
@@ -155,6 +164,8 @@ jobs:
       - run: echo "🍏 This job's status is currently ${{ job.status }}."
       - name: Generate Prisma client
         run: npx prisma generate
+      - name: Deploy and migrate Prisma client
+        run: npx prisma migrate deploy
 
       - name: Run diagnostics script
         run: npm run diagnostics

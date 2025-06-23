@@ -12,14 +12,15 @@
     "e2e": "start-server-and-test dev http://localhost:3000 \"cypress open --e2e\"",
     "e2e:headless": "start-server-and-test dev http://localhost:3000 \"cypress run --e2e\"",
     "component": "cypress open --component",
-    "component:headless": "cypress run --component"
+    "component:headless": "cypress run --component",
+    "diagnostics":" ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} scripts/populateDiagnostics.js"
   },
   "dependencies": {
     "@capacitor/android": "^7.3.0",
     "@capacitor/core": "^7.3.0",
     "@capacitor/ios": "^7.3.0",
     "@chakra-ui/charts": "^3.16.0",
-    "@chakra-ui/react": "^3.19.1",
+    "@chakra-ui/react": "^3.19.1 ",
     "@chakra-ui/theme": "^3.4.6",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",

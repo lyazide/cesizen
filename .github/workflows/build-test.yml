@@ -144,8 +144,8 @@ jobs:
     strategy:
       matrix:
         browser: [chrome, chromium, edge, electron]
-    #needs:
-    #- Test_Component
+    needs:
+      - Test_Component
     env:
       NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
       NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}

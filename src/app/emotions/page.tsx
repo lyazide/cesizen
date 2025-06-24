@@ -75,11 +75,11 @@ const EmotionsPage = () => {
   return (
     <Container
       as="main"
-      backgroundColor={"brand.200"}
+      backgroundColor={"brand.600"}
       padding="20px"
-      pt="70px"
+      pt="130px"
       minHeight="100vh"
-      maxW="90%" // 90% de la largeur de l'écran
+      maxW="100%" // 90% de la largeur de l'écran
       height="90vh" // 90% de la hauteur de l'écran
       boxShadow="lg" // Ombre pour un effet esthétique
       borderRadius="lg" // Coins arrondis
@@ -91,9 +91,9 @@ const EmotionsPage = () => {
       <Box
         as="main"
         width="100%"
-        height="60%"
+        height="100%"
         justifyContent="center"
-        backgroundColor={"brand.200"}
+        backgroundColor={"brand.600"}
         padding="10px"
       >
         {emotions.length > 0 ? (

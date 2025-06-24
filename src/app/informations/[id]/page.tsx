@@ -25,35 +25,6 @@ async function InformationDetailsPage({
     notFound();
   }
 
-  // Define the interface for the component's props, aligning with Next.js PageProps structure
-  /*interface InformationDetailsPageProps {
-  params: {
-    id: string; // Dynamic route parameter
-  };
-  // searchParams are often part of PageProps in Next.js app directory,
-  // even if not directly used by the component. Adding it can help satisfy
-  // Next.js's internal type constraints.
-  searchParams?: { [key: string]: string | string[] | undefined };
-}*/
-
-  /*const getInformationById = async (id: number) => {
-  return await prisma.information.findUnique({
-    where: { id },
-  });
-};
-
-const InformationDetailsPage = async ({
-  params,
-}: {
-  params: { id: string };
-}) => {
-  // Use the defined interface here
-  const information = await getInformationById(parseInt( params.id));
-
-  if (!information) {
-    return <Text>Information non trouvée.</Text>;
-  }*/
-
   return (
     <Box as="main" flex="1">
       <Container
@@ -70,8 +41,8 @@ const InformationDetailsPage = async ({
         //p={6} // Padding interne
       >
         <Header name={information.titre} />
-        <Box p={4} mt="200px">
-          <SimpleGrid minChildWidth="sm" gap="20px">
+        <Box p={4} mt="200px" pt="200px">
+          <SimpleGrid minChildWidth="sm" gap="20px" pt="100px">
             <InformationDetails
               titre={information.titre}
               contenu={information.contenu}

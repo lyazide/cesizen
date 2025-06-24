@@ -23,8 +23,8 @@ export default function Page() {
         <Box p={4} marginTop="80px">
           <SimpleGrid minChildWidth="sm" gap="20px">
             <InformationDetails
-              titre="ceci est un titre"
-              contenu="ceci est un contenu"
+              titre="Bienvenue dans l'application CESIZEN"
+              contenu="CESIZEN est votre outil pour évaluer et gérer le stress lié aux changements de vie. Explorez les différentes catégories de changements et découvrez comment ils peuvent influencer votre bien-être."
             />
           </SimpleGrid>
         </Box>

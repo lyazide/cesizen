@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 //import { PrismaClient } from "@prisma/client";
 import prisma from "../../../utils/db"; // Adjust the import path as necessary
 import bcrypt from "bcrypt";
@@ -74,58 +74,24 @@ export async function PUT(req: NextRequest) {
 
   try {
     if (!userId) {
-      return new NextResponse("ID de l'utilisateur manquant.", { status: 400 });
+      return new Response("ID de l'utilisateur manquant.", { status: 400 });
     }
 
     const body = await req.json();
-    const { motDePasse, ...otherData } = body; // Destructure motDePasse from the body
-
-    // Declare dataToUpdate as const from the start
-    // We conditionally add motDePasse into a new object if it exists
-    const dataToUpdate = motDePasse
-      ? {
-          ...otherData,
-          motDePasse: await bcrypt.hash(motDePasse, await bcrypt.genSalt(10)),
-        }
-      : otherData; // If no motDePasse, just use otherData
-
     const updatedUtilisateur = await prisma.utilisateur.update({
       where: { id: parseInt(userId) },
-      data: dataToUpdate,
-      // IMPORTANT: Select what you want to return, exclude the password for security
-      select: {
-        id: true,
-        nom: true,
-        prenom: true,
-        email: true,
-        isActif: true,
-        isAdministrateur: true,
-        // Do NOT include motDePasse here
-      },
+      data: body,
     });
 
-    return new NextResponse(JSON.stringify(updatedUtilisateur), {
-      status: 200,
-    });
+    return new Response(JSON.stringify(updatedUtilisateur), { status: 200 });
   } catch (error) {
-    console.error("Error updating user:", error);
-
-    // Handle unique constraint error for email
-    //    if (error.code === "P2002" && error.meta?.target?.includes("email")) {
-    //      return new NextResponse(
-    //        JSON.stringify({ message: "L'adresse e-mail existe déjà." }),
-    //        { status: 409 } // Conflict
-    //      );
-    //    }
-
-    return new NextResponse(
+    console.error("Error fetching recettes:", error);
+    return new Response(
       JSON.stringify({
         message: "Erreur lors de la mise à jour de l'utilisateur.",
       }),
       { status: 500 }
     );
-  } finally {
-    await prisma.$disconnect(); // Ensure Prisma client is disconnected
   }
 }
 

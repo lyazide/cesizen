@@ -70,6 +70,7 @@ const UserManagement = () => {
   };
 
   // Création d'un utilisateur
+
   const handleCreate = async (): Promise<void> => {
     const response = await fetch("/api/signup", {
       method: "POST",

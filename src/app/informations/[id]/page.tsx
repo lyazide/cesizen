@@ -4,6 +4,8 @@ import prisma from "@/utils/db";
 import { Box, Container, /*Text,*/ SimpleGrid } from "@chakra-ui/react";
 import Header from "../../../components/Header/Header";
 import { notFound } from "next/navigation";
+import DeleteButton from "../../../components/Informations/deleteInformation";
+import EditButton from "../../../components/Informations/editInformation";
 
 async function InformationDetailsPage({
   params,
@@ -41,8 +43,10 @@ async function InformationDetailsPage({
         //p={6} // Padding interne
       >
         <Header name={information.titre} />
-        <Box p={4} mt="200px" pt="200px">
-          <SimpleGrid minChildWidth="sm" gap="20px" pt="100px">
+        <DeleteButton id={parseInt(id)} />
+        <EditButton id={information.id} />
+        <Box p={4} mt={{ base: "850px", md: "600px", lg: "500px" }}>
+          <SimpleGrid minChildWidth="sm" gap="20px">
             <InformationDetails
               titre={information.titre}
               contenu={information.contenu}

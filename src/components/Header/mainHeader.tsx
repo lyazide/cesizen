@@ -47,6 +47,7 @@ const Header = () => {
   const { data: session } = useSession();
 
   // Récupération des informations utilisateur
+  const userId = session?.user.id;
   const userName = session?.user?.name || "Invité";
   const userStatus = session?.user?.isActif ? "Actif" : "Inactif";
   const userRole = session?.user?.isAdministrateur ? "Admin" : "Utilisateur";
@@ -90,6 +91,8 @@ const Header = () => {
     { label: "Activités Détente", href: "/detentes" },
     { label: "Informations sur la santé mentale", href: "/informations" },
     { label: "S'enregistrer", href: "/signup" },
+
+    { label: "Mot de passe", href: `/utilisateurs/${userId}` }, // Lien vers la page de l'utilisateur connecté
   ];
   return (
     <Container as="header">

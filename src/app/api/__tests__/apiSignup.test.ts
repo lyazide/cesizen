@@ -12,7 +12,7 @@ import Utilisateur from "../../../types/utilisateurs";
     })),
   },
 }));*/
-jest.mock("next/server", () => ({
+/*jest.mock("next/server", () => ({
   NextResponse: {
     json: jest.fn((data, options) => {
       return new Response(JSON.stringify(data), {
@@ -21,12 +21,13 @@ jest.mock("next/server", () => ({
       });
     }),
   },
-}));
+}));*/
 
 // ✅ Mock de Prisma
 jest.mock("@/utils/db", () => ({
   __esModule: true,
   default: {
+    $disconnect: jest.fn(),
     utilisateur: {
       findMany: jest.fn(),
       findUnique: jest.fn(),

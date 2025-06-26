@@ -17,7 +17,8 @@ const roleAccessMap: Record<string, string[]> = {
 
     "/api/signup",
     "/informations/editor",
-
+    "/informations/[id]/edit",
+    "/informations/create",
     "/informations",
     "/api/informations",
     "/api/informations/[id]",
@@ -35,6 +36,7 @@ const roleAccessMap: Record<string, string[]> = {
     "/infoManagement",
     "/assets/photos/*",
     "/crud",
+    "/utilisateurs/[id]",
   ],
   user: [
     "/",
@@ -50,7 +52,8 @@ const roleAccessMap: Record<string, string[]> = {
     "/api/signup",
     "/informations",
     "/api/informations",
-    "/informations/[id]", // Ajout de pages dynamiques
+    "/informations/[id]",
+    // Ajout de pages dynamiques
     "/detentes",
     "/api/detentes",
     "/detentes/[id]", // Ajout de pages dynamiques
@@ -60,6 +63,7 @@ const roleAccessMap: Record<string, string[]> = {
     "/api/respirations",
     "/assets/photos/*",
     "/crud",
+    "/utilisateurs/[id]",
   ],
   guest: [
     "/",

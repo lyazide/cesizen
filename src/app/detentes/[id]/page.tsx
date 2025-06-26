@@ -35,7 +35,7 @@ async function InformationDetailsPage({
         //p={6} // Padding interne
       >
         <Header name={detente.nom} />
-        <Box p={4} marginTop="200px">
+        <Box p={4} mt={{ base: "400px", md: "200px", lg: "150px" }}>
           <SimpleGrid minChildWidth="sm" gap="20px" pt="20px">
             <DetenteDetails
               nom={detente.nom}

@@ -28,12 +28,13 @@ export async function GET(/*request: NextRequest*/) {
 }
 
 export async function POST(req: NextRequest) {
-  const { id, titre, contenu, dateCreation, dateModification } =
+  const { /*id,*/ titre, contenu, dateCreation, dateModification } =
     await req.json();
+
   try {
     const newInformation = await prisma.information.create({
       data: {
-        id,
+        /*id,*/
         titre,
         contenu,
         dateCreation,
@@ -42,7 +43,11 @@ export async function POST(req: NextRequest) {
     });
     return NextResponse.json({ data: newInformation }, { status: 201 });
   } catch (e) {
-    return NextResponse.json({ error: e }, { status: 500 });
+    //return NextResponse.json({ error: e }, { status: 500 });
+    return NextResponse.json(
+      { error: e instanceof Error ? e.message : String(e) },
+      { status: 500 }
+    );
   }
 }
 

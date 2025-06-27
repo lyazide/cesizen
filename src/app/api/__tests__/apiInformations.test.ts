@@ -122,7 +122,7 @@ describe("Informations API", () => {
     const { req } = createMocks({
       method: "POST",
       body: {
-        id: 3,
+        /*id: 3,*/
         titre: "Titre 3",
         contenu: "Contenu 3",
         dateCreation: new Date("2024-11-02T12:34:56Z"),
@@ -132,7 +132,7 @@ describe("Informations API", () => {
 
     // ✅ Mock de req.json() pour éviter l'erreur
     req.json = async () => ({
-      id: 3,
+      /*id: 3,*/
       titre: "Titre 3",
       contenu: "Contenu 3",
       dateCreation: new Date("2024-11-02T12:34:56Z"),

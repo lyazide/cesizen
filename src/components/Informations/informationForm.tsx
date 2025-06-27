@@ -82,12 +82,18 @@ export default function InformationForm({
   return (
     <Box as="main" flex="1">
       <Container
-        backgroundColor="brand.600"
+        as="main"
+        backgroundColor={"brand.600"}
+        padding="0px"
         pt="130px"
         minHeight="100vh"
+        maxW="100%"
+        height="auto"
+        boxShadow="lg"
+        overflow="auto"
         pb={8}
       >
-        <Heading as="h2" mb={6} textAlign="center">
+        <Heading as="h2" mb={6} textAlign="center" style={{ color: "white" }}>
           {mode === "create"
             ? "Créer une nouvelle information"
             : "Modifier l'information"}
@@ -100,6 +106,7 @@ export default function InformationForm({
             placeholder="Titre"
             required
             mb={3}
+            backgroundColor="white"
           />
           <Textarea
             value={contenu}
@@ -108,6 +115,7 @@ export default function InformationForm({
             rows={6}
             required
             mb={4}
+            backgroundColor="white"
           />
           <Button type="submit" colorScheme="teal" w="100%">
             {mode === "create" ? "Créer" : "Enregistrer"}

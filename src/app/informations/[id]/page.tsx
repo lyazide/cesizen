@@ -45,7 +45,7 @@ async function InformationDetailsPage({
         <Header name={information.titre} />
         <DeleteButton id={parseInt(id)} />
         <EditButton id={information.id} />
-        <Box p={4} mt={{ base: "850px", md: "600px", lg: "500px" }}>
+        <Box p={4} mt={{ base: "1150px", md: "600px", lg: "500px" }}>
           <SimpleGrid minChildWidth="sm" gap="20px">
             <InformationDetails
               titre={information.titre}

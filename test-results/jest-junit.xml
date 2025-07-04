@@ -1,99 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="41" failures="0" errors="0" time="2.756">
-  <testsuite name="Diagnostics API" errors="0" failures="0" skipped="0" timestamp="2025-06-27T09:20:07" time="0.948" tests="5">
-    <testcase classname="Diagnostics API devrait renvoyer une liste de diagnostics avec GET" name="Diagnostics API devrait renvoyer une liste de diagnostics avec GET" time="0.01">
+<testsuites name="jest tests" tests="41" failures="0" errors="0" time="3.516">
+  <testsuite name="Diagnostics API" errors="0" failures="0" skipped="0" timestamp="2025-06-27T13:34:30" time="1.187" tests="5">
+    <testcase classname="Diagnostics API devrait renvoyer une liste de diagnostics avec GET" name="Diagnostics API devrait renvoyer une liste de diagnostics avec GET" time="0.009">
     </testcase>
     <testcase classname="Diagnostics API devrait renvoyer une erreur si aucun diagnostic n&apos;est trouvé avec GET" name="Diagnostics API devrait renvoyer une erreur si aucun diagnostic n&apos;est trouvé avec GET" time="0.001">
     </testcase>
     <testcase classname="Diagnostics API devrait créer un nouveau diagnostic avec POST" name="Diagnostics API devrait créer un nouveau diagnostic avec POST" time="0.001">
     </testcase>
-    <testcase classname="Diagnostics API devrait mettre à jour un diagnostic existant avec PUT" name="Diagnostics API devrait mettre à jour un diagnostic existant avec PUT" time="0.001">
+    <testcase classname="Diagnostics API devrait mettre à jour un diagnostic existant avec PUT" name="Diagnostics API devrait mettre à jour un diagnostic existant avec PUT" time="0">
     </testcase>
-    <testcase classname="Diagnostics API devrait supprimer un diagnostic avec DELETE" name="Diagnostics API devrait supprimer un diagnostic avec DELETE" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="Emotions API" errors="0" failures="0" skipped="0" timestamp="2025-06-27T09:20:07" time="0.939" tests="5">
-    <testcase classname="Emotions API devrait renvoyer une liste de emotions avec GET" name="Emotions API devrait renvoyer une liste de emotions avec GET" time="0.007">
-    </testcase>
-    <testcase classname="Emotions API devrait renvoyer une erreur si aucun emotion n&apos;est trouvé avec GET" name="Emotions API devrait renvoyer une erreur si aucun emotion n&apos;est trouvé avec GET" time="0">
-    </testcase>
-    <testcase classname="Emotions API devrait créer un nouveau emotion avec POST" name="Emotions API devrait créer un nouveau emotion avec POST" time="0.001">
-    </testcase>
-    <testcase classname="Emotions API devrait mettre à jour un emotion existant avec PUT" name="Emotions API devrait mettre à jour un emotion existant avec PUT" time="0.001">
-    </testcase>
-    <testcase classname="Emotions API devrait supprimer un emotion avec DELETE" name="Emotions API devrait supprimer un emotion avec DELETE" time="0">
+    <testcase classname="Diagnostics API devrait supprimer un diagnostic avec DELETE" name="Diagnostics API devrait supprimer un diagnostic avec DELETE" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="Soumissions API" errors="0" failures="0" skipped="0" timestamp="2025-06-27T09:20:07" time="0.959" tests="5">
-    <testcase classname="Soumissions API devrait renvoyer une liste de soumissions avec GET" name="Soumissions API devrait renvoyer une liste de soumissions avec GET" time="0.012">
+  <testsuite name="Soumissions API" errors="0" failures="0" skipped="0" timestamp="2025-06-27T13:34:30" time="1.19" tests="5">
+    <testcase classname="Soumissions API devrait renvoyer une liste de soumissions avec GET" name="Soumissions API devrait renvoyer une liste de soumissions avec GET" time="0.011">
     </testcase>
-    <testcase classname="Soumissions API devrait renvoyer une erreur si aucun soumet n&apos;est trouvé avec GET" name="Soumissions API devrait renvoyer une erreur si aucun soumet n&apos;est trouvé avec GET" time="0.001">
+    <testcase classname="Soumissions API devrait renvoyer une erreur si aucun soumet n&apos;est trouvé avec GET" name="Soumissions API devrait renvoyer une erreur si aucun soumet n&apos;est trouvé avec GET" time="0">
     </testcase>
-    <testcase classname="Soumissions API devrait créer un nouveau soumet avec POST" name="Soumissions API devrait créer un nouveau soumet avec POST" time="0.002">
+    <testcase classname="Soumissions API devrait créer un nouveau soumet avec POST" name="Soumissions API devrait créer un nouveau soumet avec POST" time="0.001">
     </testcase>
     <testcase classname="Soumissions API devrait mettre à jour un soumet existant avec PUT" name="Soumissions API devrait mettre à jour un soumet existant avec PUT" time="0">
     </testcase>
-    <testcase classname="Soumissions API devrait supprimer un soumet avec DELETE" name="Soumissions API devrait supprimer un soumet avec DELETE" time="0">
+    <testcase classname="Soumissions API devrait supprimer un soumet avec DELETE" name="Soumissions API devrait supprimer un soumet avec DELETE" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="Respirations API" errors="0" failures="0" skipped="0" timestamp="2025-06-27T09:20:07" time="0.942" tests="5">
-    <testcase classname="Respirations API devrait renvoyer une liste de respirations avec GET" name="Respirations API devrait renvoyer une liste de respirations avec GET" time="0.016">
-    </testcase>
-    <testcase classname="Respirations API devrait renvoyer une erreur si aucun respiration n&apos;est trouvé avec GET" name="Respirations API devrait renvoyer une erreur si aucun respiration n&apos;est trouvé avec GET" time="0.001">
-    </testcase>
-    <testcase classname="Respirations API devrait créer un nouveau respiration avec POST" name="Respirations API devrait créer un nouveau respiration avec POST" time="0.001">
-    </testcase>
-    <testcase classname="Respirations API devrait mettre à jour un respiration existant avec PUT" name="Respirations API devrait mettre à jour un respiration existant avec PUT" time="0.001">
-    </testcase>
-    <testcase classname="Respirations API devrait supprimer un respiration avec DELETE" name="Respirations API devrait supprimer un respiration avec DELETE" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="Detentes API" errors="0" failures="0" skipped="0" timestamp="2025-06-27T09:20:07" time="0.955" tests="6">
-    <testcase classname="Detentes API devrait renvoyer une liste de detentes avec GET" name="Detentes API devrait renvoyer une liste de detentes avec GET" time="0.014">
-    </testcase>
-    <testcase classname="Detentes API devrait renvoyer une erreur si aucun detente n&apos;est trouvé avec GET" name="Detentes API devrait renvoyer une erreur si aucun detente n&apos;est trouvé avec GET" time="0.001">
-    </testcase>
-    <testcase classname="Detentes API devrait renvoyer une erreur 500 en cas d&apos;exception" name="Detentes API devrait renvoyer une erreur 500 en cas d&apos;exception" time="0.001">
-    </testcase>
-    <testcase classname="Detentes API devrait créer un nouveau detente avec POST" name="Detentes API devrait créer un nouveau detente avec POST" time="0.002">
-    </testcase>
-    <testcase classname="Detentes API devrait mettre à jour un detente existant avec PUT" name="Detentes API devrait mettre à jour un detente existant avec PUT" time="0.001">
-    </testcase>
-    <testcase classname="Detentes API devrait supprimer un detente avec DELETE" name="Detentes API devrait supprimer un detente avec DELETE" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="Informations API" errors="0" failures="0" skipped="0" timestamp="2025-06-27T09:20:07" time="1.001" tests="5">
-    <testcase classname="Informations API devrait renvoyer une liste de informations avec GET" name="Informations API devrait renvoyer une liste de informations avec GET" time="0.013">
+  <testsuite name="Informations API" errors="0" failures="0" skipped="0" timestamp="2025-06-27T13:34:30" time="1.198" tests="5">
+    <testcase classname="Informations API devrait renvoyer une liste de informations avec GET" name="Informations API devrait renvoyer une liste de informations avec GET" time="0.011">
     </testcase>
     <testcase classname="Informations API devrait renvoyer une erreur si aucun information n&apos;est trouvé avec GET" name="Informations API devrait renvoyer une erreur si aucun information n&apos;est trouvé avec GET" time="0.001">
     </testcase>
-    <testcase classname="Informations API devrait créer un nouveau information avec POST" name="Informations API devrait créer un nouveau information avec POST" time="0.002">
+    <testcase classname="Informations API devrait créer un nouveau information avec POST" name="Informations API devrait créer un nouveau information avec POST" time="0.001">
     </testcase>
     <testcase classname="Informations API devrait mettre à jour un information existant avec PUT" name="Informations API devrait mettre à jour un information existant avec PUT" time="0.001">
     </testcase>
     <testcase classname="Informations API devrait supprimer un information avec DELETE" name="Informations API devrait supprimer un information avec DELETE" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="Utilisateurs API" errors="0" failures="0" skipped="0" timestamp="2025-06-27T09:20:07" time="1.104" tests="5">
-    <testcase classname="Utilisateurs API devrait renvoyer une liste de utilisateurs avec GET" name="Utilisateurs API devrait renvoyer une liste de utilisateurs avec GET" time="0.007">
+  <testsuite name="Emotions API" errors="0" failures="0" skipped="0" timestamp="2025-06-27T13:34:30" time="1.2" tests="5">
+    <testcase classname="Emotions API devrait renvoyer une liste de emotions avec GET" name="Emotions API devrait renvoyer une liste de emotions avec GET" time="0.012">
+    </testcase>
+    <testcase classname="Emotions API devrait renvoyer une erreur si aucun emotion n&apos;est trouvé avec GET" name="Emotions API devrait renvoyer une erreur si aucun emotion n&apos;est trouvé avec GET" time="0">
+    </testcase>
+    <testcase classname="Emotions API devrait créer un nouveau emotion avec POST" name="Emotions API devrait créer un nouveau emotion avec POST" time="0.003">
+    </testcase>
+    <testcase classname="Emotions API devrait mettre à jour un emotion existant avec PUT" name="Emotions API devrait mettre à jour un emotion existant avec PUT" time="0.003">
+    </testcase>
+    <testcase classname="Emotions API devrait supprimer un emotion avec DELETE" name="Emotions API devrait supprimer un emotion avec DELETE" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="Respirations API" errors="0" failures="0" skipped="0" timestamp="2025-06-27T13:34:30" time="1.201" tests="5">
+    <testcase classname="Respirations API devrait renvoyer une liste de respirations avec GET" name="Respirations API devrait renvoyer une liste de respirations avec GET" time="0.012">
+    </testcase>
+    <testcase classname="Respirations API devrait renvoyer une erreur si aucun respiration n&apos;est trouvé avec GET" name="Respirations API devrait renvoyer une erreur si aucun respiration n&apos;est trouvé avec GET" time="0">
+    </testcase>
+    <testcase classname="Respirations API devrait créer un nouveau respiration avec POST" name="Respirations API devrait créer un nouveau respiration avec POST" time="0.003">
+    </testcase>
+    <testcase classname="Respirations API devrait mettre à jour un respiration existant avec PUT" name="Respirations API devrait mettre à jour un respiration existant avec PUT" time="0.003">
+    </testcase>
+    <testcase classname="Respirations API devrait supprimer un respiration avec DELETE" name="Respirations API devrait supprimer un respiration avec DELETE" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="Detentes API" errors="0" failures="0" skipped="0" timestamp="2025-06-27T13:34:30" time="1.2" tests="6">
+    <testcase classname="Detentes API devrait renvoyer une liste de detentes avec GET" name="Detentes API devrait renvoyer une liste de detentes avec GET" time="0.013">
+    </testcase>
+    <testcase classname="Detentes API devrait renvoyer une erreur si aucun detente n&apos;est trouvé avec GET" name="Detentes API devrait renvoyer une erreur si aucun detente n&apos;est trouvé avec GET" time="0.001">
+    </testcase>
+    <testcase classname="Detentes API devrait renvoyer une erreur 500 en cas d&apos;exception" name="Detentes API devrait renvoyer une erreur 500 en cas d&apos;exception" time="0.001">
+    </testcase>
+    <testcase classname="Detentes API devrait créer un nouveau detente avec POST" name="Detentes API devrait créer un nouveau detente avec POST" time="0.003">
+    </testcase>
+    <testcase classname="Detentes API devrait mettre à jour un detente existant avec PUT" name="Detentes API devrait mettre à jour un detente existant avec PUT" time="0.001">
+    </testcase>
+    <testcase classname="Detentes API devrait supprimer un detente avec DELETE" name="Detentes API devrait supprimer un detente avec DELETE" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="Utilisateurs API" errors="0" failures="0" skipped="0" timestamp="2025-06-27T13:34:30" time="1.347" tests="5">
+    <testcase classname="Utilisateurs API devrait renvoyer une liste de utilisateurs avec GET" name="Utilisateurs API devrait renvoyer une liste de utilisateurs avec GET" time="0.006">
     </testcase>
     <testcase classname="Utilisateurs API devrait renvoyer une erreur si aucun utilisateur n&apos;est trouvé avec GET" name="Utilisateurs API devrait renvoyer une erreur si aucun utilisateur n&apos;est trouvé avec GET" time="0">
     </testcase>
-    <testcase classname="Utilisateurs API devrait créer un nouveau utilisateur avec POST" name="Utilisateurs API devrait créer un nouveau utilisateur avec POST" time="0.055">
+    <testcase classname="Utilisateurs API devrait créer un nouveau utilisateur avec POST" name="Utilisateurs API devrait créer un nouveau utilisateur avec POST" time="0.051">
     </testcase>
     <testcase classname="Utilisateurs API devrait mettre à jour un utilisateur existant avec PUT" name="Utilisateurs API devrait mettre à jour un utilisateur existant avec PUT" time="0.001">
     </testcase>
     <testcase classname="Utilisateurs API devrait supprimer un utilisateur avec DELETE" name="Utilisateurs API devrait supprimer un utilisateur avec DELETE" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="Utilisateurs API" errors="0" failures="0" skipped="0" timestamp="2025-06-27T09:20:07" time="1.19" tests="5">
-    <testcase classname="Utilisateurs API devrait renvoyer un utilisateur spécifique avec GET et un ID" name="Utilisateurs API devrait renvoyer un utilisateur spécifique avec GET et un ID" time="0.006">
+  <testsuite name="Utilisateurs API" errors="0" failures="0" skipped="0" timestamp="2025-06-27T13:34:30" time="1.432" tests="5">
+    <testcase classname="Utilisateurs API devrait renvoyer un utilisateur spécifique avec GET et un ID" name="Utilisateurs API devrait renvoyer un utilisateur spécifique avec GET et un ID" time="0.007">
     </testcase>
-    <testcase classname="Utilisateurs API devrait renvoyer une erreur si aucun utilisateur n&apos;est trouvé avec GET" name="Utilisateurs API devrait renvoyer une erreur si aucun utilisateur n&apos;est trouvé avec GET" time="0">
+    <testcase classname="Utilisateurs API devrait renvoyer une erreur si aucun utilisateur n&apos;est trouvé avec GET" name="Utilisateurs API devrait renvoyer une erreur si aucun utilisateur n&apos;est trouvé avec GET" time="0.001">
     </testcase>
     <testcase classname="Utilisateurs API devrait créer un nouveau utilisateur avec POST" name="Utilisateurs API devrait créer un nouveau utilisateur avec POST" time="0.057">
     </testcase>
-    <testcase classname="Utilisateurs API devrait mettre à jour un utilisateur existant avec PUT" name="Utilisateurs API devrait mettre à jour un utilisateur existant avec PUT" time="0.049">
+    <testcase classname="Utilisateurs API devrait mettre à jour un utilisateur existant avec PUT" name="Utilisateurs API devrait mettre à jour un utilisateur existant avec PUT" time="0.047">
     </testcase>
     <testcase classname="Utilisateurs API devrait supprimer un utilisateur avec DELETE" name="Utilisateurs API devrait supprimer un utilisateur avec DELETE" time="0.001">
     </testcase>

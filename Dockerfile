@@ -1,42 +1,39 @@
-#FROM node:24.2-alpine3.21 AS builder
+
 # syntax=docker.io/docker/dockerfile:1
 
+# Installation de base avec paquets
 FROM node:24.2-alpine3.21 AS base
-
-# Install dependencies only when needed
-FROM base AS deps
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-RUN apk add --no-cache libc6-compat
 WORKDIR /app
+## Utilisation de la recommendation du lien 
+## https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine 
+##  qui décrit pourquoi libc6-compat peut être necessaire.
+RUN apk add --no-cache libc6-compat
 
-# Install dependencies based on the preferred package manager
+# Installation des dependences lorsque cela est necessaire
+FROM base AS deps
+# Installation propore "clean install" en fonction du gestionnaire de paquets préféré
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* .npmrc* ./
 RUN \
     if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
     elif [ -f package-lock.json ]; then npm ci; \
     elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile; \
-    else echo "Lockfile not found." && exit 1; \
+    else echo "Lockfile non trouvé." && exit 1; \
     fi
 
-FROM node:24.2-alpine3.21 AS builder
-
-
-
+# Buold de l'application
+FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+## Installation des dependences en fonction du gestionnaire de paquets préféré
 RUN \
     if [ -f yarn.lock ]; then yarn run build; \
     elif [ -f package-lock.json ]; then npm run build; \
     elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm run build; \
-    else echo "Lockfile not found." && exit 1; \
+    else echo "Lockfile non trouvé." && exit 1; \
     fi
-#ADD . /app/
 
-#RUN npm install
-#RUN npm rebuild bcrypt
-#RUN npm run build
-
+## Création de l'image finale optimisée pour la production
 FROM node:24.2-alpine3.21 AS next
 
 LABEL org.opencontainers.image.source=https://github.com/lyazide/cesizen
@@ -51,25 +48,13 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules/@prisma/client ./node_modules/@prisma/client
-#COPY --from=builder --chown=nextjs:nodejs /app/.next/server/app/Diagnostics /app/.next/server/app/diagnostics
 
-# Set the correct permission for prerender cache
-#RUN mkdir .next
-#RUN chown -R nextjs:nodejs .next
-#COPY --from=builder /app/prisma ./prisma
-#COPY --from=builder /app/.next ./.next
-#COPY --from=builder /app/package.json ./package.json
-#COPY --from=builder /app/node_modules ./node_modules
-##COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-##COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
-
-#RUN npm install
-#COPY --from=builder /app/.next/static /app/.next/staticcd 
 
 ENV CHECKPOINT_DISABLE=1
-#disable data collection from Prisma
+
+## désactive la collect de donnée de Prisma
 ENV DISABLE_PRISMA_TELEMETRY=true 
+
 ENV NEXTAUTH_SECRET="mysecret"
 
 EXPOSE 3000
@@ -83,8 +68,5 @@ ENTRYPOINT [ "entrypoint" ]
 
 ENV HOSTNAME="0.0.0.0"
 
-#CMD ["node", ".next/standalone/server.js"]
-#CMD ["npm", "run", "start"]
-#RUN npx --no-update-notifier prisma migrate deploy
 USER nextjs
 CMD ["node", "server.js"]

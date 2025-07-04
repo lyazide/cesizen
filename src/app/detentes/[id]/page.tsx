@@ -41,7 +41,7 @@ async function InformationDetailsPage({
               nom={detente.nom}
               description={detente.description}
               duree={detente.duree}
-              imagePath={detente.imagePath ?? undefined}
+              //imagePath={detente.imagePath ?? undefined}
               boutonNom="Retour"
               boutonUrl="/detentes"
             />

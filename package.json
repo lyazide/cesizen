@@ -22,7 +22,7 @@
     "@capacitor/core": "^7.3.0",
     "@capacitor/ios": "^7.3.0",
     "@chakra-ui/charts": "^3.16.0",
-    "@chakra-ui/react": "^3.19.1 ",
+    "@chakra-ui/react": "^3.19.1",
     "@chakra-ui/theme": "^3.4.6",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",

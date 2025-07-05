@@ -15,19 +15,19 @@ jobs:
         ports:
           - 5432:5432
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Wait for PostgreSQL to be ready
+      - run: echo "Ce job a été déclenché automatiquement par un événement  ${{ github.event_name }}."
+      - run: echo "Ce job s'exécute maintenant sur un serveur ${{ runner.os }} herbergé par GitHub!"
+      - run: echo "Le nom de votre branche est ${{ github.ref }} et votre dépôt est ${{ github.repository }}."
+      - name: Attendre que PostgreSQL soit prêt
         run: |
           until pg_isready -h localhost -p 5432; do
-            echo "Waiting for PostgreSQL..."
+            echo "Attente de PostgreSQL..."
             sleep 2
           done
       - name: Check out repository code
         uses: actions/checkout@v4
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - run: echo "Le dépôt ${{ github.repository }} a été cloné sur l'environnement d'exécution."
+      - run: echo "🖥️ Le workflow est maintenant prêt à tester le code sur cet environnement"
       - name: Set environment variable
         run: echo DATABASE_URL="postgresql://postgres:Rebecca151205@localhost:5432/cesizen?schema=public" >> $GITHUB_ENV
       - name: install dependencies
@@ -39,7 +39,7 @@ jobs:
 
       - name: Build
         run: npm run build
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo "Le status du job est désormais ${{ job.status }}."
       - name: Save  cache (node_modules)
         id: cache-primes-save
         uses: actions/cache/save@v4
@@ -53,9 +53,6 @@ jobs:
     needs:
       - Build
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v4
       - name: Restore cache (node_modules)
@@ -66,9 +63,7 @@ jobs:
             node_modules
             /home/runner/.cache/Cypress
           key: ${{ runner.os }}--node-modules-${{ hashFiles('**/package-lock.json') }}
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - run: echo "🍏 This job's status is cuurently ${{ job.status }}."
+      - run: echo "Le workflow est maintenant prêt à faire le test unitaire des APIs du code sur l'environnement d'exécution."
       - name: run API tests
         run: npm test
       - name: Publish Jest Test Results
@@ -85,9 +80,6 @@ jobs:
     needs:
       - Test_Api
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v4
       - name: Restore cache (node_modules)
@@ -99,10 +91,9 @@ jobs:
             /home/runner/.cache/Cypress
           key: ${{ runner.os }}--node-modules-${{ hashFiles('**/package-lock.json') }}
 
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - run: echo "Le workflow est maintenant prêt à faire le test unitaire des composants du code sur l'environnement d'exécution."
 
-      - run: echo "🍏 This job's status is currently ${{ job.status }}."
+      - run: echo "Le status du job est désormais ${{ job.status }}."
       - uses: cypress-io/github-action@v6
         with:
           install: false
@@ -166,10 +157,7 @@ jobs:
             /home/runner/.cache/Cypress
           key: ${{ runner.os }}--node-modules-${{ hashFiles('**/package-lock.json') }}
 
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-
-      - run: echo "🍏 This job's status is currently ${{ job.status }}."
+      - run: echo "Le status du job est désormais ${{ job.status }}."
       - name: Generate Prisma client
         run: npx prisma generate
       - name: Deploy and migrate Prisma client

@@ -28,33 +28,39 @@ body:
     attributes:
       label: D3 – Action immédiate
       description: Quelles mesures ont été prises pour contenir le problème ?
-  
+      placeholder: Décris les premières actions mises en œuvre
+
   - type: textarea
     id: d4
     attributes:
       label: D4 – Analyse des causes
-      description: Quelle est la cause racine du problème ? UTilise un Fishbone et/ou un 5 pourquoi.
-  
+      description: Quelle est la cause racine du problème ?
+      placeholder: Utilise un diagramme Ishikawa ou un 5 Pourquoi
+
   - type: textarea
     id: d5
     attributes:
       label: D5 – Action corrective
       description: Quelle solution a été mise en place pour corriger le problème ?
-  
+      placeholder: Décris la solution appliquée
+
   - type: textarea
     id: d6
     attributes:
       label: D6 – Validation
       description: Comment a-t-on vérifié que la solution fonctionne ?
-  
+      placeholder: Tests réalisés, KPIs suivis…
+
   - type: textarea
     id: d7
     attributes:
       label: D7 – Prévention
       description: Quelles actions ont été prises pour éviter que cela se reproduise ?
-  
+      placeholder: Ajout de contrôle, formation, standardisation…
+
   - type: textarea
     id: d8
     attributes:
       label: D8 – Félicitations
       description: Remerciements à l’équipe impliquée
+      placeholder: Mentionne les personnes à féliciter et pourquoi

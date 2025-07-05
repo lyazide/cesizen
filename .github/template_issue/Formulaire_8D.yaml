@@ -1,0 +1,60 @@
+name: 8D Report
+description: Template pour les analyses de problème selon la méthode 8D
+title: "[8D] - "
+labels: ["8D", "analyse"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: "## Rapport 8D – Analyse de problème"
+
+  - type: input
+    id: d1
+    attributes:
+      label: D1 – Équipe
+      description: Qui est impliqué dans l’analyse ?
+      placeholder: Nom des membres
+
+  - type: textarea
+    id: d2
+    attributes:
+      label: D2 – Description du problème
+      description: Décris clairement le problème rencontré.
+      placeholder: Exemple : utilise un outil tel que le QQOQCP
+
+  - type: textarea
+    id: d3
+    attributes:
+      label: D3 – Action immédiate
+      description: Quelles mesures ont été prises pour contenir le problème ?
+  
+  - type: textarea
+    id: d4
+    attributes:
+      label: D4 – Analyse des causes
+      description: Quelle est la cause racine du problème ? UTilise un Fishbone et/ou un 5 pourquoi.
+  
+  - type: textarea
+    id: d5
+    attributes:
+      label: D5 – Action corrective
+      description: Quelle solution a été mise en place pour corriger le problème ?
+  
+  - type: textarea
+    id: d6
+    attributes:
+      label: D6 – Validation
+      description: Comment a-t-on vérifié que la solution fonctionne ?
+  
+  - type: textarea
+    id: d7
+    attributes:
+      label: D7 – Prévention
+      description: Quelles actions ont été prises pour éviter que cela se reproduise ?
+  
+  - type: textarea
+    id: d8
+    attributes:
+      label: D8 – Félicitations
+      description: Remerciements à l’équipe impliquée

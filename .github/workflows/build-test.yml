@@ -195,8 +195,8 @@ jobs:
 
   build-push-check-docker:
     runs-on: ubuntu-latest
-    #    if: github.ref_name == 'main'
-    needs: Test_E2E
+    if: github.ref_name == 'madter'
+    #    needs: Test_E2E
     permissions:
       contents: read
       packages: write
@@ -254,7 +254,7 @@ jobs:
   deploy-develop:
     runs-on: ubuntu-latest
     needs: build-push-check-docker
-    #if: github.ref == 'refs/heads/develop' # Exécuter uniquement sur develop
+    if: github.ref == 'refs/heads/develop' # Exécuter uniquement sur develop
     environment:
       name: develop
       url: http://ec2-107-23-85-12.compute-1.amazonaws.com:3000
@@ -271,9 +271,9 @@ jobs:
 
   deploy-prod:
     runs-on: ubuntu-latest
-    needs:
-      - build-push-check-docker
-    #if: github.ref == 'refs/heads/main' # Exécuter uniquement sur main
+    #    needs:
+    #      - build-push-check-docker
+    if: github.ref == 'refs/heads/master' # Exécuter uniquement sur master
     environment:
       name: prod
       url: http://ec2-107-23-85-12.compute-1.amazonaws.com

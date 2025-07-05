@@ -195,7 +195,7 @@ jobs:
 
   build-push-check-docker:
     runs-on: ubuntu-latest
-    if: github.ref_name == 'madter'
+    #if: github.ref_name == 'master'
     needs: Test_E2E
     permissions:
       contents: read

@@ -207,7 +207,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: 🔍 Get version from package.json
+      - name: Obtenir la version depuis notre fichier package.json
         id: get_version
         run: echo "PACKAGE_VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
 
@@ -269,6 +269,8 @@ jobs:
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
             cd test
+            sed -i '/^VERSION=/d' .env  # Supprime toutes les lignes VERSION existantes
+            echo "VERSION=v${PACKAGE_VERSION}" > .env
             docker compose -f docker-compose.test.yml pull
             docker compose -f docker-compose.test.yml up -d
 
@@ -289,5 +291,7 @@ jobs:
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
             cd prod
+            sed -i '/^VERSION=/d' .env  # Supprime toutes les lignes VERSION existantes
+            echo "VERSION=v${PACKAGE_VERSION}" > .env
             docker compose -f docker-compose.prod.yml pull
             docker compose -f docker-compose.prod.yml up -d

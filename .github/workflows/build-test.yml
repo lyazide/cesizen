@@ -207,6 +207,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: 🔍 Get version from package.json
+        id: get_version
+        run: echo "PACKAGE_VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
 
       - name: Log in to the Container registry
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
@@ -222,7 +225,7 @@ jobs:
             DATABASE_URL=${{ secrets.DATABASE_URL }}
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository }}:${{ github.ref_name }}
+          tags: ghcr.io/${{ github.repository }}:${{ github.ref_name }}:v${{ env.PACKAGE_VERSION }}
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
@@ -274,6 +277,7 @@ jobs:
     needs:
       - build-push-check-docker
     if: github.ref == 'refs/heads/master' # Exécuter uniquement sur master
+
     environment:
       name: prod
       url: http://ec2-107-23-85-12.compute-1.amazonaws.com

@@ -210,6 +210,9 @@ jobs:
       - name: Obtenir la version depuis notre fichier package.json
         id: get_version
         run: echo "PACKAGE_VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
+      - name: Sauverde de la version pour l'utiliser dans d'autres étapes
+        id: pass_version
+        run: echo "::set-output name=version::$(jq -r .version package.json)"
 
       - name: Log in to the Container registry
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
@@ -270,7 +273,7 @@ jobs:
           script: |
             cd test
             sed -i '/^VERSION=/d' .env  # Supprime toutes les lignes VERSION existantes
-            echo "VERSION=v${PACKAGE_VERSION}" >> .env
+            echo "VERSION=v${{ needs.build-push-check-docker.outputs.version }}"
             docker compose -f docker-compose.test.yml pull
             docker compose -f docker-compose.test.yml up -d
 
@@ -292,6 +295,6 @@ jobs:
           script: |
             cd prod
             sed -i '/^VERSION=/d' .env  # Supprime toutes les lignes VERSION existantes
-            echo "VERSION=v${PACKAGE_VERSION}" >> .env
+            echo "VERSION=v${{ needs.build-push-check-docker.outputs.version }}"
             docker compose -f docker-compose.prod.yml pull
             docker compose -f docker-compose.prod.yml up -d

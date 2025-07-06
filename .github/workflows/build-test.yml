@@ -273,7 +273,7 @@ jobs:
           script: |
             cd test
             sed -i '/^VERSION=/d' .env  # Supprime toutes les lignes VERSION existantes
-            echo "VERSION=v${{ needs.build-push-check-docker.outputs.version }}"
+            echo "VERSION=v${{ needs.build-push-check-docker.outputs.version }}" >> .env
             docker compose -f docker-compose.test.yml pull
             docker compose -f docker-compose.test.yml up -d
 
@@ -295,6 +295,6 @@ jobs:
           script: |
             cd prod
             sed -i '/^VERSION=/d' .env  # Supprime toutes les lignes VERSION existantes
-            echo "VERSION=v${{ needs.build-push-check-docker.outputs.version }}"
+            echo "VERSION=v${{ needs.build-push-check-docker.outputs.version }}" >> .env
             docker compose -f docker-compose.prod.yml pull
             docker compose -f docker-compose.prod.yml up -d

@@ -257,6 +257,12 @@ jobs:
         with:
           sarif_file: sarif.output.json
 
+      - name: Installer les dépendances
+        run: npm install rss-parser fs
+
+      - name: Lancer le script de veille
+        run: node scripts/veille-techno.js
+
   deploy-develop:
     runs-on: ubuntu-latest
     needs: build-push-check-docker

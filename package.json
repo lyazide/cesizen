@@ -13,9 +13,9 @@
     "e2e:headless": "start-server-and-test dev http://localhost:3000 \"cypress run --e2e\"",
     "component": "cypress open --component",
     "component:headless": "cypress run --component",
-    "diagnostics":" ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} scripts/populateDiagnostics.js",
-    "detentes":" ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} scripts/populateDetentes.js",
-    "utilisateurs":" ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} scripts/populateUtilisateurs.js"
+    "diagnostics": " ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} scripts/populateDiagnostics.js",
+    "detentes": " ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} scripts/populateDetentes.js",
+    "utilisateurs": " ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} scripts/populateUtilisateurs.js"
   },
   "dependencies": {
     "@capacitor/android": "^7.3.0",
@@ -32,6 +32,7 @@
     "bcrypt": "^5.1.1",
     "date-fns": "^4.1.0",
     "framer-motion": "^12.12.2",
+    "fs": "^0.0.1-security",
     "next": "^15.1.8",
     "next-auth": "^4.24.11",
     "next-themes": "^0.4.6",
@@ -41,6 +42,7 @@
     "react-markdown": "^10.1.0",
     "recharts": "^2.15.3",
     "remark-gfm": "^4.0.1",
+    "rss-parser": "^3.13.0",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
@@ -84,7 +86,6 @@
     "wait-on": "^8.0.3",
     "whatwg-fetch": "^3.6.20"
   },
-
   "nyc": {
     "extends": "@istanbuljs/nyc-config-typescript",
     "reporter": [

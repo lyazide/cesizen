@@ -225,7 +225,7 @@ jobs:
             DATABASE_URL=${{ secrets.DATABASE_URL }}
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository }}:${{ github.ref_name }}:v${{ env.PACKAGE_VERSION }}
+          tags: ghcr.io/${{ github.repository }}-${{ github.ref_name }}:v${{ env.PACKAGE_VERSION }}
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action

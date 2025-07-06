@@ -201,7 +201,7 @@ jobs:
       version: ${{ steps.pass_version.outputs.version }}
 
     #if: github.ref_name == 'master'
-    #needs: Test_E2E
+    needs: Test_E2E
     permissions:
       contents: read
       packages: write

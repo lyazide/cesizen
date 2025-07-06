@@ -15,7 +15,8 @@
     "component:headless": "cypress run --component",
     "diagnostics": " ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} scripts/populateDiagnostics.js",
     "detentes": " ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} scripts/populateDetentes.js",
-    "utilisateurs": " ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} scripts/populateUtilisateurs.js"
+    "utilisateurs": " ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} scripts/populateUtilisateurs.js",
+    "veille-techno": "ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} scripts/veille_techno.js"
   },
   "dependencies": {
     "@capacitor/android": "^7.3.0",

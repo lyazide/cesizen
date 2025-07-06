@@ -199,7 +199,7 @@ jobs:
       version: ${{ steps.pass_version.outputs.version }}
 
     #if: github.ref_name == 'master'
-    needs: Test_E2E
+    #needs: Test_E2E
     permissions:
       contents: read
       packages: write
@@ -260,11 +260,11 @@ jobs:
         with:
           sarif_file: sarif.output.json
 
-      - name: Installer les dépendances
-        run: npm install rss-parser fs
+      #      - name: Installer les dépendances
+      #        run: npm install rss-parser fs
 
       - name: Lancer le script de veille
-        run: node scripts/veille-techno.js
+        run: npm run veille-techno
 
   deploy-develop:
     runs-on: ubuntu-latest

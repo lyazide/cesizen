@@ -203,7 +203,8 @@ jobs:
     #if: github.ref_name == 'master'
     #needs: Test_E2E
     permissions:
-      contents: read
+      #contents: read
+      contents: write
       packages: write
       actions: read
       security-events: write

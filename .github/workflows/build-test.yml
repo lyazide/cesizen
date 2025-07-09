@@ -16,7 +16,7 @@ jobs:
           - 5432:5432
     steps:
       - run: echo "Ce job a été déclenché automatiquement par un événement  ${{ github.event_name }}."
-      - run: echo "Ce job s'exécute maintenant sur un serveur ${{ runner.os }} herbergé par GitHub!"
+      - run: echo "Ce job s'exécute maintenant sur le serveur ${{ runner.os }} herbergé par GitHub!"
       - run: echo "Le nom de votre branche est ${{ github.ref }} et votre dépôt est ${{ github.repository }}."
       - name: Attendre que PostgreSQL soit prêt
         run: |

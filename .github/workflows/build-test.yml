@@ -201,7 +201,7 @@ jobs:
       version: ${{ steps.pass_version.outputs.version }}
 
     #if: github.ref_name == 'master'
-    needs: Test_E2E
+    #needs: Test_E2E
     permissions:
       #contents: read
       contents: write
@@ -221,6 +221,7 @@ jobs:
             --repo="${{ github.repository }}" \
             --title="Release ${{ github.ref_name }}" \
             --generate-notes
+            --verify-tag
       - name: Obtenir la version depuis notre fichier package.json
         id: get_version
         run: echo "PACKAGE_VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV

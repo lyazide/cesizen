@@ -93,7 +93,7 @@ jobs:
             /home/runner/.cache/Cypress
           key: ${{ runner.os }}--node-modules-${{ hashFiles('**/package-lock.json') }}
 
-      - run: echo "Le workflow est  maintenant prêt à faire le test unitaire des composants du code sur l'environnement d'exécution."
+      - run: echo "Le workflow est maintenant prêt à faire le test unitaire des composants du code sur l'environnement d'exécution."
 
       - run: echo "Le status du job  est désormais ${{ job.status }}."
       - uses: cypress-io/github-action@v6

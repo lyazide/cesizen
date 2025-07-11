@@ -35,7 +35,7 @@ jobs:
       - name: Apply Prisma migrations
         run: npx prisma migrate deploy
       - name: Verify Prisma schema (Optional)
-        run: npx prisma db push # Ensure database schema is correct
+        run: npx prisma db push # Ensure  database schema is correct
 
       - name: Build
         run: npm run build
